@@ -1,0 +1,28 @@
+\begin{thebibliography}{}
+
+\bibitem[Higham, 2001]{Higham01}
+Higham, D.~J. (2001).
+\newblock An algorithmic introduction to numerical simulation of stochastic
+  differential equations.
+\newblock {\em SIAM Review}, 43(3):525--546.
+
+\bibitem[Kuo, 2006]{kuo2006introduction}
+Kuo, H. (2006).
+\newblock {\em Introduction to stochastic integration}.
+\newblock Springer.
+
+\bibitem[Mikosch, 1998]{Mikosch1998}
+Mikosch, T. (1998).
+\newblock {\em Elementary stochastic calculus with finance in view}, volume~6.
+\newblock World Scientific Publishing Company Incorporated.
+
+\bibitem[Ortega, 1989]{Ortega1989}
+Ortega, J. R. L.~J. (1989).
+\newblock {\em Paseo al azar y movimiento Browniano}.
+
+\bibitem[Rinc{\'o}n, 2007]{rincon2007curso}
+Rinc{\'o}n, L. (2007).
+\newblock {\em Curso intermedio de PROBABILIDAD}.
+\newblock UNAM, Facultad de Ciencias.
+
+\end{thebibliography}

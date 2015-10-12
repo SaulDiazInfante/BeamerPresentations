@@ -1,0 +1,141 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Objetivos}
+	 \uncover<2->{
+	\begin{block}{General}
+		Simular el Movimiento Browniano.
+	\end{block}
+	}
+	\vspace{0.25cm}
+	\uncover<3->{
+	\begin{block}{Espec\'ificos}
+		\begin{itemize}
+			\uncover<3->{
+    			\item Contruir el Movimiento Browniano a partir de una caminata Aleatoria.
+            }
+			\uncover<4->{
+    			\item Identificar las propiedades de Movimiento Browniano.
+            }
+			\uncover<5->{
+				\item Describir el Algoritmo a utilizar en la Simulaci\'on del Movimiento Browniano.
+            }
+   		\end{itemize}
+    }
+\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Plan de Charla}
+    \tableofcontents[pausesections]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}{Historia}
+		\begin{center}
+			\movie[width=9.1cm,height=5.2cm,showcontrols=true,loop,poster]{}{BrownianMotion.flv}
+			\end{center}							
+		\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Caminata Aleatoria}
+	\begin{overlayarea}{\textwidth}{.7\textheight}
+	\only<1>{	
+	\begin{center}
+		\includegraphics[width=\textwidth]{./IMAGENES/RW/RandomWalk(1).png}	
+	\end{center}
+	}
+	\only<2>{	
+		\begin{center}
+			\includegraphics[width=\textwidth]{./IMAGENES/RW/RandomWalk[2].png}	
+		\end{center}
+	}
+	\only<3>{
+		\begin{center}
+			\includegraphics[width=\textwidth]{./IMAGENES/RW/RandomWalk[3].png}	
+		\end{center}	
+	}	
+	\end{overlayarea}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Construcci\'on}
+	\uncover<2->{
+		Consideremos
+			$$\{ X_{n} \}_{n=1}^{\infty} \quad \quad \mbox{v.a.i.id},$$
+		tales que
+			$$P(X_{j} = h) = P(X_{j} = -h) = \frac{1}{2}.$$
+	}
+	\uncover<3->{
+		Sea $Y_{\delta, h}(0) = 0$, y hagamos
+		$$ Y_{ \delta,h}(n \delta ) = X_{1}+X_{2}+\cdots+X_{n}.$$
+	}
+	\uncover<4->{
+		Para $t > 0$, definamos $Y_{\delta,h}(t)$ con $n\delta < t < (n + 1)\delta$ como
+		$$Y_{\delta,h}(t) = \frac{(n + 1)\delta -t}{\delta} Y_{\delta,h}(n \delta ) +  \frac{t - n\delta}
+		{\delta}Y_{\delta,h}((n+1) \delta ).$$
+	}
+	\uncover<5->{
+	\begin{block}{Interrogante}
+		?`Cu\'al es el limite de $Y_{\delta, h}$ cuando $\delta,h \longrightarrow 0 ?$
+	\end{block}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Construcci\'on}
+	\begin{overlayarea}{\textwidth}{.6\textheight}
+	\only<+->{
+		Para $\lambda \in \mathbb{R}$ fijo, calculemos $\displaystyle\lim_{\delta,h \to 0}
+		{\mathbb{E}\left[e^{ i\lambda Y_{\delta,h}(t)}\right]}$. \\
+		\hypertarget{cns:Limite}{}
+		\hyperlink{dfn:FuncionCaracteristica}{\beamergotobutton{caracteristica}}
+		\uncover<+->{
+		Tomando $t=n\delta$, se sigue que
+		\begin{eqnarray*}
+			\mathbb{E}\left[e^{ i\lambda 					
+			Y_{\delta,h}(t)}\right]&=&
+			\prod_{j=1}^{n}\mathbb{E}\left[e^{i\lambda X_{j}}\right] \\
+				&=&\left( \mathbb{E}\left[e^{i\lambda X_{j}}\right]\right)^{n}\\
+				&=&\left(\frac{1}{2}e^{i\lambda h}+\frac{1}{2}e^{-i\lambda h}\right)^{n}\\
+				&=&\left(cos(\lambda h)\right)^{n}\\
+				&=&\left(cos(\lambda h)\right)^{\frac{t}{\delta}}.
+		\end{eqnarray*}
+		}
+	}
+\end{overlayarea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Construcci\'on}
+	Sea $$ u =\left(cos(\lambda h)\right)^{\frac{1}{\delta}},$$ as\'i
+	$$ u \approx e^{ - \frac{1}{2\delta}\lambda^{2}h^{2}}.$$
+	\uncover<2->{
+	Luego
+	$$
+		\mathbb{E}\left[ e^{i\lambda Y_{\delta,h}(t)}\right]\approx e^{- \frac{1}
+		{2\delta}t\lambda^{2}h^{2}}.
+	$$
+
+	}
+	\uncover<3->{
+	Si $h^{2} = \delta$, entonces
+	$$
+		\displaystyle\lim_{\delta,h \to 0}{\mathbb{E}\left[ e^{i\lambda Y_{\delta,h}(t)}\right]} 
+		= e^{ - \frac{1}{2}t\lambda^{2}},
+		\quad \quad \lambda \in \mathbb{R}.$$
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Construcci\'on}
+	\begin{Teorema} 
+		Sea $Y_{\delta,h}(t)$ una caminata aleatoria que inicia en $0$ 
+		de saltos $h$ y $-h$  con igual probabilidad en los tiempos 
+		$\delta, 2\delta,3\delta, \ldots $.  
+		Asumamos que $h^{2} = \delta$. 
+		Entonces para cada $t \geq 0$, el limite
+		$$ B(t) = \displaystyle\lim_{\delta \to 0}{Y_{\delta,h}(t)},$$
+		existe en distribuci\'on. Adem\'as, tenemos que
+		$$
+			\mathbb{E}\left[e^{i\lambda B(t)}\right] 
+			=e^{- \frac{1}{2}t\lambda^{2}}, \quad \quad \lambda \in 	\mathbb{R}.
+		$$
+	\end{Teorema}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

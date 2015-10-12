@@ -1,0 +1,136 @@
+\begin{frame}
+	\frametitle{Propiedades que se esperan de $B(t)$}
+	Con base en la anterior discusi\'on, vemos que:
+	\begin{alertblock}{}
+		\begin{equation*}
+			\begin{array}{rcl}
+				|\frac{dY_{\delta,h}(t)}{dt}|&=&|\frac{1}{\delta}X_{n+1}|\\
+         		&&\\
+         		&=&|\frac{1}{\delta}|\cdot |X_{n+1}|\\
+         		&&\\
+         		&=&\frac{h}{\delta}%
+		\end{array}
+	\end{equation*}
+	\uncover<2->{
+		\begin{equation*}
+			\lim_{\delta\to 0}\frac{h}{\delta}=\lim_{\delta\rightarrow 0}\frac{1}{\sqrt {\delta}}=\infty.
+		\end{equation*}
+	}
+	\end{alertblock}
+	\uncover<2->{
+		\begin{exampleblock}{}
+			Teniendo en cuenta lo anterior, es de esperarse que $B(t)$ no sea diferenciable.
+		\end{exampleblock}
+	}
+\end{frame}
+%--------------------------------------------------------------------------------------------------------
+\begin{frame}
+	\frametitle{Propiedades que se esperan de $B(t)$}
+	\begin{exampleblock}{}
+		\begin{itemize}
+			\item Para todo $t$, $B(t)$  es una v.a $N(0,t)$.
+		\end{itemize}
+	\end{exampleblock}
+	\uncover<2->{
+		\begin{exampleblock}{}
+			\begin{itemize}
+				\item Tomando $\delta=|t-s|$
+				\begin{equation*}
+					|B(t)-B(s)|\approx \frac{1}{\sqrt {\delta}}|t-s|=|t-s|^{\frac{1}{2}}.
+				\end{equation*}
+			\end{itemize}
+		\end{exampleblock}
+	}
+	\uncover<3->{
+		\begin{exampleblock}{}
+			\begin{itemize}
+				\item $B(t)-B(s)\sim N(0,t-s)$
+			\end{itemize}
+		\end{exampleblock}
+	}
+	\uncover<4->{
+		\begin{exampleblock}{}
+			\begin{itemize}
+				\item $B(t)$ tiene incrementos independientes.
+			\end{itemize}
+		\end{exampleblock}
+	}
+\end{frame}
+%--------------------------------------------------------------------------------------------------------------
+\begin{frame}
+	\frametitle{Movimiento Browniano (M.B)}
+	\begin{block}{Definici\'on}
+		Un proceso estoc\'astico $B(t,\omega)$ es llamado un movimiento Browniano si satisface las 			siguientes condiciones:
+		\begin{enumerate}
+			\item $P\{\omega;B(0,\omega)=0\}=1$.
+			\item Para todo $0\leq s < t$, la v.a $B(t) - B(s)\sim N(0,t -s)$.
+			\item $B(t,\omega)$ tiene incrementos independientes, es decir, para 
+				$0\leq t_{1} < t_{2}	<\ldots < t_{n}$,
+				\begin{equation*}
+					B(t_{1}), B(t_{2}) - B(t_{1}),\ldots,B(t_{n}) - B(t_{n-1}),
+				\end{equation*}
+				son independientes.
+		\end{enumerate}
+	\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Propiedades b\'asicas del M.B.}
+	\begin{exampleblock}{}
+		\begin{itemize}
+			\item Para todo $s,t\geq 0$, $E[B(s)B(t)]=\min\{s,t\}$.
+		\end{itemize}
+	\end{exampleblock}
+	\uncover<2->{
+		\begin{exampleblock}{}
+			\begin{itemize}
+				\item Para 
+					$t_{0}\geq 0$, el proceso estoc\'astico 
+					$\tilde{B}(t)=B(t+t_{0}) - B(t_{0})$ es tambi\'en un M.B.
+			\end{itemize}
+		\end{exampleblock}
+	}
+	\uncover<3->{
+		\begin{exampleblock}{}
+			\begin{itemize}
+				\item 
+					Para cualquier n\'umero real $\lambda > 0$, el proceso estoc\'astico 
+					$\tilde{B}(t)=\frac {B(\lambda t)}{\sqrt{\lambda}}$ es tambi\'en un M.B.
+			\end{itemize}
+		\end{exampleblock}
+	}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Propiedades de las trayectorias del M.B.}
+	\begin{alertblock}{Continuidad}
+		Las trayectorias del movimiento Browniano son continuas casi seguramente.\\
+		(Ver Teorema de continuidad de Kolmogorov, Hui - Hsiung Kuo, p\'ag. 31)
+	\end{alertblock}
+	\uncover<2->{
+		\begin{alertblock}{Variaci\'on}
+			La variaci\'on de una trayectoria de un M.B sobre el intervalo $[a,b]$ es infinita casi
+			seguramente, es decir,
+			\begin{equation*}
+				\limsup_{\Delta t\rightarrow 0} 
+				\sum_{i=1}^{n-1} |B(t_{i+1}) - B(t_{i})|=\infty,\quad c.s.
+			\end{equation*}
+			(Ver Proposici\'on de variaci\'on no acotada de un M.B, Mikosch, p\'ag. 189)
+		\end{alertblock}
+	}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Propiedades de las trayectorias del M.B.}
+	\only<+>{
+		\begin{alertblock}{Variaci\'on cuadr\'atica}
+			La variaci\'on cuadr\'atica de una trayectoria de un M.B sobre el intervalo $[a,b]$ es la 			longitud del intervalo, es decir,
+			\begin{equation*}
+				\limsup_{\Delta t\rightarrow 0} 
+				\sum_{i=1}^{n-1} |B(t_{i+1}) - B(t_{i})|^{2}=b - a,
+		\end{equation*}
+		(Ver notas del curso Introducci\'on a los Procesos estoc\'asticos, Luis Rincon, p\'ag. 212)
+		\end{alertblock}
+	}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

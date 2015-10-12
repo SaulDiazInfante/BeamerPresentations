@@ -1,0 +1,12 @@
+\begin{algorithm}[H]
+	\begin{algorithmic}[1]
+		\STATE  Particionar $[0,T]$  %$\displaystyle dt =\frac{1}{N}$
+		\FOR{$j=0$ to $N$}
+			\STATE $t_j=jdt$
+		\ENDFOR
+		\STATE Sea $B(t_j)=B_j$
+		\FOR {$j=1$ to $N$}
+			\STATE $B_j=B_{j-1}+dB_j $ \qquad $dB_j\sim \sqrt{dt}N(01)$
+		\ENDFOR
+	\end{algorithmic}
+\end{algorithm}

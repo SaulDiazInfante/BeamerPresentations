@@ -1,0 +1,175 @@
+\documentclass[spanish,10pt,xcolor=dvipsnames,table]{beamer}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage{bibunits}
+\usepackage[amssymb]{SIunits}
+\usepackage{sistyle}
+\usepackage{times}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage[utf8]{inputenc}
+%\usepackage{beamerthemesplit}
+\usepackage{multirow}
+\usepackage{hyperref}
+%\usepackage{graphics,epsfig, subfigure}
+\usepackage{url}
+\usetikzlibrary{arrows,shapes}
+\theoremstyle{plain} % default
+\newtheorem{Teorema}{Teorema}
+\newtheorem{Ejemplo}{Ejemplo}
+\theoremstyle{definition}
+\newtheorem{definicion}{Definici\'on}
+\newtheorem{Corolario}{Corolario}
+\newtheorem{Proposicion}{Proposici\'on}
+\newtheorem{Prueba}{Prueba}
+\usepackage{esint}
+\def\Q#1#2{\frac{\partial #1}{\partial #2}}
+\usepackage{listings}
+\usepackage{algorithm2e}
+\usepackage{algorithmic}
+%\usepackage{algpseudocode}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{empheq}
+\usepackage{multimedia}
+%\usepackage[x11names,rgb]{xcolor}
+\lstset{%
+    language=[AlLaTeX]TEX,%
+    float=hbp,%
+    basicstyle=\ttfamily\small, %
+    identifierstyle=\color{colIdentifier}, %
+    keywordstyle=\color{colKeys}, %
+    stringstyle=\color{colString}, %
+    commentstyle=\color{colComments}, %
+    columns=flexible, %
+    tabsize=3, %
+    frame=single, %
+    extendedchars=true, %
+    showspaces=false, %
+    showstringspaces=false, %
+    numbers=left, %
+    numberstyle=\tiny, %
+    breaklines=true, %
+    backgroundcolor=\color{hellgelb}, %
+    breakautoindent=true, %
+    captionpos=b,%
+    xleftmargin=18pt,%
+    xrightmargin=\fboxsep%
+}
+%---------------------Recuadros empheq
+\definecolor{myblue}{rgb}{.8, .8, 1}
+\definecolor{shadecolor}{cmyk}{0,0,0.41,0}
+\newcommand*\mybluebox[1]{%
+	\colorbox{myblue}{\hspace{1em}#1\hspace{1em}}
+}
+\newcommand*\myyellowbox[1]{%
+	\colorbox{darkyellow}{\hspace{1em}#1\hspace{1em}}
+}
+%--------------------------------------------------------------------------
+\definecolor{shadecolor}{RGB}{214,223,216}
+\definecolor{light-blue}{rgb}{1,0.9,0}
+\newsavebox{\mysaveboxM} % M for math
+\newsavebox{\mysaveboxT} % T for text
+\newcommand*\Garybox[2][Example]{%
+	\sbox{\mysaveboxM}{#2}%
+		\sbox{\mysaveboxT}{\fcolorbox{black}{light-blue}{#1}}%
+			\sbox{\mysaveboxM}{%
+	\parbox[b][\ht\mysaveboxM+.5\ht\mysaveboxT+.5\dp\mysaveboxT][b]{%
+		\wd\mysaveboxM}{#2}%
+	}%
+	\sbox{\mysaveboxM}{%
+		\fcolorbox{black}{shadecolor}{%
+		\makebox[\linewidth-10em]{\usebox{\mysaveboxM}}%
+		}%
+	}%
+	\usebox{\mysaveboxM}%
+	\makebox[0pt][r]{%
+		\makebox[\wd\mysaveboxM][c]{%
+			\raisebox{\ht\mysaveboxM-0.5\ht\mysaveboxT
+			+0.5\dp\mysaveboxT-0.5\fboxrule}{\usebox{\mysaveboxT}}%
+		}%
+	}%
+}
+%----------------------------------------------------------------------------------------------
+\definecolor{kugreen}{RGB}{50,93,61}
+\definecolor{kugreenlys}{RGB}{132,158,139}
+\definecolor{kugreenlyslys}{RGB}{173,190,177}
+\definecolor{kugreenlyslyslys}{RGB}{214,223,216}
+\definecolor{greenArea}{RGB}{124,252,124}
+\definecolor{hellmagenta}{rgb}{1,0.75,0.9}
+\definecolor{hellcyan}{rgb}{0.75,1,0.9}
+\definecolor{hellgelb}{rgb}{1,1,0.8}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+\definecolor{darkyellow}{rgb}{1,0.9,0}
+\setbeamercovered{transparent}
+\mode<presentation>
+{  
+	\usetheme{PaloAlto}
+	\usecolortheme[named=kugreen]{structure}
+	\useinnertheme{progressbar}
+	%\usefonttheme{default}
+	\usefonttheme{serif}
+	\setbeamercovered{transparent}
+	\setbeamertemplate{blocks}[rounded][shadow=true]
+	\setbeamertemplate{navigation symbols}[only frame symbol]
+}
+\setbeamertemplate{background}{
+\parbox[c][\paperheight]{\paperwidth}
+    {
+    \vfill \hfill
+    \begin{tikzpicture}
+      \node[opacity=.1]
+      {
+       \includegraphics[width=.5\textwidth]{./IMAGENES/Logo/CimatLogo.png}
+      };
+    \end{tikzpicture}
+      \vspace{.5cm} %\hspace{.5cm}
+      }
+  }
+\logo{\includegraphics[width=1.0cm]{./IMAGENES/Logo/Logo.png}}
+\title{Simulaci\'on del Movimiento Browniano}
+\author{
+        Sa\'ul D\'iaz Infante
+}
+\institute{CIMAT A.C.}
+\date{\today}
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Simulaci\'on de MB}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+\begin{document}
+  \frame{\titlepage \vspace{-0.5cm}} 
+	\section{Introducci\'{o}n}
+		\input{./ParteOliver.tex}
+	\section{Algoritmo RW} 
+	  	\input{./AlogritmoRW.tex}   	
+  	\section{Porpiedades de M.B}
+		\input{./jonyPARTE.tex}	
+	 \section{Algoritmo MB}
+		\input{./AlogritmoBMD.tex}  
+	 %\section{Integracion estoc\'astica}
+	%\begin{frame}{Puente Browniano}
+	%\end{frame}
+	%\begin{frame}
+%	  \frametitle{Movimiento Browniano Geométrico}
+%	\end{frame}
+	\begin{frame}[allowframebreaks]{Referencias}	
+		\nocite{*}		
+		\bibliographystyle{apalike}
+		\bibliography{BibMODESTO}
+  \end{frame}
+  \appendix
+	\part{Definiciones y resultados}
+	\input{./Apendice.tex}
+\end{document}

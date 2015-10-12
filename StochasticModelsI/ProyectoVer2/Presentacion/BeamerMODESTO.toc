@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Introducci\'{o}n}{2}{0}{1}
+\beamer@sectionintoc {2}{Algoritmo RW}{27}{0}{2}
+\beamer@sectionintoc {3}{Porpiedades de M.B}{37}{0}{3}
+\beamer@sectionintoc {4}{Algoritmo MB}{51}{0}{4}

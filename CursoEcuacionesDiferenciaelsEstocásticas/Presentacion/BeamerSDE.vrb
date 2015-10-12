@@ -1,0 +1,15 @@
+\begin{algorithm}[H]
+	\begin{algorithmic}[1]
+		\STATE  Particionar $[0,T]$  %$\displaystyle dt =\frac{1}{N}$
+		\FOR{$j=0$ to $N$}
+			\STATE $t_j=jdt$
+		\ENDFOR
+		\STATE Sea $W(t_j)=W_j$
+		\FOR {$j=1$ to $N$}
+
+			\STATE $W_j=W_{j-1}+dW_j $ \qquad $dW_j\sim \sqrt{dt}N(01)$
+		\ENDFOR
+	\end{algorithmic}
+%\caption{pseudocode for the calculation of }
+%\label{alg:seq}
+\end{algorithm}

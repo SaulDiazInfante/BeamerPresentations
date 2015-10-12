@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\begin{algorithm}[H]
+	\begin{algorithmic}[1]
+		\STATE  Particionar $[0,T]$  %$\displaystyle dt =\frac{1}{N}$
+		\FOR{$j=0$ to $N$} 
+			\STATE $t_j=jdt$
+		\ENDFOR
+		\STATE Sea $B(t_j)=B_j$					
+		\FOR {$j=1$ to $N$}
+			\STATE $B_j=B_{j-1}+dB_j $ \qquad $dB_j\sim \sqrt{dt}N(01)$  		
+		\ENDFOR
+	\end{algorithmic}
+\end{algorithm}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{C\'odigo}
+ \only<+>{
+  \begin{figure}
+  \centering
+      \tiny
+   \lstset{language=python}
+         \lstinputlisting[firstline=1,lastline=13]{BrownianPaths.py}
+   \end{figure}
+	}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Trayectorias de MB}
+\vspace{1.0cm}
+\begin{overlayarea}{\textwidth}{\textheight}	
+	\only<+>{	
+		\begin{center}
+			\includegraphics[width=\textwidth]{./IMAGENES/RW/MB(1).png}
+		\end{center}
+	}
+	\only<+>{	
+		\begin{center}
+			\includegraphics[width=\textwidth]{./IMAGENES/RW/MB(2).png}
+		\end{center}
+	}
+	\only<+>{	
+		\begin{center}
+			\includegraphics[width=\textwidth]{./IMAGENES/RW/MB(3).png}
+		\end{center}
+	}
+	\end{overlayarea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Escalamiento}
+		\vspace{-1.5cm}
+	\uncover<+->{		
+		\begin{empheq}[box={\Garybox[Recordemos]}]{equation*}
+			B(t)-B(s) \sim \sqrt{t-s}N(0,1) \text{ son i.i.d }				
+		\end{empheq}
+	}				
+	\uncover<+->{	
+	\begin{block}{Podemos ver $B_N$ como suma de v.a.i.i.d}
+		\begin{overlayarea}{\textwidth}{.45\textheight}
+						
+			\only<+>{
+				Dados $t\in [0,T]$ y cualquier partición 
+				$$
+					0=t_0<t_1<\dots< t_{M-1}<t_M=t.
+				$$
+			}
+			\only<+>{				
+				Si usamos una suma telescópica tenemos
+				$$
+					B(t)	=\sum_{j=0}^m B(t_j)-B(t_{j-1}) \qquad (B(t_0=0)=0)
+				$$	
+			}
+			
+			\only<+->{			
+				Con esto podemos  escalar los incrementos del MB a partir de 
+				$$
+					B_N =\sum_{j=0}^N dB_j	\qquad dB_j\sim \sqrt{dt} N(0,1) 
+				$$
+			}
+			\only<+->{			
+				Veamos una trayectoria y el código python.			
+			}
+		\end{overlayarea}
+	\end{block}	
+	}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{C\'odigo}
+ \only<+>{
+  \begin{figure}
+  \centering
+      \tiny
+   \lstset{language=python}
+         \lstinputlisting[firstline=14,lastline=29]{BrownianPaths.py}
+   \end{figure}
+	}
+	\only<+>{
+		 \begin{figure}
+  \centering
+      \tiny
+   \lstset{language=python}
+         \lstinputlisting[firstline=30,lastline=37]{BrownianPaths.py}
+   \end{figure}
+	
+	}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{MB con incrementos escalados}
+	\vspace{1.5cm}	
+	\framezoom<0><2>[border](0cm,4.5cm)(1.5cm,1.5cm)	
+	\begin{overlayarea}{\textwidth}{\textheight}	
+	%\only<+>{	
+		\begin{center}
+			\includegraphics[width=\textwidth]{./IMAGENES/RW/MBEscalado(1).png}
+		\end{center}
+	%}
+	\end{overlayarea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Distribuci\'on MB}
+		\vspace{-1.7cm}		
+		\begin{overlayarea}{\textwidth}{.68\textheight}	
+			\only<+>{	
+				\begin{center}
+					\includegraphics[width=.95\textwidth]{./IMAGENES/RW/MBs.png}
+				\end{center}
+			}
+			\only<+>{	
+				\begin{center}
+					\includegraphics[width=.95\textwidth]{./IMAGENES/RW/MBSigma.png}
+				\end{center}
+			}
+	\end{overlayarea}
+\end{frame}
