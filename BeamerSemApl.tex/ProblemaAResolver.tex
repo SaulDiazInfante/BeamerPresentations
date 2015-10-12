@@ -1,0 +1,103 @@
+%======================================
+%Pendiente
+%======================================
+%\begin{frame}
+  %\frametitle{Movimiento Browniano}
+ % \flashmovie[width=.8\textwidth,height=.7\textheight,engine=jw-player,auto=0]{Movimiento4.mp4}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{DarkSlateGrey}{HTML}{001B0C}
+\definecolor{LightSteelBlue}{HTML}{B3D7F6}
+\definecolor{DarkGray}{HTML}{394F50}
+\definecolor{LightGoldenrodYellow}{HTML}{F8FDCB}
+\setbeamercolor{color titulo caja}{fg=DarkSlateGrey,bg=LightSteelBlue} %%
+\setbeamercolor{color cuerpo caja}{fg=DarkGray,bg=LightGoldenrodYellow}%
+\begin{frame}%[label=frm:4]{}
+  \frametitle{Algoritmo de dinamica Browniana}
+  \tikzstyle{decision} = [diamond, draw, fill=yellow!20,
+    text width=4.5em, text badly centered, node distance=4cm, inner sep=5pt]
+  \tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+  \tikzstyle{blockIm}= [rectangle, draw, fill=red!40,
+    text width=6em, text centered, rounded corners, minimum height=4em]
+  \tikzstyle{line} = [draw, -latex]
+  \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+  \frametitle{Simulación}
+  \begin{center}
+	\begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+	  \node [block] (Init) {Inicializar};
+	  \node [block, below of=Init] (Fuerza) {Calculo de Fuerza};
+	  \node [decision, left of=Fuerza] (Serie) {Serie de Tiempo};
+	  \node [blockIm, below of=Fuerza] (Posiciones) {Posiciones};
+	  \node [block, left of=Posiciones,node distance=6cm] (Promedio){Promediar
+	      cantidades de interes};
+    % Draw edges
+	  \path [line] (Init) -- (Fuerza);
+	  \path [line] (Fuerza) --(Posiciones);
+	  \path [line] (Posiciones)-|(Serie);
+	  \path [line] (Serie)--(Fuerza);
+	  \path [line] (Serie)-| (Promedio);
+	\end{tikzpicture}
+  \end{center}
+\end{frame}
+% \begin{frame}
+%  \frametitle{Simulación}
+% \begin{center}
+%   \includegraphics[scale=1]{./images/DiagramaSDB.png}
+%  % DiagramaSDB.png: 338x215 pixel, 100dpi, 8.59x5.46 cm, bb=0 0 243 155
+% \end{center}
+% \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define block styles
+% \tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered,
+% node distance=3cm, inner sep=0pt]
+% \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=6em, text centered, rounded corners,
+% minimum height=3.5em]
+% \tikzstyle{line} = [draw, -latex']
+% \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm, text width=4em, text centered, minimum
+% height=2em]
+% \everymath{\displaystyle}
+%   \begin{frame}
+%      \frametitle{Simulaci\'on}%
+%        \begin{tikzpicture}[node distance = 2cm, auto]
+% %         % Place nodes
+%          \node [block] (INI) {Inicializaci\'on};
+%          \node [block, below of= INI] (CF) {Calculo de Fuerzas};
+%          \node [block, below of= CF] (AP) {Actualizaci\'on de posiciones};
+%          \node [cloud, left of= CF] (ST) {Serie de Tiempo};
+%          \node [block, left of=ST, node distance=3cm] (PCI) {Promediar Cantidades de inter\'es};
+% %         % Draw edges
+%          \path [line] (INI) -- (CF);
+%          \path [line] (CF) -- (AP);
+%          \path [line] (AP) -| (ST);
+%          \path [line] (ST) |- (INI);
+%          \path [line] (ST) -- (PCI);
+%      \end{tikzpicture}
+%   \end{frame}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Método convencional de  dinámica Browniana}
+  \begin{columns}
+     \column{.6\textwidth}
+     \begin{exampleblock}{Aproximación en primer orden de Ermak y McCammon}
+     \begin{align}
+        r_{i\alpha}(\Delta t)=&r_{i\alpha}+\frac{D}{T}F_{i\alpha}\Delta t+R_{i\alpha}\\
+        \langle R_{i\alpha}\rangle=&0 \label{eqn:mediaEMc}\\
+        \langle R_{i\alpha} R_{j\beta}\rangle=&2D\Delta t \delta_{ij}\delta_{\alpha\beta}\label{eqn:CovEMc}
+     \end{align}
+    \end{exampleblock}
+    \column{.5\textwidth}
+     \begin{itemize}
+      \item $r_{i\alpha}\equiv r_{i\alpha}(0)$: posición inicial.
+      \item $\Delta t:$ incremento temporal.
+      \item $F_{i\alpha}:$ fuerza neta sobre la partícula $i$ en la dirección $\alpha$.
+      \item $\{i,j\},\{\alpha,\beta,\gamma\}$: partículas, ejes coordenados respectivamente
+      \item $R_{i\alpha}:$ desplazamiento aleatorio con distribución Gaussiana,  media y covarianza
+     como en (\ref{eqn:mediaEMc}),(\ref{eqn:CovEMc}) respectivamente.
+      \item $D=\frac{k_B T}{\gamma}$: coeficiente de difusión de Stokes - Einstein
+    \end{itemize}
+   \end{columns}
+\end{frame}

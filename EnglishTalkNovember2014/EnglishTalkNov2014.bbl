@@ -1,0 +1,106 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{entry}{nty}
+    \entry{Jabref}{online}{}
+      \name{labelname}{1}{}{%
+        {{hash=4c039ecb119b300c17c11a0f5bad5a07}{Alver}{A\bibinitperiod}{Morten\bibnamedelima O.}{M\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=4c039ecb119b300c17c11a0f5bad5a07}{Alver}{A\bibinitperiod}{Morten\bibnamedelima O.}{M\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{4c039ecb119b300c17c11a0f5bad5a07}
+      \strng{fullhash}{4c039ecb119b300c17c11a0f5bad5a07}
+      \field{sortinit}{A}
+      \field{labeltitle}{Jabref}
+      \field{month}{11}
+      \field{title}{Jabref}
+      \field{year}{2014}
+      \verb{url}
+      \verb http://jabref.sourceforge.net/contact.php
+      \endverb
+    \endentry
+    \entry{Calibre}{online}{}
+      \name{labelname}{1}{}{%
+        {{hash=f4f8e106e88d6834c932aef159403bde}{Goyal}{G\bibinitperiod}{Kovid}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=f4f8e106e88d6834c932aef159403bde}{Goyal}{G\bibinitperiod}{Kovid}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {Calibre e-book-managment}%
+      }
+      \strng{namehash}{f4f8e106e88d6834c932aef159403bde}
+      \strng{fullhash}{f4f8e106e88d6834c932aef159403bde}
+      \field{sortinit}{G}
+      \field{labeltitle}{Calibre}
+      \field{month}{11}
+      \field{title}{Calibre}
+      \field{year}{2014}
+      \verb{url}
+      \verb http://calibre-ebook.com/
+      \endverb
+    \endentry
+    \entry{Mendeley}{online}{}
+      \name{labelname}{1}{}{%
+        {{hash=611e08a45405ddfc5f69ef5498faaa7b}{Henning}{H\bibinitperiod}{Victor}{V\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=611e08a45405ddfc5f69ef5498faaa7b}{Henning}{H\bibinitperiod}{Victor}{V\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {Mendeley}%
+      }
+      \strng{namehash}{611e08a45405ddfc5f69ef5498faaa7b}
+      \strng{fullhash}{611e08a45405ddfc5f69ef5498faaa7b}
+      \field{sortinit}{H}
+      \field{labeltitle}{Mendeley the reference manager}
+      \field{month}{11}
+      \field{title}{Mendeley the reference manager}
+      \field{year}{2014}
+      \verb{url}
+      \verb http://www.mendeley.com/
+      \endverb
+    \endentry
+    \entry{Bibtex}{online}{}
+      \name{labelname}{1}{}{%
+        {{hash=b5085a32ea3005cb2c63376fae9f0646}{Patashnik}{P\bibinitperiod}{Oren}{O\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=b5085a32ea3005cb2c63376fae9f0646}{Patashnik}{P\bibinitperiod}{Oren}{O\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {TUG}%
+      }
+      \strng{namehash}{b5085a32ea3005cb2c63376fae9f0646}
+      \strng{fullhash}{b5085a32ea3005cb2c63376fae9f0646}
+      \field{sortinit}{P}
+      \field{labeltitle}{Bibtex}
+      \field{month}{11}
+      \field{title}{Bibtex}
+      \field{year}{2014}
+      \verb{url}
+      \verb http://www.bibtex.org/
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

@@ -1,0 +1,11 @@
+\newif\ifabfull\abfulltrue
+\input apreambl
+\begin{thebibliography}{BH98}
+
+\bibitem[BH98]{branka1998algorithms}
+\abtype{0}{A.C. Bra{\'n}ka\abphrase{0}D.M. Heyes}.
+\newblock {Algorithms for Brownian dynamics simulation}.
+\newblock \abtype{2}{Physical Review E} \abtype{3}{58}\abtype{4}{2}, 2611
+  \abtype{5}{1998}.
+
+\end{thebibliography}

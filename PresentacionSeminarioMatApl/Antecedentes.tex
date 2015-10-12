@@ -1,0 +1,208 @@
+\tikzstyle{na} = [baseline=-.5ex]
+\tikzstyle{every picture}+=[remember picture]
+\everymath{\displaystyle}
+\subsection{Ecuaciones de Langevin}
+  \begin{frame}{ Formulación de Langevin:}
+\begin{columns}
+  \column{.5\textwidth}
+  \begin{itemize}
+      \item  $x=x(t)$:  posici\'on a tiempo $t$.
+      \item <2-> Fuerza de fricci\'on,  dónde $\gamma=6\pi\eta a$,   $\eta$ es la viscosidad laminar del
+        solvente  y $a$ radio  de la partícula.
+        \tikz[na] \node [coordinate] (n1) {};
+    \end{itemize}
+    \begin{alertblock}{Ecuaciones de Movimiento}
+      \begin{equation*}
+        m\frac{d^2x}{dt^2}=
+        \tikz[baseline]{
+          \node[fill=blue!20,anchor=base] (t1)
+          {$ -\gamma \frac{dx}{dt}$};
+        }+
+        \tikz[baseline]{
+          \node[fill=green!20,anchor=base] (t2)
+          {$\Gamma(t)$};
+        }
+      \end{equation*}
+    \end{alertblock}
+%
+     \begin{itemize}
+        \item <3->$\Gamma(t)$ : efecto estoc\'astico debido a las colisiones .
+        \tikz[na] \node [coordinate] (n2) {};
+      \end{itemize}
+%
+    \begin{tikzpicture}[overlay]
+      \path[->]<2-> (n1) edge [bend left] (t1);
+      \path[->]<3-> (n2) edge [bend right] (t2);
+  \end{tikzpicture}
+  \column{.5\textwidth}
+  \begin{center}
+  %\includegraphics[width=\textwidth]{./images/colloid.jpg}
+  %\includegraphics[width=\textwidth]{./images/browngranular-foto2p.jpg}
+  %\includegraphics[width=.5\textwidth]{./images/browniano.png}
+  \only<2>{
+    \includegraphics[width=\textwidth]{./images/browngranular-foto1p.jpg}
+  }
+  \only<3>{
+    \includegraphics[width=\textwidth]{./images/browngranular-foto2p.jpg}
+  }
+  \end{center}
+\end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \begin{frame}{ Formulación de Langevin:}
+    \begin{equation*}
+        m\frac{d^2x}{dt^2}= -\gamma \frac{dx}{dt} + \Gamma(t).
+    \end{equation*}
+    \begin{exampleblock}{Simplificaci\'on}
+    \begin{overlayarea}{\textwidth}{.4\textheight}
+         \only<+>{
+           En equilibrio termodin\'amico
+           $
+            \left\langle
+              \frac{1}{2}mv^2
+            \right\rangle=
+              \frac{1}{2}k_BT
+          $,
+           $T$ sigue una distribuci\'on de Boltzmann.
+           %
+        %\only<+>{
+           \begin{align*}
+              \frac{dx}{dt}=&v\\
+             m \frac{dv}{dt}=&-\gamma v+\Gamma(t)
+           \end{align*}
+           }
+           \only<+>{
+             $\Gamma(t)$ es un proceso tal que
+            \begin{itemize}
+              \item
+                $\langle
+                  \Gamma(t)
+                  \rangle=0
+                $
+              \item De incrementos independientes
+                $\langle
+                  \Gamma(t),\Gamma(t')
+                  \rangle=2\gamma k_BT\delta(t-t')
+                $
+              \item
+                $\Gamma(t)=\sqrt{2k_BT\gamma }\tilde{\xi(t)},$
+                $\tilde{\xi}(t)$ es un movimiento Browniano de distribuci\'on $N(0,1)$.
+            \end{itemize}
+             $$m\frac{dv}{dt}=-\gamma v +\sqrt{2k_BT\gamma } \tilde{\xi}(t)$$
+           }
+           \only<+>{
+          Integrando $m\frac{dv}{dt}=-\gamma v +\sqrt{2k_BT\gamma } \tilde{\xi}(t)$
+          $$
+            v(t)=v(0)e^{-\frac{\gamma}{m}t}+\frac{\sqrt{2k_BT\gamma }}{m}
+            \int_{0}^t e^{-\frac{\gamma}{m}(t-t')} \tilde{\xi}(t')dt'
+          $$
+           Para $t \gg \frac{m}{\gamma}\equiv \tau$
+            }
+          \only<+>{
+           $$
+            v(t)\to\frac{\sqrt{2k_BT\gamma }}{m} %\tilde{\xi}(t)
+            \int_{\infty}^t e^{-\frac{\gamma}{m}(t-t')} \tilde{\xi}(t')dt'
+           $$
+             }
+           \only<+>{
+          Sea $\eta(t,\tau)=\frac{1}{\tau}\int_{\infty}^t e^{-\frac{1}{\tau}(t-t')}dB(t)$ entonces
+           $\frac{dx}{dt}=\sqrt{\frac{2k_BT}{\gamma}}\eta(t,\tau)$.
+           \\
+            Si $\tau\to 0$
+              $\langle
+                  \eta(t,\tau),\eta(t',\tau)
+                  \rangle=
+                \frac{1}{2\tau}e^{\frac{1}{\tau}|t-t'|} \xrightarrow[\tau \to0]{}\delta(t-t')
+              $
+              $$
+                  \frac{dx}{dt}=\sqrt{\frac{2k_BT}{\gamma}}\tilde{\xi}(t)
+              $$
+            }
+            \only<+>{
+              Considerando que la partícula interacciona en un potencial  $U=U(x)$
+              $$
+                m\frac{dv}{dt}=-\gamma v -\frac{dU}{dx}+\sqrt{2k_BT\gamma } \tilde{\xi}(t).
+              $$
+            Para $\gamma$ lo suficientemente grande $v(t)$ llega a un estado estacionario 
+            $$\frac{dv}{dt}\to 0.$$
+            }
+            \only<+>{
+            $$v=-\frac{1}{\gamma} F+ \frac{1}{\gamma}\sqrt{2k_BT\gamma } \tilde{\xi}(t).$$
+            Por lo tanto, tomando $D=\frac{k_BT}{6\pi\eta a}$, $\xi(t)=\sqrt{2}\tilde{\xi}(t)$
+            }
+     \end{overlayarea}
+   \end{exampleblock}
+\end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[aalpha] 
+\begin{frame} 
+   \begin{alertblock}{\cite{gardiner1985handbook}}
+      \begin{equation*}
+          \frac{dx}{dt}=\frac{1}{k_BT} D F+D^{\frac{1}{2}}\xi.
+        \end{equation*}
+    \end{alertblock}
+  \begin{itemize}
+      \item $x=x(t)$: posici\'on a tiempo $t$.
+      \item $k_B,T$: $k_B$  constantes de  Boltzmann, $T$ temperatura,
+      \item $F= -\frac{dU}{dx}$:  fuerza de la part\'icula Browniana inmersa en un potencial $U$,
+      \item $D=\frac{k_BT}{6\pi\eta a}$: coeficiente de difusi\'on,
+      \item $\xi$ : ruido blanco,\\
+        $%\begin{align*}
+          \langle\xi(t) \rangle=0, \quad
+          \langle \xi(t),\xi(t')\rangle=2\delta(t-t').
+        $%\end{align*}
+   \end{itemize}
+  \biblio{BibliografiaTesis} 
+\end{frame}
+\end{bibunit}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ecuación de Fokker - Planck}
+\begin{frame}
+  \frametitle{Formulación de Fokker - Planck}
+  \begin{exampleblock}{Ecuación para la distribución de velocidades $W(v,t)$}
+   \begin{equation*}\label{eqn:EDPDisttribution}
+      \frac{\partial W}{\partial t }=\gamma \frac{\partial(vW)}{\partial v}
+      +\gamma \frac{k _BT}{m} \frac{\partial ^2 W}{\partial v^2}
+    \end{equation*}
+  \end{exampleblock}
+  \begin{itemize}
+    \item
+      $W$ distribución de probabilidad para la velocidad.
+    \item
+      $k_B:$ Constante de Boltzmann.
+    \item
+      $T:$ Temperatura.
+    \item
+      $\gamma:$  coeficiente de fricción como en la formulación anterior.
+    \item
+      $m:$ masa.
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[aalpha] 
+  \begin{frame}
+    \frametitle{Relación entre ambas formulaciones \cite{Risk88:FokkeEquatMethoSolutAppli}.}
+    \begin{alertblock}{Propósitos}
+      \begin{itemize}
+        \item
+          Al resolver la ecuación de Langevin se describe el movimiento  de las partículas.
+        \item
+          Al resolver la ecuación de Fokker - Planck se obtiene una función de
+          distribución $W(v,t)$ para describir el plano fase de $N$ partículas .
+      \end{itemize}
+      \end{alertblock}
+    \biblio{BibliografiaPresentacion} 
+  \end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[aalpha]
+  \begin{frame}
+    \frametitle{Resultado importante}
+    \begin{exampleblock}{Ambas formulaciones resultan equivalentes}
+      en la descripción estadística del espacio fase para $N$ partículas Brownianas.
+      \cite{ErmakMcCammon}
+    \end{exampleblock}
+    \biblio{BibliografiaPresentacion} 
+  \end{frame}
+\end{bibunit}

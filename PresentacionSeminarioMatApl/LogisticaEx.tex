@@ -1,0 +1,72 @@
+\begin{frame}
+\frametitle{Ejemplo}
+    \tikzset{
+          state/.style={
+         rectangle,
+         rounded corners,
+         draw=black, very thick,
+         minimum height=2em,
+         inner sep=4pt,
+         text centered,
+        fill=gray!20
+         },
+    }
+    \frametitle{Esquemas en diferencias finitas no est\'andar}
+    \begin{tikzpicture}[->,>=stealth,overlay]
+     \node[state,xshift=1cm, yshift=1cm, text width=.3\textwidth] (EDOLog)%
+     {%
+      \textbf{EDO Log\'istica}
+      \begin{align*}
+        \frac{dy}{dt}=&\lambda_1 y-\lambda_2 y^2, \\
+         y(t_0)=&y_0
+      \end{align*}
+     };
+     \node[state,       % layout (defined above)
+      text width=.5\textwidth,  % max text width
+      %yshift=2cm,      % move 2cm in y
+      right of=EDOLog,    % Position is to the right of QUERY
+      node distance=7.5cm,    % distance to QUERY
+      anchor=center] (SOL)    % posistion relative to the center of the 'box'
+     {%
+      \textbf{Soluci\'on}
+      \begin{align*}
+        y(t)=\frac{\lambda_1 y_0}{(\lambda_1 -\lambda_2 y_0)e^{-\lambda_1(t-t_0)}+\lambda_2 y_0}
+      \end{align*}
+     };
+    \node[state,        % layout (defined above)
+      text width=.5\textwidth,  % max text width
+      below of=SOL,     % Position is to the right of QUERY
+      yshift=-2.5cm,
+      anchor=center,    % distance to QUERY
+      ] (SOLDis)    % posistion relative to the center of the 'box'
+     {%
+      \textbf{Soluci\'on Dis}
+      \begin{align*}
+        y_{k+1}=
+              \frac{\lambda_1 y_k}{(\lambda_1 -\lambda_2 y_k)e^{-\lambda_1 h}+\lambda_2 y_k}
+      \end{align*}
+     };
+    \node[state,       % layout (defined above)
+     below of=EDOLog,     % Position is to the right of QUERY
+     % node distance=6.5cm
+     yshift=-2cm,
+     xshift=1cm,
+     anchor=center,
+      text width=.5\textwidth
+      ] (EDFNS)     % posistion relative to the center of the 'box'
+     {%
+      \textbf{MDFNE}\\
+      $$%\begin{equation*}
+         \frac{y_{k+1}-y_k}{
+                \textcolor{red}{\left(
+                \frac{\exp(\lambda_1 h)-1}{\lambda_1}
+              \right)}
+            }=
+            \lambda_1 y_k-\lambda_2 \textcolor{red}{ y_{k+1}y_{k}} .
+      $$%\end{equation*}
+     };
+     %draw the paths and and print some Text below/above the graph
+    \uncover<2>{\path (EDOLog) edge  (SOL);
+    \path (SOL) edge (EDFNS);}
+   \end{tikzpicture}
+  \end{frame}

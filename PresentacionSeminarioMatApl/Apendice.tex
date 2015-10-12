@@ -1,0 +1,122 @@
+%-------------------------------------------------------Existencia y unicidad de soluciones-------------------
+%\begin{bibunit}[apalike]
+\begin{frame}
+  \frametitle{Teorema de existencia y unicidad de soluciones fuertes para EDEs}
+	\hypertarget{thm:ExistenciaUnicidadEDE}{}  
+	\vspace{-.50cm}  
+  Sea $dX_{t}=a(t,X_{t})dt+b(t,X_{t})dB_{t}$ en el sentido de It\^{o}. Si los coeficientes son
+	\vspace{-.23cm}  
+	\begin{block}{}
+	\begin{enumerate}[(EU1)]
+	  \item (Medibles):
+		$a,b$ son \textcolor{cyan}{$\mathcal{L}^{2}-$medibles} en
+		$(t,x)\in[t_{0},T]\times\mathbb{R}$.
+	 \item (Lipschitz): $\exists K>0$  t.q. $\forall t\in[t_{0},T],\quad x,y\in\mathbb{R}.$
+			\begin{align*}
+				\textcolor{red}{
+				|a(t,x)-a(t,y)|}&\textcolor{red}{\leq K|x-y|}, \\
+				\textcolor{red}{|b(t,x)-b(t,y)|}&\textcolor{red}{\leq K|x-y|}
+			\end{align*}				
+	\item (De crecimiento lineal acotado):
+		$\exists K>0$ t.q. $\forall t\in[t_{0},T],\quad x\in\mathbb{R}$
+		\begin{align*}
+			\textcolor{red}{|a(t,x)|^{2}}&\textcolor{red}{\leq K^{2}(1+|x|^{2})},\\
+			\textcolor{red}{|b(t,x)|^{2}}&\textcolor{red}{\leq K^{2}(1+|x|^{2})} 		
+		\end{align*}				
+	  \item (Condición inicial) : $X_{t_{0}}$es $\mathcal{A}_{t_{0}}-$medible
+		con $\mathbb{E}(|X_{t_{0}}|)<\infty$.
+	  \end{enumerate}
+		Entonces, \colorbox{darkyellow}{$ \exists ! X_{t}$} en
+		$[t_{0},T]$ con  \colorbox{darkyellow}{
+			$\displaystyle
+				 \sup_{t_{0}\leq t\leq T}
+				 \mathbb{E}(|X_{t}|^{2})<\infty$.
+				 }
+	\end{block}
+	\hyperlink{thm:ConsistenciaConvergencia}{\beamerreturnbutton{Thm:Consistencia}}
+\end{frame}
+%\end{bibunit}
+%---------------------------------------------------Promedio Steklov---------------------------------------------
+%\begin{bibunit}[apalike]
+\begin{frame}
+  \frametitle{Promedio de Steklov}
+	\hypertarget{dfn:Steklov}{}    
+  \begin{overlayarea}{\textwidth}{.5\textwidth}
+      \begin{block}{Promedio de Steklov} %\cite{matus2005exact}}
+	  \begin{align*}	  		
+	  		F(X_t)\approx \varphi(X_n,X_{n+1})=&
+		        \left(
+		        \frac{1}{X_{n+1}-X_{n}}
+		        \int_{X_n}^{X_{n+1}} \frac{du}{F(u)}
+		        \right)^{-1}\\
+		      	t_n\leq & t \leq t_{n+1},\\
+		      	X_n=&X_{t_n}, \quad t_n=nh.	 
+	  \end{align*}
+    \end{block}
+  \end{overlayarea}   
+\hyperlink{ex:EDEMult}{\beamerreturnbutton{Ej:EDEMult}}\\
+\hyperlink{Idea}{\beamerreturnbutton{idea}}  
+%\biblio{BibliografiaTesis}
+\end{frame}
+%\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Lema de Gronwall}
+	\hypertarget{lem:Gronwall}{}    
+     \begin{lema}[de Gronwall]
+		Sean $\alpha,\beta:[t_0,T]\to\mathbb{R}$ funciones integrables t.q.
+		$$
+			0\leq \alpha(t)\leq \beta(t) +L \int_{t_0}^{t}\alpha(s)ds 
+			\qquad t\in[t_0,T].
+		$$
+		Entonces 
+		$$
+			\alpha(t)\leq \beta(t)+L\int_{t_0}^{t} e^{L(t-s)}\beta(s)ds
+		$$
+		\end{lema}
+	\hyperlink{prb:Consistencia2}{\beamerreturnbutton{Prueba}}\\
+%\hyperlink{Idea}{\beamerreturnbutton{idea}}  
+%\biblio{BibliografiaTesis}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Desigualdad de Lyapunovl}
+	\hypertarget{thm:DesLyapunov}{}    
+	Sea $X$ una v.a integrable y $0<q\leq p$ entonces    
+    \begin{block}{Sea $X$ una v.a integrable y $0<q\leq p$ entonces}
+		$$    	
+    		\mathbb{E}\left(\left|X\right|^{q}\right)\leq\mathbb{E}\left(\left|X\right|^{p}\right)^{\frac{q}{p}}
+		$$    
+    \end{block}
+	\hyperlink{prb:Consistencia3}{\beamerreturnbutton{Prueba}}
+%\hyperlink{Idea}{\beamerreturnbutton{idea}}  
+%\biblio{BibliografiaTesis}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Isometría de It\^{o}}
+	\hypertarget{thm:Isometria}{}    	
+	\begin{block}{Propiedades Integral de It\^{o}}
+		\begin{enumerate}		
+		\item
+			$\displaystyle		
+				\mathbb{E}
+				\left[
+					\int_0^T g(r)dB_r
+				\right]=0
+			$
+		\item(Isometr\'ia)
+			$\displaystyle		
+				\mathbb{E}
+				\left[
+					\left(
+						\int_0^T g(r)dB_r					
+					\right)^2		
+				\right]=
+				\int_0^T g^2(r)d	r		
+			$
+		\end{enumerate}	
+	\end{block}	
+	\hyperlink{prb:ConsistenciaISO}{\beamerreturnbutton{Prueba}}  
+%\biblio{BibliografiaTesis}
+\end{frame}

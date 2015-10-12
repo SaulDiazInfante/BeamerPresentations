@@ -1,0 +1,295 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{bibunit}[aalpha]
+\begin{frame}{Ecuaciones diferenciales estoc\'asticas}
+  %\begin{columns}
+  %  \column{.5\textwidth}
+    \only<+>{
+    \begin{block}{EDE en el sentido de It\^o}
+    \begin{equation*}
+      dX_t=\underbrace{f(t,X_t)dt}_{\text{arrastre}}+\underbrace{g(t,X_t)dB_t}_{\text{difusi\'on}}, \quad
+X_0=x_o.
+    \end{equation*}
+
+      \begin{itemize}
+          \item Ruido Aditivo $g=g(t)$.
+          \item Ruido Multiplicativo.
+      \end{itemize}
+    \end{block}
+    }
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[aalpha]
+\begin{frame}{Ecuaciones diferenciales estoc\'asticas}
+  \begin{Teorema}[Teorema de existencia y unicidad \cite{Oeksendal}.]
+  \begin{overlayarea}{\textwidth}{.4\textheight}
+  \only<1-2>{
+  $T>0$ y $f(\cdotp,\cdotp):[0,T]\times \mathbb{R}^n \to \mathbb{R}^n$,
+  $g(\cdotp,\cdotp): [0,T]:\mathbb{R}^n\to \mathbb{R}^{n\times m}$ funciones medibles.
+  }
+  \only<+>{
+  \begin{equation*}
+    |f(t,x)|+|g(t,x)|\leq C(1+|x|), \qquad x\in \mathbb{R}^n , t \in [0,T]
+  \end{equation*}
+   %$C$ constante, ($|g|^2=\sum |g_{i,j}|$) y tales que
+  \begin{equation*}
+    |f(t,x)-b(t,y)|+|g(t,x)-g(t,y)|\leq D|x-y|, \qquad x,y\in \mathbb{R}^n, t\in[0,T],
+  \end{equation*}
+  %$D$ constante.
+  }
+  \only<+>{
+  \par
+  Sea $Z$ una \emph{variable aleatoria independiente} de la $\sigma $-\'algebra
+  $A_{\infty}$ generada por el movimiento Browniano $B_s(\omega),s\geq 0$ y tal que
+  \begin{equation*}
+    \mathbb{E}(|Z|^2)<\infty.
+  \end{equation*}
+  }
+  \only<+>{
+  Entonces la ecuaci\'on diferencial estoc\'astica
+  \begin{equation*}
+   dX_t=f(t,X_t)+g(t,X_t)dB_t,  \qquad 0\leq t \leq T, X_0=Z
+  \end{equation*}
+  tiene soluci\'on \'unica $t$-continua, $X_t(\omega)$, adaptada a la filtraci\'on
+  $\mathcal{A}_t^Z$ generada por $Z$ y $B_s(\cdot), s\leq t$.
+  }
+  \only<+>{
+  Adem\'as
+  \begin{equation*}
+    \mathbb{E}
+    \left(
+      \int_0^T |X_t|^2 dt
+    \right)<\infty.
+  \end{equation*}
+  }
+  \end{overlayarea}
+\end{Teorema}
+\biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Ecuaciones diferenciales estoc\'asticas}
+    \begin{block}{Consideramos una EDE autonoma }
+  \begin{overlayarea}{\textwidth}{.5\textheight}
+    \begin{equation*}
+      dX_t=\underbrace{f(X_t)dt}_{\text{arrastre}}+\underbrace{g(X_t)dB_t}_{\text{difusi\'on}}, \quad X_0=x_o.
+    \end{equation*}
+    \only<+>{
+    En forma integral
+    $$
+       X_t=x_0+\int_0^t f(X_s)ds+\int _0^t g(X_s)dB_s, \quad 0\leq t \leq T.
+    $$
+    }
+    \only<+>{
+    \begin{align*}
+      X({t_j})=&X({t_{j-1}})+\int_{t_{j-1}}^{t_j}f(X(s))ds+\int_{t_{j-1}}^{t_j}g(X(s))dB_s,\\
+      t_j=&j\Delta t\in[0,T], \quad j=0\dots N.\\
+    \end{align*}
+    }
+  \end{overlayarea}
+    \end{block}
+%  \column{.5\textwidth}
+%\end{columns}
+ % \biblio{BibliografiaTesis}
+\end{frame}
+%\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{bibunit}[aalpha]
+\begin{frame}{Ecuaciones diferenciales estoc\'asticas}
+  %\begin{columns}
+  %  \column{.5\textwidth}
+    \begin{block}{Construcción de un EMM}
+  %\begin{overlayarea}{\textwidth}{.5\textheight}
+    \begin{equation*}
+      dX_t=\underbrace{f(X_t)dt}_{\text{arrastre}}+\underbrace{g(X_t)dB_t}_{\text{difusi\'on}}, \quad X_0=x_o.
+    \end{equation*}
+    \begin{itemize}
+      \item
+        \only<+>{
+          Se aproxima  $dX_t=f(X_t)dt, \quad X_0=x_0$ con un MDFNE,
+        }
+        \only<+>{
+          $X_{j+1}=\phi(X_j,t_j,t_{j+1}), \quad X_0=\phi(x_0,t_0,t_{0})$,
+        }
+        \only<+>{
+          $X_{j+1}=\phi(X_j,t_j,t_{j+1}), \quad X_0=\phi(x_0,t_0,t_{0})$.
+        }
+    \end{itemize}
+  %\end{overlayarea}
+    \end{block}
+%  \column{.5\textwidth}
+%\end{columns}
+ % \biblio{BibliografiaTesis}
+\end{frame}
+%\end{bibunit}
+\begin{bibunit}[aalpha]
+\begin{frame}{Propiedades Te\'oricas para EDEs Multiplicativas}
+  \begin{overlayarea}{\textwidth}{.6\textheight}
+  %\end{overlayarea}
+  \only<+>{
+  \begin{Definicion}[orden de convergencia fuerte]\label{dfn:StorngConvergence}
+  Sea $X_n$ una aproximaci\'on a tiempo discreto de un proceso estocástico continuo en el
+  tiempo $X$.  Se dice que  $X_n$ \emph{converge en sentido  fuerte}  a $X$,  con  orden
+  $\gamma$,  si para cualesquiera $t_n =n\Delta t \in[0,T]$  fijo y $\Delta t$
+  suficientemente peque\~no, existe una constante $C>0$ tal que
+    \begin{equation*}
+      \mathbb{E}(|X_n-X(t_n)|) \leq C \Delta t^{\gamma}.
+  \end{equation*}
+  \end{Definicion}
+  }
+  \only<+>{
+    \begin{Definicion}[error en sentido fuerte]
+      Sean $X$, $X_n$ como en la definición \autoref{dfn:StorngConvergence} al número
+      \begin{equation}\label{eqn:StrongError}
+        \epsilon_{\Delta t}^{fuerte}:= \mathbb{E}(|X_L-X(T)|),\qquad T=L\Delta t
+      \end{equation}
+      se le nombra \emph{error a tiempo final $L$}  en \emph{sentido fuerte}.
+    \end{Definicion}
+  }
+  \only<+>{
+  \begin{alertblock}{Ecuacion de prueba}
+    \begin{align*}
+      %dX_t=&\mu X_tdt+\lambda X_tdB_t, \qquad X_0=x_0\\
+      dX_t=&\mu X_tdt+\lambda dB_t, \quad \mu, \lambda \in \mathbb{C}
+    \end{align*}
+  \end{alertblock}
+  }
+  \only<+>{
+  \begin{Proposicion}
+    La  soluci\'on de $dX_t=\mu X_tdt+\lambda X_tdB_t, \qquad X_0=x_0$.
+    \begin{equation*}
+    X_t=x_0\exp
+    \left(
+      \left[
+      \mu-\frac{1}{2} \lambda^2
+      \right]t +\lambda  B_t
+    \right).
+    \end{equation*}
+   \begin{enumerate}
+      \item
+      $\mathbb{E}(X_t)=x_0\exp(\mu t)$.
+      \item
+      $\mathbf{var}(X_t)=
+        x_0\exp(2\mu t)(\exp(\lambda^2t)-1)
+      $.
+      \item
+       $\mathbf{cov}(X_t,X_s)=
+        x_0^2\exp(\mu(t+s))(\exp(\lambda^2s)-1), \qquad 0\leq s <t.
+       $
+  \end{enumerate}
+  \end{Proposicion}
+  }
+  \end{overlayarea}
+%\biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[aalpha]
+\begin{frame}{Propiedades Te\'oricas para EDEs Multiplicativas}
+  %\begin{overlayarea}{\textwidth}{.6\textheight}
+  \begin{columns}
+    \column{.3\textwidth}
+       \begin{exampleblock}{El método EMM para la ecuacion de prueba}
+         tienen un orden de convergencia $\gamma=\frac{1}{2}$.
+        \cite{Higham01}
+       \end{exampleblock}
+     \column{.5\textwidth}
+     \begin{block}{$dX_t=2X_t dt+X_t dX_t, \qquad X_0=1$}
+       \includegraphics[width=\textwidth]{./images/ConvergenciaEMM.png}
+    \end{block}
+   \end{columns}
+  %\end{overlayarea}
+  \biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[aalpha]
+\begin{frame}{Propiedades Te\'oricas para EDEs Multiplicativas ($A$-estabilidad)}
+  %\begin{overlayarea}{\textwidth}{.6\textheight}
+  \begin{Definicion}
+    Dadas $f,g$ funciones que satisfacen las condiciones del teorema de
+    existencia y unicidad. Sea $X_t$ la soluci\'on fuerte,
+    de la ecuación
+    $$
+    dX_t=f(X_t)dt+g(X_t)dB_t, \qquad X_0\neq 0 \text{ con probabilidad 1},
+    $$
+    entonces se dice que  $X_t$ es una soluci\'on MC-estable si y s\'olo si
+     $$
+      \lim _{t\to\infty}\mathbb{E}(|X_t|^2)=0.
+     $$\cite{saito1996stability}
+  \end{Definicion}
+\biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Propiedades Te\'oricas para EDEs Multiplicativas}
+  \begin{columns}
+  \column{.45\textwidth}
+  \begin{block}{$\lim\limits_{t\to\infty}\mathbb{E}(|X_t)=0\Leftrightarrow$}
+    \begin{itemize}
+      \item Problema \\
+      $
+            2\mathbf{Re}(\mu)+|\sigma|^2<0.
+      $
+      \item EMM\\
+      $
+          |1+\mu\phi(\Delta t)|^2 + |\sigma|^2 (\Delta t)<1.
+        $
+    \end{itemize}
+  \end{block}
+  \only<2>{
+    \begin{align*}
+      dX_t=&-3X_t dt+ \sqrt{3} X_tdB_t,
+     X_0=&1.
+    \end{align*}
+  }
+\column{.55\textwidth}
+    \begin{exampleblock}{%Regi\'on de estabilidad EMM
+     $\phi(\Delta t)=(1-\exp(-\mu\Delta t))\mu^{-1}$}
+            \includegraphics[width=\textwidth]<1| handout:0>{./images/RegionEstabilidadBiPhi.png}
+            \includegraphics[width=\textwidth]<2>{./images/StabilityEMM.png}
+    \end{exampleblock}
+     \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[aalpha]
+\begin{frame}{Propiedades Te\'oricas para EDEs Aditivas $A-estabilidad$}
+  \begin{equation*}
+      dX_t=f(X_t)dt+\gamma dB_t \qquad X_0=x_0
+    \end{equation*}
+\begin{Definicion}
+    Un algor\'itmo EMM para la ecuaci\'on de prueba es $A$-estable si su
+    correspondiente funci\'on de estabilidad  $\mathcal{R}$  mapea a cada  $z\in\mathbb{C}^-$ en el disco
+unitario
+    complejo.
+\end{Definicion}
+\begin{Teorema}
+    El m\'etodo EMM es $A$-estable si y s\'olo si, lo es su componente determinista.
+  \cite{hernandez1992stability}.
+\end{Teorema}
+  \biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Propiedades Te\'oricas para EDEs Aditivas $A-estabilidad$}
+  \begin{equation*}
+      dX_t=f(X_t)dt+\gamma dB_t \qquad X_0=x_0
+    \end{equation*}
+  \begin{block}{Bosquejo}
+    \only<+>{
+      $\Rightarrow$
+      $$\frac{X_{k+1}-X_{k}}{\phi(\Delta t)}=\Phi(X_k,\lambda,\Delta t)$$
+      $$X_{j+1}=\underbrace{\phi(\Delta t) \Phi(X_j,\lambda,\Delta t)+X_j}_{= A(X_j)}+\gamma \Delta B_j,$$
+      $$\mathbb{E}(X_{j+1})=\mathbb{E}\left(A(X_j )\right)+\gamma\mathbb{E}(\Delta B_t)$$
+    }
+    \only<+>{
+      $\Leftarrow$
+      $$\lim_{j\to\infty}\mathbb{E}(|X_{j}|^2)=0.$$
+      Convergencia en media cuadr\'atica implica la convergencia en media
+      $$
+        \lim_{j\to\infty}\mathbb{E}(|X_{j}|)= \lim_{j\to\infty}A(X_j) =0.
+      $$
+    }
+  \end{block}
+\end{frame}
+

@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {2}{Simulaci\IeC {\'o}n de Movimiento Browniano}{18}{0}{1}
+\beamer@sectionintoc {3}{Integraci\IeC {\'o}n Estoc\IeC {\'a}stica}{44}{0}{2}
+\beamer@sectionintoc {4}{Construcci\IeC {\'o}n general es esquemas para EDEs}{45}{0}{3}
+\beamer@sectionintoc {5}{propiedades te\IeC {\'o}ricas}{46}{0}{4}
+\beamer@subsectionintoc {5}{1}{Estabilidad lineal}{47}{0}{4}
+\beamer@subsectionintoc {5}{2}{Consistencia y estabilidad}{88}{0}{4}
+\beamer@sectionintoc {6}{Resultados num\IeC {\'e}ricos}{120}{0}{5}
+\beamer@sectionintoc {7}{Comentarios Finales}{127}{0}{6}

@@ -1,0 +1,232 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}{Historia}
+		\begin{center}
+			\movie[width=9.1cm,height=5.2cm,showcontrols=true,loop,poster]{}{BrownianMotion.flv}
+			\end{center}							
+		\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Caminata Aleatoria}
+	\begin{overlayarea}{\textwidth}{.7\textheight}
+	\only<1>{	
+	\begin{center}
+		\includegraphics[width=\textwidth]{./IMAGENES/RW/RandomWalk(1).png}	
+	\end{center}
+	}
+	\only<2>{	
+		\begin{center}
+			\includegraphics[width=\textwidth]{./IMAGENES/RW/RandomWalk[2].png}	
+		\end{center}
+	}
+	\only<3>{
+		\begin{center}
+			\includegraphics[width=\textwidth]{./IMAGENES/RW/RandomWalk[3].png}	
+		\end{center}	
+	}	
+	\end{overlayarea}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Construcci\'on}
+	\begin{overlayarea}{\textwidth}{\textheight}	
+		\begin{columns}	
+			\column{.5\textwidth}
+				\uncover<2->{
+					\begin{empheq}{align*}
+						&\{ X_{n} \}_{n=1}^{\infty}   \quad v.a.i.i.d\\
+						&P(X_{j} = \pm h)= \frac{1}{2}.
+					\end{empheq}
+				}
+				\uncover<3->{ 
+					\begin{empheq}[box=\shadowbox*]{align*}
+						Y_{\delta, h}(0) = &0\\
+						Y_{ \delta,h}(n \delta ) = &X_{1}+X_{2}+\cdots+X_{n}.	
+					\end{empheq}	  
+				}
+				\uncover<4->{
+				Interpola linealmente				
+				\begin{empheq}{align*}
+					Y_{\delta,h}(t) = &\frac{(n + 1)\delta -t}{\delta} Y_{\delta,h}(n \delta )\\
+											 + &  \frac{t - n\delta}{\delta}Y_{\delta,h}((n+1) \delta ).	\\
+					&n\delta < t < (n + 1)\delta\\
+					&t>	0. 
+				\end{empheq}
+				}			
+			\column{.5\textwidth}
+				\only<5->{
+				\begin{block}{Queremos}
+					 $$
+						\lim_{
+							\substack{
+								\delta\to 0\\
+								h\to 0								
+							}	
+						}				 	
+					 	Y_{\delta, h}
+					 $$
+				\end{block}
+				}
+				\begin{overlayarea}{\textwidth}{.7\textheight}	
+				\only<6>	{
+		 			$\lambda \in \mathbb{R}$ fijo. 
+		 			Calcula \\ 	\hyperlink{dfn:FuncionCaracteristica}{\beamergotobutton{caracteristica}}		
+					$\displaystyle\lim_{\delta,h \to 0}
+					{\mathbb{E}\left[e^{ i\lambda Y_{\delta,h}(t)}\right]}$. \\
+					\hypertarget{cns:Limite}{}
+			
+				}			
+				\only<7->{
+					\textcolor<7>{red}{$t=n\delta$}, 		
+				}
+				\only<7>{
+					\begin{eqnarray*}
+						\mathbb{E}
+							\left[
+								e^{
+									 i\lambda 					
+									Y_{\delta,h}(\textcolor{red}{t})
+								}
+							\right]&=&
+						\prod_{j=1}^{n}\mathbb{E}\left[e^{i\lambda X_{j}}\right] \\
+						&=&\left( \mathbb{E}\left[e^{i\lambda X_{j}}\right]\right)^{n}\\
+						&=&\left(\frac{1}{2}e^{i\lambda h}+\frac{1}{2}e^{-i\lambda h}\right)^{n}\\
+						&=&\left(\cos(\lambda h)\right)^{n}\\
+						&=&\left(
+									\textcolor{blue}{\cos(\lambda h)}
+								\right)^{
+										\frac{t}{
+											\textcolor{blue}{\delta}
+										}
+								}.
+					\end{eqnarray*}
+				}
+				\only<8->{
+					\textcolor{cyan}{					
+						$ u =\left(cos(\lambda h)\right)^{\frac{1}{\delta}}$
+					}				
+				}
+				\only<9>{				
+					\begin{empheq}{align*}				
+						u \approx & e^{ - \frac{1}{2\delta}\lambda^{2}h^{2}}\\
+						\mathbb{E}\left[ e^{i\lambda Y_{\delta,h}(t)}\right]
+						\approx & 
+						e^{
+							- \frac{1}{
+									2
+									\textcolor{red}{\delta}
+							}
+							 t\lambda^{2}
+							\textcolor{red}{h}^{2}
+						}.
+				\end{empheq}
+				}		
+				\only<10->{
+	 				\textcolor{red}{$h^{2} = \delta$}
+				}
+				\only<10->{
+					$$
+					\displaystyle\lim_{\delta,h \to 0}{\mathbb{E}\left[ e^{i\lambda Y_{\delta,h}(t)}\right]} 
+					= e^{ - \frac{1}{2}t\lambda^{2}},
+					\quad \quad \lambda \in \mathbb{R}.$$
+				}
+				\only<11>{
+		 			\begin{empheq}[box=\ovalbox]{equation*}
+		 			\therefore
+		 			B(t)  
+		     			\overset{ \mathcal{D} }{ = }
+		   				\displaystyle\lim_{\delta \to 0}{Y_{\delta,h}(t)}
+		 			\end{empheq}		
+				}
+			\end{overlayarea}				
+		\end{columns}
+	\end{overlayarea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Construcci\'on}
+	\begin{Teorema} 
+		Sea $Y_{\delta,h}(t)$ una caminata aleatoria que inicia en $0$ 
+		de saltos $h$ y $-h$  con igual probabilidad en los tiempos 
+		$\delta, 2\delta,3\delta, \ldots $.  
+		Asumamos que $h^{2} = \delta$. 
+		Entonces para cada $t \geq 0$, el limite
+		$$ B(t) = \displaystyle\lim_{\delta \to 0}{Y_{\delta,h}(t)},$$
+		existe en distribuci\'on. Adem\'as, tenemos que
+		$$
+			\mathbb{E}\left[e^{i\lambda B(t)}\right] 
+			=e^{- \frac{1}{2}t\lambda^{2}}, \quad \quad \lambda \in 	\mathbb{R}.
+		$$
+	\end{Teorema}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Codigo}
+	\only<+>{
+  	\begin{figure}
+  	\centering
+      \tiny
+   	\lstset{language=python}
+         \lstinputlisting[firstline=3,lastline=11]{RW01.py}
+   \end{figure}
+}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Caminata Aleatoria de $n$  transiciones}
+	\begin{overlayarea}{\textwidth}{.7\textheight}
+	\only<1>{	
+		\begin{center}
+			\includegraphics[width=\textwidth]{./IMAGENES/RW/RW01(1).png}	
+		\end{center}
+	}
+	\only<2>{
+		\begin{center}
+			\includegraphics[width=\textwidth]{./IMAGENES/RW/RW01(2).png}	
+		\end{center}	
+	}
+	\only<3>{
+		\begin{center}
+			\includegraphics[width=\textwidth]{./IMAGENES/RW/RW01(3).png}	
+		\end{center}	
+	}	
+	\end{overlayarea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Construcci\'on}
+	\begin{empheq}[box={\Garybox[Construcci\'on]}]{align*}
+		h^{2}&=\delta\\	
+		Y_{\delta,h}(t) 
+		& \xrightarrow[\delta ,h \to 0]{\mathcal{D}} B(t) \qquad \forall t \geq 0\\
+		\mathbb{E}\left[e^{i\lambda B(t)}\right] 
+		&
+		\xrightarrow{\delta ,h \to 0}
+		e^{-\frac{1}{2}t\lambda^{2}}, \quad \lambda \in 	\mathbb{R}.	
+	\end{empheq}	
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Caminata Aleatoria en $[0,1]$}
+	%\vspace{-1.5cm}		
+	\begin{overlayarea}{\textwidth}{.9\textheight}
+	\only<1>{	
+		\begin{center}
+			\includegraphics[width=.8\textwidth]{./IMAGENES/RW/RWs01.png}	
+		\end{center}
+	}
+	\only<2>{
+		\begin{center}
+			\includegraphics[width=.8\textwidth]{./IMAGENES/RW/RWs01Sigma.png}	
+		\end{center}	
+	}
+	\end{overlayarea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Distribuci\'on Gaussiana}
+	
+	\begin{center}
+		\only<1>{
+			\includegraphics[width=0.7\linewidth]{IMAGENES/RW/MachineGalton}
+		}
+		\only<2>{
+			\includegraphics[width=0.7\linewidth]{IMAGENES/RW/NomralDis}
+		}
+	\end{center}
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

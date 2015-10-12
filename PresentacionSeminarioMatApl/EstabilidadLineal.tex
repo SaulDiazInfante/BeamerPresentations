@@ -1,0 +1,229 @@
+%----------------------------------------------------------------------------------------------
+%\begin{bibunit}[apalike]
+\begin{frame}
+   \frametitle{Estabilidad lineal (métodos deterministas)}% \cite{dahlquist2008numerical}}
+   \begin{columns}
+   		\column{.4\textwidth}
+   		\begin{empheq}[box=\shadowbox]{align*}
+			\frac{dx}{dt}=&\lambda x,\\
+			 x(0)=&x_0 \quad\lambda \in \mathbb{C}.\\
+		\end{empheq}
+		\visible<2->{
+				\colorbox{yellow}{$x(t)=x_0\exp(\lambda t)$} \\
+			} 		
+		\visible<3->{
+		\begin{equation*}
+			\lim_{t\to \infty}x(t)=0\Leftrightarrow Re(\lambda)<0		
+		\end{equation*}							
+		}		
+		\column{.5\textwidth}
+		\begin{overlayarea}{1.1\textwidth}{.9\textheight}
+			\only<4>{
+				\begin{center}
+   					\includegraphics[width=\textwidth]{Imagenes/Estabilidad/EstabilidaLineal.png}
+   				\end{center}
+ 			}
+ 		\end{overlayarea} 	    		
+   \end{columns}
+%   %\biblio{BibliografiaTesis}
+\end{frame}
+%%\end{bibunit}
+%%------------------------------------Metodo de Euler-------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%[label=frm:17]
+  \frametitle{Estabilidad Lioneal (métodos deterministas)}% \cite{dahlquist2008numerical}}
+  \begin{columns}
+	\column{.4\textwidth}
+	  \colorbox{darkyellow}{
+			$
+				\displaystyle				
+				\lim_{t\to \infty}x(t)=0\Leftrightarrow Re(\lambda)<0
+			$
+	  }
+	\visible<+->{	
+		\begin{center}
+			Método de Euler	
+		\end{center} 
+		\begin{empheq}[box=\ovalbox]{equation*}	 
+			\frac{x_{n+1}-x_n}{h}=\lambda x_n
+		\end{empheq}	 
+	  }
+	  \visible<+->{
+		\begin{overlayarea}{.8\textwidth}{.3\textheight}
+		  \only<+>{
+			\begin{empheq}[box=\mybluebox]{align*}
+		     % \begin{align*}
+			  x_{n+1}=&\lambda x_n h+x_n\\
+				=&
+				  x_n(\lambda h +1)\\
+				\vdots\\
+				=&
+				  x_0(\lambda h +1)^{n+1}
+		    % \end{align*}
+			\end{empheq}
+		  }
+		  \only<+->{
+			\colorbox{greenArea}{
+			$
+			  \displaystyle
+			  \lim_{n\to \infty}x_n=0\Leftrightarrow |\lambda h +1|<1
+			$
+			}				
+		  }
+	  \end{overlayarea}
+		}
+	\column{.6\textwidth}
+	  \begin{overlayarea}{1.1\textwidth}{.9\textheight}
+		\only<+>{
+		  \begin{center}
+			\includegraphics[width=\textwidth]{Imagenes/Estabilidad/EstabilidadEuler1.png}
+		  \end{center}
+  		}
+  		\only<+>{
+		  \begin{center}
+			\includegraphics[width=\textwidth]{Imagenes/Estabilidad/EstabilidadEuler2.png}
+		  \end{center}
+  		}
+  		\only<+>{
+		  \begin{center}
+			\includegraphics[width=\textwidth]{Imagenes/Estabilidad/EstabilidadEuler3.png}
+		  \end{center}
+  		} 
+	  \end{overlayarea}
+  \end{columns}
+  %\biblio{BibliografiaTesis}
+\end{frame}
+%%----------------------------------------------------------------------------
+\begin{frame}%[label=frm:18]
+   \frametitle{Estabilidad lineal EDEs}
+	\begin{overlayarea}{\textwidth}{.3\textheight}
+		\begin{empheq}[box={\Garybox[Consideremos]}]{equation*}\label{eqn:SDETest}
+ 			dX_t=\lambda X_t dt +\beta dB_t, \qquad X_0=cte., \lambda, \beta \in \mathbb{C} \tag{DP}.
+		\end{empheq}
+	\end{overlayarea}	
+	\begin{overlayarea}{\textwidth}{.4\textheight}	
+		\only<2>{
+		\begin{block}{Solución exacta}
+			\begin{empheq}{equation*}\label{eqn:SolSDETest}
+				 X_t=X_0\exp(\lambda t) +\beta \int_{0}^t \exp(\lambda (t-s))dB_s \tag{*}
+			\end{empheq}
+			\begin{empheq}{align*}
+			 	 \label{eqn:Mean}
+		  		\mathbb{E}[X_t]=&\exp(\lambda t)\mathbb{E}[X_0]  \tag{**} \\
+		  		\label{eqn:Variance}
+		  		\mathbb{E}[|X_t|^2]=& \exp(2Re(\lambda)t) \mathbb{E}[|X_0|^2] -
+		  		\frac{|\beta|^2}{2Re(\lambda)}(1-\exp(2Re(\lambda)t)) .\tag{***}
+			\end{empheq}
+	\end{block}
+	}
+	\only<3>{
+		(DP) tiene solución asintótica-estable
+ 		\begin{equation*}
+ 			\colorbox{yellow}{$
+ 			\begin{matrix}
+ 		  		\lim_{t \to \infty} \mathbb{E} |X(t)|= 0 \\
+ 		  		\lim_{t \to \infty} \mathbb{E}[|X(t)|^2]= -\frac{|\beta|^2}{2 Re(\lambda)} %
+ 			\end{matrix}$}
+ 	      \Leftrightarrow Re(\lambda)<0
+ 		\end{equation*}	
+	}
+	\end{overlayarea}	
+\end{frame}
+%%----------------------------------------------------------------------------------------------------
+%%\begin{bibunit}
+\begin{frame}%[label=frm:19]
+    \frametitle{Estabilidad Lineal}
+	\begin{columns}
+		\column{.5\textwidth}
+		\begin{overlayarea}{\textwidth}{\textheight}			
+			\only<+->{
+				\begin{definicion}
+  					$X(t)$ es asint\'oticamente estable en media (AEM) si y s\'olo si
+					\begin{equation*}\label{eqn:ConMeanEstable}
+	 					\lim_{t \to \infty}\mathbb{E}[|X(t)|]=0.
+					\end{equation*}
+				\end{definicion}
+			}
+			\only<+->{
+			\begin{definicion}
+				 $X(t)$ es asint\'oticamente estable en media  cuadr\'atica (AEMC) si y sólo si
+				\begin{equation*}\label{eqn:ConMeanSquareEstable}
+	 				\lim_{t \to \infty}\mathbb{E}[|X(t)|^2]=-\frac{|\beta|^2}{2Re(\lambda)}.
+				\end{equation*}
+			\end{definicion}
+			}
+		\end{overlayarea}
+		\column{.5\textwidth}
+		\only<+->{ 
+				\begin{definicion}
+  					La solución  numérica es asint\'oticamente estable en media (AEM) si y s\'olo si
+					\begin{equation*}\label{eqn:ConMeanEstable}
+	 					\lim_{n \to \infty}\mathbb{E}[|X_n|]=0.
+					\end{equation*}
+				\end{definicion}
+				\begin{definicion}
+	  				La solución numérica es asint\'oticamente estable en media  cuadr\'atica (AEMC) si y sólo si
+					\begin{equation*}\label{eqn:ConMeanSquareEstable}
+		 				\lim_{n \to \infty}\mathbb{E}[|X_n|^2]=-\frac{|\beta|^2}{2Re(\lambda)}.
+					\end{equation*}
+				\end{definicion}
+			}
+	\end{columns}	
+%%\biblio{BibliografiaTesis}
+\end{frame}
+%%\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{bibunit}[apalike]
+\begin{frame}%[label=frm:20]
+    \frametitle{$A$-estabilidad}
+	\begin{overlayarea}{\textwidth}{\textheight}
+		\only<1>{
+		\begin{block}{Buscamos $\lambda h$}
+			para los cuales el m\'etodo Steklov \textcolor{red}{reproduce
+			correctamente} la  \textcolor{cyan}{estabilidad en media y media cuadr\'atica.}
+		\end{block}
+		}
+		\only<2>{
+		\begin{definicion}
+			Diremos que un método será \textcolor{red}{$A$-estable} en \textcolor{red}{media o media cuadrática} si \cite{higham2000stability}
+			$$
+				\text{Problema estable } \Rightarrow \text{ método estable }\forall h
+			$$
+		\end{definicion}
+		}
+	\end{overlayarea}
+\end{frame}
+%\end{bibunit}
+%%---------------------------Resultado sobre Media---------------------------------------------------------
+\begin{frame}%[label=frm:20]
+	\begin{empheq}[box=\shadowbox*]{equation*}
+				dX_t=\lambda X_t dt +\beta dB_t, \quad X_0=cte, \lambda, \beta \in
+				\mathbb{C} \qquad \text{(DP)}
+	\end{empheq}
+%%-------------------------------------------------------------------------------------------------------------------------------	
+	\begin{columns}		
+		\column{.5\textwidth}
+		\begin{overlayarea}{\textwidth}{\textheight}
+			\only<2-6>{
+				\centering{\alert<3-4>{\textbf{Euler-Mayurama}}}
+				\begin{empheq}[box={\ovalbox}]{align*}
+					X_{n+1} = &(1+\lambda h) X_n +\beta \Delta B_n \\
+					\Delta B_n=& B_{t_{n+1}}-B{t_n}\\
+					B_{n}=&\sqrt{h}V_n\\
+						V_n\sim& N(0,1).
+				\end{empheq}			
+			}
+			\only<4-6>{
+				\begin{empheq}{align*}
+					\mathbb{E}(X_{n+1})=\mathbb{E}(X_0)(1+\lambda h)^{n+1}
+				\end{empheq}				
+			}
+			\only<7>{
+				\begin{Teorema}
+					El método Steklov para la ecuación (DP)	es $A$-estable en media.
+				\end{Teorema}
+			}	
+		\end{overlayarea}
+	\end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

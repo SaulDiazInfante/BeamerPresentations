@@ -1,0 +1,89 @@
+\subsection{What is the problem?}
+	\begin{frame}{When you wants write a paper}
+	    \begin{columns}
+	    	\column{.4\textwidth}	
+		        \begin{overlayarea}{\textwidth}{.5\textheight}
+					\begin{block}{
+							\only<1-2>{
+								You have to manage a lot reference.
+							}
+							\only<3->{
+								Cite
+							}
+						}
+						\only<2>{
+							\begin{itemize}
+								\item
+									articles
+								\item 
+									books
+								\item
+									others
+							\end{itemize}	
+						}
+						\only<4->{
+							A list of references\\
+						}
+					\end{block}
+				\end{overlayarea}
+			\column{.5\textwidth}
+				 \begin{overlayarea}{\textwidth}{\textheight}
+					\vspace{2em}
+					\only<5->{
+						A common option with 
+						\href{run:OldCitation.mp4}{\LaTeX}
+					}
+					\only<6>{
+						\begin{semiverbatim}
+							\\documentclass\{article\}
+							
+							\\begin\{document\}
+							
+							\\title\{My Article\}
+							
+							\\author\{Nobody Jr.\}
+							
+							\\maketitle
+							
+							Blablabla \alert{\\cite\{keyi\}}
+							
+							\alert{\\begin\{thebibliography\}\{N\}}
+								
+								\alert{\\bibitem\{key1\}}
+								
+								...
+								
+								\alert{\\bibitem\{keyN\}}
+							
+							\alert{\\end\{thebibliography\}}
+							
+						\\end\{document\}
+						\end{semiverbatim}
+					}
+				\only<7>{
+					%\vspace{11em}
+					\begin{alertblock}{}
+						\centering
+							Organize your research!!!
+					\end{alertblock}
+				}
+			\end{overlayarea}
+		\end{columns}
+	\end{frame}
+
+\subsection{Objectives}	
+	\begin{frame}{Objetives.}
+		\vspace{2em}
+		\begin{block}{Main}
+			I 'll describe through \alert{examples} how \alert{Mendeley and Calibre} can help us to organize our references and to write with {\LaTeX}.
+		\end{block}
+		\begin{overlayarea}{.5\textwidth}{.7\textheight}
+			\only<+->{
+			\begin{itemize}[<+-| alert@+>]
+				\item Mendeley.
+				\item Calibre.
+				\item Bib\TeX. 
+			\end{itemize}
+			}
+		\end{overlayarea}
+	\end{frame}

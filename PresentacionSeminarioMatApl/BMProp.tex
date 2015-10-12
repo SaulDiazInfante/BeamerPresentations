@@ -1,0 +1,165 @@
+\begin{frame}
+	\frametitle{Algunas consecuencias de la construcción}
+	\begin{overlayarea}{\textwidth}{\textheight}	
+		\begin{block}{Con base en la anterior:}
+			\begin{align*}
+				\left|
+					\frac{dY_{\delta,h}(t)}{dt}
+				\right|			
+				&=
+				\left|
+					\frac{1}{\delta}X_{n+1}
+				\right|\\
+         		&=
+         		\left|
+         			\frac{1}{\delta}
+         		\right|
+         	 	\cdot |X_{n+1}|\\
+         		&=\frac{h}{\delta}%
+			\end{align*}
+		\only<2->{
+			\begin{equation*}
+				\lim_{\delta\to 0}\frac{h}{\delta}=
+				\lim_{\delta\rightarrow 0}\frac{1}{\sqrt {\delta}}=\infty.
+			\end{equation*}
+		}
+		\only<3->{
+			\colorbox{darkyellow}{$B(t)$ no es diferenciable.}
+		}
+	\end{block}
+	\end{overlayarea}
+\end{frame}
+%--------------------------------------------------------------------------------------------------------
+\begin{frame}
+	\frametitle{Algunas consecuencias de la construcción}
+	\begin{exampleblock}{Más aun}
+		\begin{itemize}[<+-|alert@+>] 		
+	 		\item 
+	 			Para todo $t$ $B(t)$  es una v.a $N(0,t)$.			
+			\item
+				Tomando $\delta=|t-s|$
+			\begin{equation*}
+				|B(t)-B(s)|\approx \frac{1}{\sqrt {\delta}}|t-s|=|t-s|^{\frac{1}{2}}.
+			\end{equation*}
+			\item
+				$B(t)-B(s)\sim N(0,t-s)$
+			\item		
+				$B(t)$ es de incrementos independientes.
+		\end{itemize}	
+	\end{exampleblock}
+\end{frame}
+%--------------------------------------------------------------------------------------------------------------
+\begin{frame}
+	\frametitle{Caracterización del Movimiento Browniano (M.B)}
+	\begin{block}{Definici\'on}
+		Un proceso estoc\'astico $B(t,\omega)$ es llamado un movimiento Browniano si:
+		\begin{enumerate}
+			\item $P\{\omega;B(0,\omega)=0\}=1$.
+			\item Para todo $0\leq s < t$, la v.a $B(t) - B(s)\sim N(0,t -s)$.
+			\item $B(t,\omega)$ tiene incrementos independientes, es decir, para 
+				$0\leq t_{1} < t_{2}	<\ldots < t_{n}$,
+				\begin{equation*}
+					B(t_{1}), B(t_{2}) - B(t_{1}),\ldots,B(t_{n}) - B(t_{n-1}),
+				\end{equation*}
+				son independientes.
+		\end{enumerate}
+	\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Algunas propiedades b\'asicas del M.B.}
+	\begin{exampleblock}{Consecuencias de la definición}
+		\begin{itemize}[<+-|alert@+>]
+			\item $\displaystyle \forall s,t\geq 0$, $\mathbb{E}[B(s)B(t)]=\min\{s,t\}$.
+			\item Para $t_{0}\geq 0$, $\tilde{B}(t)=B(t+t_{0}) - B(t_{0})$  es M.B.
+			\item $ \forall \lambda > 0$, 
+				$\displaystyle \tilde{B}(t)=\frac {B(\lambda t)}{\sqrt{\lambda}}$ 
+				es  M.B.
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\only<+>{
+		\begin{definicion}[$H$ - similar]
+			Un p.e. $(X(t),t\in [0,\infty)$ es $H$-similar si $\exists H > 0$ t.q.  								
+\begin{align*}
+				(T^{H}X(t_{1}),\ldots,T^{H}X(t_{n}))
+				&\overset{ \mathcal{D} }{ = }
+				(X(Tt_{1}),\ldots,X(Tt_{n})) \\
+				\forall T > 0& \quad t_{i} \in \mathcal{P}([a,b]).			
+			\end{align*}
+		\end{definicion}
+	}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Propiedades de las trayectorias del M.B.}
+	\begin{alertblock}{Resulta que}
+		M.B es \num{0.5} - similar.
+	\end{alertblock}
+	\uncover<2->{
+		\begin{Teorema}[No diferenciabilidad de los procesos $H$-similar]
+			Sea $(X(t),t\in [0,\infty])$ p.e. H - similar con 
+			incrementos estacionarios y $H\in(0,1)$. Entonces para todo $t_{0}$ fijo,
+			\begin{equation*}
+				\limsup_{t\downarrow t_{0}}\frac{|X(t)-X(t_{0})|}{t - t_{0}}=\infty.
+		\end{equation*}
+		\end{Teorema}
+	}
+	\uncover<3->{
+		\begin{alertblock}{Por lo tanto c.p.1}
+			 M.B. $B(t)$  es no diferenciable  $\forall t\geq 0$.
+		\end{alertblock}
+	}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{bibunit}[apalike] 
+\begin{frame}
+	\frametitle{Propiedades de las trayectorias}
+	\begin{Teorema}[de continuidad]
+		Las trayectorias del movimiento Browniano son continuas casi seguramente.
+		\cite{kuo2006introduction}
+		\biblio{BibMODESTO}	
+	\end{Teorema}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[apalike]
+\begin{frame}
+	\frametitle{Propiedades de las trayectorias}
+	\begin{overlayarea}{\textwidth}{\textheight}		
+		\begin{definicion}[Variaci\'on]		
+			$g:[a,b]\to \mathbb{R}$,  $\delta_n=\max_{1<i<n}(t_i-t_{i-1}) $			
+			\begin{equation*}
+				V_g([a,b])=				
+				\lim_{\delta_n \to 0} 
+				\sum_{i=1}^{n} |g(t_{i}) - g(t_{i-1})|
+			\end{equation*}		
+		\end{definicion}
+		\only<2->{
+		\begin{Teorema}[Variaci\'on no acotada]
+			La variaci\'on de una trayectoria de un M.B sobre el intervalo $[a,b]$ es infinita casi
+			seguramente \cite{Mikosch1998}
+		\end{Teorema}
+	\biblio{BibMODESTO}
+	}
+	\end{overlayarea}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Propiedades de las trayectorias del M.B.}
+	\only<+>{
+		\begin{alertblock}{Variaci\'on cuadr\'atica}
+			La variaci\'on cuadr\'atica de una trayectoria de un M.B sobre el intervalo 
+			$[a,b]$ es la longitud del intervalo, es decir,
+			\begin{equation*}
+				\limsup_{\Delta t\rightarrow 0} 
+				\sum_{i=1}^{n-1} |B(t_{i+1}) - B(t_{i})|^{2}=b - a,
+		\end{equation*}
+	\end{alertblock}
+	}
+\end{frame}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

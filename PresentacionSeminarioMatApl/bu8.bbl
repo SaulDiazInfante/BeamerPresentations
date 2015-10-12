@@ -1,0 +1,11 @@
+\newif\ifabfull\abfulltrue
+\input apreambl
+\begin{thebibliography}{Mic94}
+
+\bibitem[Mic94]{mickens1994nonstandard}
+\abtype{0}{R.~E. Mickens}.
+\newblock \abtype{1}{Nonstandard finite difference models of differential
+  equations}.
+\newblock World Scientific Pub Co Inc \abtype{5}{1994}.
+
+\end{thebibliography}

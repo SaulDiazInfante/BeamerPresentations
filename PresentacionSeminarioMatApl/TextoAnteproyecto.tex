@@ -1,0 +1,146 @@
+\section{Motivaci\'on y antecedentes}
+ 
+ 
+  Muchos productos que usamos de manera cotidiana quedan englobados dentro de la categor\'ia de coloide. 
+  Por mencionar algunos ejemplos están: pinturas, cosm\'eticos,
+  medicamentos, productos alimenticios entre otros. 
+  
+  Por esto en la actualidad los coloides son un sistema de gran inter\'es industrial lo cual se traduce 
+   en que las empresas enfocan parte de sus esfuerzos a la investigaci\'on de sus propiedades din\'amicas
+  y estructurales con el fin de mejorar la calidad en sus productos. 
+
+  Por otro lado, en los \'ultimos a\~nos los sistemas coloidales se han convertido en uno 
+  de los sistemas modelo m\'as recurridos por acad\'emicos de ciencias tales como la f\'isica,
+  qu\'imica, biolog\'ia y biof\'isica, solo por citar solo algunas.
+
+  Quiz\'a esta combinaci\'on de inter\'es pr\'actico y cient\'ifico ha
+  colocado a los coloides como uno de los sistemas m\'as ampliamente estudiados
+  mediante experimento, teor\'ia y simulaci\'on computacional.
+  
+  El movimiento Browiniano caracteriza a las suspensiones coloidales. Fue el mismo 
+  Robert Brown quien en 1827 al observar este movimiento azaroso en partículas suspendidas de 
+  polen llego a creer que estaban vivas. M\'as tarde en 1896 L. Boltzmann encontr\'o las causas de 
+  este movimiento cuando escribi\'o \textquotedblleft partículas muy pequeñas en un gas ejecutan 
+  movimientos que se derivan del hecho de que la presión en la superficie de las partículas pueden 
+  fluctuar\textquotedblright.
+
+  Sin embargo fue A. Einstein quien en 1905 derivo una descripci\'on probabil\'istica 
+  valida para un ensamble de part\'iculas  Brownianas. En su trabajo no se enfoc\'o 
+  plenamente a las descripci\'on de las complicadas trayectorias de cada part\'icula; 
+  en su lugar introduce dos conceptos: el de dinámica de grano grueso; a grandes rasgos
+  considera una escala de tiempo $\tau$ para la cual dos eventos con diferencia de tiempo
+  de este orden se consideran independientes. Y el de densidad de probabilidad a tiempos 
+  cortos para el desplazamiento \cite{ToraMigu97:Stocheffecphysysyste}.
+  
+  En 1908 Langevin  inicia un estudio de estos sistemas en el cual de alguna manera se considera como 
+  complementario al trabajo de Einstein. En su tratamiento el se preocupa m\'as por la trayectoria de una 
+  part\'icula Browniana, con esto en mente escribe las ecuaciones de Newton de tipo 
+  fuerza=masa $\times$  aceleraci\'on, considerando un termino azaroso, y las fuerzas de fricci\'on debidas 
+  al solvente (\ref{eqn:Langevin}), Langevin formul\'o las siguientes ecuaciones:
+  
+  \begin{align}\label{eqn:Langevin}
+  	\mathbf{\dot{r}}&=\mathbf{v} \\
+	\mathbf{m\dot{v}}&=\mathbf{F}-\gamma \mathbf{v} + \mathbf{\xi}(t)
+  \end{align}
+  
+  Donde $\mathbf{r}$ denota posici\'on, $\mathbf{v}$ velocidad, $\gamma$ es un coeficiente de fricci\'on,
+  $\mathbf{F}$ representa la fuerza debida al movimiento de la part\'icula Browniana y $\xi$ la fuerza 
+  debida a la interacci\'on con las dem\'as part\'iculas (estoc\'astica).
+  
+  El trabajo de laboratorio dice que este fen\'omeno es disipativo y puede en primera 
+  aproximaci\'on expresarse mediante una fuerza proporcional a  
+  $$
+  -\gamma \mathbf{v}  \qquad 
+	%\text{donde $\gamma$ es una constante de fricci\'on  y $\mathbf{v}$ es la velocidad del coloide}
+  $$
+  En un an\'alisis m\'as detallado aparecer\'ian la ley de Stokes para el coeficiente de 
+  fricci\'on  $\gamma = 6\pi a\eta$ siendo $\eta$ la viscosidad del fluido y $a$ el radio 
+  de la supuesta part\'icula coloide esf\'erica \cite{toral2002Ruimasruiporfav}.
+  
+  Las part\'iculas de sistemas coloidales al estar inmersas en un fluido siguen 
+  una trayectoria altamente irregular. Una descripci\'on completa de esta din\'amica 
+  requerir\'ia conocer con exactitud el efecto que sobre ella ejercen las innumerables
+  mol\'eculas del fluido. Esto a su vez necesita el conocimiento de posici\'on y 
+  velocidad para cada part\'icula.
+  
+  Si se considera el gran n\'umero de part\'iculas en un sistema real, es claro 
+  que la tarea de una descripci\'on a nivel microsc\'opico seria humanamente imposible.
+  Sin embargo en una descripción puramente macrosc\'opica de tipo fuerza $=$ masa$\times$
+  aceleraci\'on, podr\'iamos considerar el efecto global de dichas mol\'eculas dando 
+  un promedio de las fuerzas que ejerce el fluido sobre un coloide. 
+  
+  Esta descripci\'on macrosc\'opica resulta ser incompleta pues predice que una
+  partícula tendrá al reposo lo que contradice a experimentos. Un paso intermedio
+  entre la imposibilidad de considerar el movimiento detallado de las mol\'eculas de 
+  fluido y la descripci\'on mediante una sola fuerza viscosa consiste en incluir en 
+  las ecuaciones del movimiento el t\'ermino de fuerza adicional $\xi(t)$, de tipo aleatorio. 
+ 
+  Otro modelo que surge de manera an\'aloga a la formulaci\'on de Einstein es el de Fokker-Plank
+  \begin{equation}\label{eqn:Fokker-Planck}
+	\frac{\partial f }{\partial t}=-\frac{\partial}{\partial x} 
+	\left[
+	  q(x)f
+	\right]
+	+\frac{1}{2}\frac{\partial}{\partial x}
+	\left[
+	  g(x) \frac{\partial}{\partial x}
+	  \left[
+		g(x)f
+	  \right]
+	\right]
+  \end{equation}
+  
+  Esta formulaci\'on se centra m\'as en encontrar una funci\'on de densidad de probabilidad para
+  los incrementos en el movimiento. 
+  Resulta que bajo ciertas consideraci\'ones las formulaciones de Langevin y Fokker - Planck
+  son equivalentes.
+
+
+
+  Los modelos mencionados son de ecuaci\'on diferencial estoc\'astica, ordinaria y parcial respectivamente. 
+  Sus soluciones,  a diferencia del caso determinista, son ahora procesos estoc\'asticos los cuales podemos
+  entender como una familia de funciones de densidad de probabilidad  $f(x,t)$ 
+  para cada tiempo $t \leq 0$ y variable aleatoria $x$.
+  
+  
+  
+  Para encontrar soluci\'on; un  algoritmo de uso com\'un es el de \emph{Ermack y McCammon}, 
+  este algoritmo es lineal y simple de implementar pero, presenta limitaciones en tiempo de computo.
+  Limitaciones que solo permiten la simulación de sistemas a escalas de tiempo relativamente
+  cortas \cite{ErmakMcCammon}.
+  
+\section{Objetivo}
+  En un intento por obtener mejores algoritmos de soluci\'on, existen trabajos que han implementado
+  algoritmos del tipo predictor - corrector cono Runge Kutta  en su versi\'on estoc\'astica, pero no 
+  obtienen una mejora significativa.
+  Al igual que los algoritmos deterministas como el Runge; los resultado en otras \'areas  
+  nos dice que los algoritmos en diferencias no est\'andar logran mejoras significativas \cite{Mickens}. 
+  Por esto, en este trabajo pensamos que un algoritmo de este tipo  podr\'ia arrojar buenos resultados.
+
+  Lo dicho en la secci\'on anterior nos da la pauta para proponernos como objetivo en esta tesis  
+  el buscar una mejora en el tiempo de ejecuci\'on  para la simulaci\'on de sistemas en escala de tiempo mayor. 
+  En concreto implementar un  algoritmo de diferencias finitas no estándar para simular la din\'amica de estos sistemas.
+\pagebreak
+\section{Metodolog\'ia}
+  El presente trabajo esta pensado desarrollarse en dos etapas:
+  \subsection*{Informaci\'on}
+	\begin{itemize}
+	  \item Estudio de conceptos de c\'alculo estoc\'astico.
+	  \item Estudio de la expansi\'on en Serie de Taylor Estoc\'astica.
+	  \item Estudio de la teor\'ia cualitativa de ecuaciones diferenciales estoc\'asticas (existencia y unicidad de soluciones).
+	  \item Estudio de algoritmos en diferencias finitas no est\'andar.
+	\end{itemize}
+  \subsection*{Implementaci\'on del algoritmo}
+	\begin{itemize}
+	  \item Formulaci\'on de Algoritmos en diferencias finitas para ecuaciones diferenciales estoc\'asticas.
+	  \item Estudio cualitativo de los algoritmos mencionados (convergencia, error y estabilidad). 
+	  \item Implementaci\'on  de un algoritmo en diferencias finita no est\'andar para resolver la ecuaci\'on de Langevin.
+	  \item Validaci\'on del algoritmo a través de un problema con soluci\'on analítica.
+	\end{itemize}
+\begin{frame}
+  \frametitle{Implementaci\'on del algoritmo}
+  \subsection{Implementaci\'on del algoritmo}
+  \begin{block}
+
+  \end{block}
+\end{frame}

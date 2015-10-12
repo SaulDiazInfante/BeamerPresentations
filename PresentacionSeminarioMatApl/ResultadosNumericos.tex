@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{bibunit}[apalike]
+\begin{frame}%[label=frm:20]
+    \frametitle{Aproximación de trayectorias}
+	\begin{overlayarea}{1.05\textwidth}{1.05\textheight}
+	\only<+>{
+	\begin{center}
+	  \begin{figure}
+\includegraphics[width=.9\textwidth,height=.8\textheight]{./Imagenes/SDETestAdditiveNoise/Trayectorias/SDETestAdditiveNoiseDt_025.png}
+	  \caption{Trayectorias generadas con $h=\num{.25}$}
+	  \end{figure}
+	\end{center}
+		}
+		\only<+>{
+		\begin{figure}
+
+\includegraphics[width=.9\textwidth,height=.8\textheight]{./Imagenes/SDETestAdditiveNoise/Trayectorias/SDETestAdditiveNoiseDt_1.png}
+			\caption{Trayectorias generadas con $h=\num{1.0}$}
+		\end{figure}
+		}
+		\only<+>{
+		\begin{figure}
+
+\includegraphics[width=.9\textwidth,height=.8\textheight]{./Imagenes/SDETestAdditiveNoise/Trayectorias/SDETestAdditiveNoiseDt_2.png}
+			\caption{Trayectorias generadas con $h=\num{2.0}$}
+		\end{figure}
+		}
+	\end{overlayarea}
+	%\biblio{BibliografiaTesis}
+\end{frame}
+%\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%
+%\begin{bibunit}[apalike]
+\begin{frame}%[label=frm:20]
+  \frametitle{Aproximación de momentos}
+    Calculando \num{1000} trayectorias se genera la siguiente tabla.
+    \begin{overlayarea}{\textwidth}{\textheight}
+      \only<2>{
+    \begin{table}
+     \rowcolors{2}{RoyalBlue!5}{RoyalBlue!20}
+      \begin{tabular}{l|l|l} \hline
+	\multicolumn{3}{c}{$\varepsilon_{debil}=
+	\left\|\mathbb{E}\left[|X_{t_n}|\right]-\mathbb{E}[|X_n|]\right\|_2$}
+	\\
+	\hline
+	  $h$		&Euler-Mayurama	& Steklov\\
+	  \hline
+	  \num{.25}	&\num{1.3878}		&\num{0.2370} \\
+	  \num{.5}	&\num{2.1409}		&\num{0.2851} \\
+	  \num{1}	&\num{3.9688}		&\num{0.2229} \\
+	  \num{2}	&\alert{40.4466}	&\num{0.1439}
+	  \\
+	  \hline
+	\end{tabular}
+	\caption{Error en sentido débil para el primer momento.}
+      \end{table}
+    }
+    \only<3>{
+      \begin{table}
+	\rowcolors{2}{RoyalBlue!5}{RoyalBlue!20}
+	 \begin{tabular}{l|l|l} \hline
+		\multicolumn{3}{c}{$\varepsilon_{debil}=
+
+\left\|\mathbb{E}\left[|X_{t_n}|^2\right]-\mathbb{E}[|X_n|^2]\right\|_2$}
+		\\
+		\hline
+	  $h$		&CBD	& SBD\\
+	 \hline
+	  \num{.25}	&\num{11.4890}			&\num{4.2098} \\
+	  \num{.5}	&\num{15.1000}			&\num{1.7700} \\
+	  \num{1}	&\num{13.5000}			&\num{0.9760} \\
+	  \num{2}	&\alert{\num{468.0000}}	&\num{4.1900}
+	  \\
+	  \hline
+	\end{tabular}
+	    \caption{Error en sentido débil para el segundo momento.}
+	\end{table}
+	}
+  \end{overlayarea}
+\end{frame}
+%\end{bibunit}

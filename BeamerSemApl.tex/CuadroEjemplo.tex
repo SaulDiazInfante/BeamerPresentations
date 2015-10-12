@@ -1,0 +1,19 @@
+{%
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\definecolor{tcB}{rgb}{0.627451,0.627451,0.643137}
+\definecolor{tcA}{rgb}{0.501961,0.501961,0.501961}
+\begin{center}
+\begin{tabular}{lllc}
+% use packages: color,colortbl
+\mc{1}{>{\columncolor{tcA}}l}{Soluto/Solución} &
+\mc{1}{>{\columncolor{tcB}}c}{\textbf{\textit{Sólido}}} &
+\mc{1}{>{\columncolor{tcB}}c}{\textbf{\textit{Líquido}}} &
+\mc{1}{>{\columncolor{tcB}}c}{\textbf{\textit{Gas}}}\\
+\mc{1}{>{\columncolor{tcB}}l}{\textbf{\textit{Solido}}} & vdrio & tierra húmeda &
+\mc{1}{l}{aerogeles}\\
+\mc{1}{>{\columncolor{tcB}}l}{\textbf{\textit{Líquído}}} & gel, pinturas & mayonesa, leche, &
+\mc{1}{l}{aerosoles}\\
+\mc{1}{>{\columncolor{tcB}}l}{\textbf{\textit{Gas}}} & humo,polvo & niebla & -
+\end{tabular}
+\end{center}
+}%

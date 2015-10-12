@@ -1,0 +1,241 @@
+\begin{bibunit}[apalike]
+\begin{frame}%[label=frm:20]
+    \frametitle{Estabilidad en Media Cuadrática \cite{saito1996stability}}
+	\biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{bibunit}[apalike]
+\begin{frame}%[label=frm:20]
+	\frametitle{Estabilidad en Media Cuadrática}
+	\begin{overlayarea}{\textwidth}{.25\textheight}	
+		\only<1-4>{
+			\begin{empheq}[box=\shadowbox*]{equation*}
+				dX_t=\lambda X_t dt +\beta dB_t, \quad X_0=cte, \lambda, \beta \in
+				\mathbb{C} \qquad \text{(DP)}
+			\end{empheq}
+		}
+		\only<5>{
+		 	\begin{empheq}[box=\shadowbox*]{equation*}
+				\lim_{t \to \infty}\mathbb{E}[|X_t|^2]=-\frac{|\beta|^2}{2Re(\lambda)}.
+			\end{empheq}	
+		}	
+	\end{overlayarea}
+	\begin{columns}	
+		\column{.5\textwidth}		
+		\begin{overlayarea}{\textwidth}{\textheight}				
+			\centering{Euler-Mayurama}		
+			\only<1->{				
+				\begin{empheq}[box={\ovalbox}]{align*}
+						X_{n+1} = &(1+\lambda h) X_n +\beta \Delta B_n 
+				\end{empheq}							
+			}
+%			\only<2-5>{
+%				\begin{empheq}{align*}		
+%					\mathbb{E}(|X_{n+1}|^{2})=&
+%						|1+\lambda h|^{2}\mathbb{E}(|X_{n}|^{2})+|\beta|^{2}h
+%				\end{empheq}
+%			}
+%			\only<3-4>{
+%				\scalebox{0.9}{% Scale by 90%									
+%					$\displaystyle
+%						=
+%						|1+\lambda h|^{2}(|1+\lambda h|^{2}\mathbb{E}(|X_{n-1}|	^{2})+|\beta|^{2}h)
+%						+|\beta |^{2}h
+%					$
+%				}					
+%			}
+%		\only<4>{					
+%				\scalebox{0.9}{% Scale by 90%									
+%					$\displaystyle 
+%						=
+%						|1+\lambda h|^{4}\mathbb{E}(|X_{n-1}|^{2})
+%						+
+%						\left[|1+\lambda h|^{2}+1\right]|\beta|^{2}h\				
+%					$						
+%				}
+%				$$
+%						\vdots
+%				$$
+%		}
+%		\only<5-6>{
+%			\scalebox{0.9}{% Scale by 90%
+%					$ =
+%						|1+\lambda h|^{2(n+1)}\mathbb{E}(|X_{0}|^{2})+
+%						\underbrace{						
+%							\left[|1+\lambda h|^{2n}+\cdots+|1+\lambda h|^{2}+1\right]
+%							}_{\textit{Serie geométrica}}
+%							|\beta|^{2}h
+%					$
+%			}
+%		}
+%		\only<6>{
+%			\scalebox{0.9}{% Scale by 90%
+%					 $	=
+%					 	|1+\lambda h|^{2(n+1)}
+%					 	\mathbb{E}(|X_{0}|^{2})+
+%					 	\frac{|1+\lambda h|^{2(n+1)}-1}{|1+\lambda h|^{2}-1}
+%					 	|\beta|^{2}h
+%					$	
+%			}
+%			\scalebox{0.9}{% Scale by 90%
+%					$					 
+%					  =
+%					 	|1+\lambda h|^{2(n+1)}\mathbb{E}(|X_{0}|^{2})+
+%					 	\frac{|1+\lambda h|^{2(n+1)}-1}{2Re(\lambda)+|\lambda|^{2}h}|\beta|^{2}.			
+%					$
+%			}		
+%		}
+%		\only<7-12>{
+%			\begin{empheq}{align*}
+%					\mathbb{E}(|X_{n+1}|^{2}) & = |1+\lambda h|^{2(n+1)}\mathbb{E}(|X_{0}|^{2})\\
+%						&+
+%							\frac{|1+\lambda h|^{2(n+1)}-1}{2Re(\lambda)+|\lambda|^{2}h}|\beta|^{2}\\
+%			\end{empheq}
+%		}
+		\only<2->{
+			Si $Re(\lambda h)<0$			
+			\begin{align*}
+  					\mathbb{E}[|X_{n+1}|^2]
+  					\xrightarrow{n\to\infty}  			
+  					\colorbox{darkyellow}{
+  				 		$\frac{-|\beta|^2 }{2Re(\lambda)+|\lambda|^2h}$
+  					}
+  				\end{align*}
+		}
+		\end{overlayarea}
+%--------------------------------------------------------------------------------		
+		\column{.6\textwidth}		
+		\begin{overlayarea}{\textwidth}{\textheight}	
+			\only<3->{
+				\centering{\alert<5->{\textbf{Steklov}}}					
+					\begin{empheq}[box=\mybluebox]{align*}
+						X_{n+1} = & X_n \exp(\lambda h)+\beta \Delta B_n
+					\end{empheq}
+			}						
+%			\only<+>{	
+%				\begin{equation*}
+% 					\mathbb{E}[|X_{n+1}|^2]=\exp(2Re(\lambda)h)\mathbb{E}[|X_n|^2]+|\beta|^2 h.
+%				\end{equation*}	
+%			}
+%			\only<10>{	
+%					\begin{align*}
+%						\mathbb{E}[|X_{n+1}|^2]&=\exp(2Re(\lambda)h)\mathbb{E}[|X_n|^2]+|\beta|^2 h\\
+%  						\vdots &=\vdots\\
+%								&= \exp(2Re(n+1)\lambda h)\mathbb{E}[|X_{0}|]\\
+%								&+|\beta|^2h 
+%	    				\underbrace{
+%	      					\left(
+%	      						1+\cdots+\exp(2nRe(\lambda) h)
+%	     						\right)
+%	    						}_{\text{Serie geométrica}}\\
+%  					\end{align*}	
+%			}
+%			\only<11>{
+%				\begin{align*}
+%					\mathbb{E}[|X_{n+1}|^2]&=\exp(2(n+1)Re(\lambda)h)\mathbb{E}[|X_0|^2]\\
+%  							+&\beta^2 h \frac{(\exp(2Re(\lambda)h))^{n+1}-1}{\exp(2Re(\lambda)h)-1}  		
+%  				\end{align*}
+%			}	
+			\only<4->{
+				Si $Re(\lambda)<0$
+				\begin{align*}
+  					\mathbb{E}[|X_{n+1}|^2]
+  					\xrightarrow{n\to\infty}
+  					\colorbox{hellcyan}{
+  				 		$\frac{-|\beta|^2 h}{\exp(2Re(\lambda)h)-1}$
+  					}
+  				\end{align*}		
+			}
+		\end{overlayarea}
+	\end{columns}
+	%\biblio{BibliografiaTesis}
+\end{frame}
+%\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Estabilidad en Media Cuadrática}
+  \begin{empheq}{equation}
+ 		dX_t=\lambda X_t dt +\beta dB_t, \qquad X_0=cte., \lambda, \beta \in \mathbb{C} \tag{E}.
+  \end{empheq}
+   \begin{columns}
+	  \column{.5\textwidth}
+		\begin{definicion}[Consistencia lineal en MC]
+	 		Un esquema numérico para  la ecuación (E) se dice asintóticamente consistente en media
+	 		cuadrática si la solución numérica satisface
+ 		$$
+ 		  \lim_{\substack{ n\to \infty\\ h\to 0}} X_n= \frac{-\beta}{2Re(\lambda)}
+ 		$$
+ 	  \end{definicion}
+	  \column{.5\textwidth}
+ 	  \begin{Teorema}
+ 		 El esquema Steklov para la ecuación (E), es asintóticamente consistente en MC.
+ 	  \end{Teorema}
+  \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[alpha]
+\begin{frame}
+	\frametitle{Stabilidad lineal por trayectorias}
+	\begin{empheq}{equation*}
+		dX_t=\lambda X_t dt +\beta dB_t, \qquad X_0=cte., \lambda, \beta \in \mathbb{R} \tag{E}.
+	\end{empheq}
+	\nocite{Buckwar2011a}
+	\begin{columns}
+		\column{.5\textwidth}
+			\begin{overlayarea}{\textwidth}{.5\textheight}
+				\centering Pullback attractor
+				\only<2->{
+					\begin{empheq}[box=\shadowbox*]{equation*}
+						\lim_{t_0\to-\infty} X_t =\widehat{O}_t %
+						:= e^{\lambda t}\int\limits_{-\infty}^{t}e^{-\lambda s}dB_s, 
+					\end{empheq}
+				}
+		\end{overlayarea}
+		\column{.5\textwidth}
+			\begin{overlayarea}{\textwidth}{.5\textheight}
+			\vspace{-1.0cm}
+			\only<3->{
+				\begin{Teorema}
+					Sea $\lambda<0$,  el método Steklov para (E)
+					tiene el siguiente atractor
+					\begin{equation*}
+						\widehat{O}_n^{(h)}  :=
+						\xi \sum_{j=-\infty}^{n-1}\exp(\lambda h(n-1-j)) \Delta B_j,
+					\end{equation*}
+					$\widehat{O}_n^{(h)} \to \widehat{O}_t$, \quad $h\to 0$, \quad pathwise.
+				\end{Teorema}
+			}
+			\end{overlayarea}
+	\end{columns}
+\biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Estabilidad en Media Cuadrática Ruido Multiplicativo}
+	\begin{empheq}[box=\shadowbox*]{equation*}
+		dX_t=\lambda X_t dt +\xi X_t dB_t, \qquad X_0=cte., \lambda, \xi \in \mathbb{R} \tag{E}.
+	\end{empheq}
+	\begin{columns}
+		\column{.5\textwidth}
+		\only<2->{
+			\begin{exampleblock}{MS-estabilidad Lineal}
+				\begin{itemize}
+					\item
+						diagonal (EM)
+					\item
+						vertical (Steklov)
+				\end{itemize}
+			\end{exampleblock}
+		}
+		\column{.5\textwidth}
+			\centering
+			\only<3->{
+				\includegraphics[width=1\linewidth]{images/StabilityPlotMultiplicativeNoise}
+			}
+	\end{columns}
+\end{frame}
+
+
+

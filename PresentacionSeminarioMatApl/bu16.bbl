@@ -1,0 +1,11 @@
+\newif\ifabfull\abfulltrue
+\input apreambl
+\begin{thebibliography}{HS92}
+
+\bibitem[HS92]{hernandez1992stability}
+\abtype{0}{D.~B. Hernandez\abphrase{0}R.~Spigler}.
+\newblock {A-stability of Runge-Kutta methods for systems with additive noise}.
+\newblock \abtype{2}{BIT Numerical Mathematics} \abtype{3}{32}\abtype{4}{4},
+  620--633 \abtype{5}{1992}.
+
+\end{thebibliography}

@@ -1,0 +1,89 @@
+\begin{frame}[fragile]{Summary}
+		\begin{columns}
+			\column{.3\textwidth}
+				\begin{overlayarea}{\textwidth}{\textheight}
+					\vspace{2em}
+					\begin{block}{Using Bib\TeX}
+						Create your\\
+						\only<1-7>{
+							 Bib\TeX-File
+							}
+						\only<6-7>{
+							La\TeX-File\\
+						}
+						\only<7>{
+							Compile
+						}
+					\end{block}
+				\end{overlayarea}	
+			\column{.5\textwidth}
+				\begin{overlayarea}{\textwidth}{\textheight}
+					\vspace{2em}
+					\only<2>{
+						\begin{semiverbatim}
+							@misc\{Nobody06,
+							
+							author = "Nobody Jr",
+							
+							title = "My Article",
+							
+							year = "2006" 
+							\}
+						\end{semiverbatim}
+					}
+					
+					\only<3>{
+						\includegraphics[scale=0.25]{/home/saul/sauld@cimat.mx/Materias/Presentations/EnglishTalkNovember2014/logos/logoMendeley.jpg}
+					}
+					\only<4>{
+						\includegraphics[scale=0.25]{/home/saul/sauld@cimat.mx/Materias/Presentations/EnglishTalkNovember2014/logos/logoCalibre.png}
+					}
+					\only<5>{
+						\includegraphics[scale=0.25]{/home/saul/sauld@cimat.mx/Materias/Presentations/EnglishTalkNovember2014/logos/logoJabref.jpg}
+					}
+					\only<6>{
+						\begin{semiverbatim}
+							\\documentclass\{article\}
+							
+							\\usepackage\{cite\}
+							
+							\\begin\{document\}
+							
+							    \\title\{My Article\}
+							    
+							    \\author\{Nobody Jr.\}
+							    
+							    \\date\{Today\}
+							    
+							    \\maketitle
+							
+							    Blablabla \alert{\\cite\{Nobody06\}}.
+								
+								\alert{\\bibliographystyle\{plain\}}
+							    
+							    \alert{\\bibliography\{mybib\}\{\}}
+							
+							\\end\{document\}
+						
+						\end{semiverbatim}
+					}
+					\only<7>{
+						\begin{semiverbatim}
+							\$ pdflatex myarticle.tex
+							
+							\$ bibtex myarticle.aux
+							
+							\$ pdflatex myarticle.tex
+							
+							\$ pdflatex myarticle.tex
+						\end{semiverbatim}
+					
+					}
+					\only<8>{
+						\begin{alertblock}{}
+							Organize your information!!!
+						\end{alertblock}
+						}			
+				\end{overlayarea}
+		\end{columns}
+	\end{frame}

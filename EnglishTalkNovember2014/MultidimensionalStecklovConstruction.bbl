@@ -1,0 +1,126 @@
+\begin{thebibliography}{15}
+	\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+	\expandafter\ifx\csname url\endcsname\relax
+	\def\url#1{\texttt{#1}}\fi
+	\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+	\providecommand{\eprint}[2][]{\url{#2}}
+	\providecommand{\bibinfo}[2]{#2}
+	\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+	
+	%Type = Article
+	\bibitem[{Arnold et~al.(1979)Arnold, Horsthemke y Stucki}]{Arnold1979}
+	\bibinfo{author}{Arnold, L.}, \bibinfo{author}{Horsthemke, W.},
+	\bibinfo{author}{Stucki, J.W.}, \bibinfo{year}{1979}.
+	\newblock \bibinfo{title}{{The Influence of External Real and White Noise on
+	the LOTKA-VOLTERRA Model}}.
+	\newblock \bibinfo{journal}{Biometrical Journal} \bibinfo{volume}{21},
+	\bibinfo{pages}{451--471}.
+	
+	%Type = Article
+	\bibitem[{Burrage et~al.(2007)Burrage, Lenane y Lythe}]{Burrage2007}
+	\bibinfo{author}{Burrage, K.}, \bibinfo{author}{Lenane, I.},
+	\bibinfo{author}{Lythe, G.}, \bibinfo{year}{2007}.
+	\newblock \bibinfo{title}{{Numerical Methods for Second-Order Stochastic
+	Differential Equations}}.
+	\newblock \bibinfo{journal}{SIAM Journal on Scientific Computing}
+	\bibinfo{volume}{29}, \bibinfo{pages}{245--264}.
+	
+	%Type = Article
+	\bibitem[{Dalal et~al.(2007)Dalal, Greenhalgh y Mao}]{Dalal2007}
+	\bibinfo{author}{Dalal, N.}, \bibinfo{author}{Greenhalgh, D.},
+	\bibinfo{author}{Mao, X.}, \bibinfo{year}{2007}.
+	\newblock \bibinfo{title}{{A stochastic model of AIDS and condom use}}.
+	\newblock \bibinfo{journal}{Journal of Mathematical Analysis and Applications}
+	\bibinfo{volume}{325}, \bibinfo{pages}{36--53}.
+	%Type = Article
+	\bibitem[{Dalal et~al.(2008)Dalal, Greenhalgh y Mao}]{Dalal2008}
+	\bibinfo{author}{Dalal, N.}, \bibinfo{author}{Greenhalgh, D.},
+	\bibinfo{author}{Mao, X.}, \bibinfo{year}{2008}.
+	\newblock \bibinfo{title}{{A stochastic model for internal HIV dynamics}}.
+	\newblock \bibinfo{journal}{Journal of Mathematical Analysis and Applications}
+	\bibinfo{volume}{341}, \bibinfo{pages}{1084--1101}.
+	%Type = Article
+	\bibitem[{Ding et~al.(2008)Ding, Xu y Hu}]{Ding2008}
+	\bibinfo{author}{Ding, Y.}, \bibinfo{author}{Xu, M.}, \bibinfo{author}{Hu, L.},
+	\bibinfo{year}{2008}.
+	\newblock \bibinfo{title}{{Asymptotic behavior and stability of a stochastic
+	model for AIDS transmission}}.
+	\newblock \bibinfo{journal}{Applied Mathematics and Computation}
+	\bibinfo{volume}{204}, \bibinfo{pages}{99--108}.
+	%Type = Article
+	\bibitem[{Dobrinevski y Frey(2012)}]{Dobrinevski2012}
+	\bibinfo{author}{Dobrinevski, A.}, \bibinfo{author}{Frey, E.},
+	\bibinfo{year}{2012}.
+	\newblock \bibinfo{title}{{Extinction in neutrally stable stochastic
+	Lotka-Volterra models}}.
+	\newblock \bibinfo{journal}{Physical Review E} \bibinfo{volume}{85},
+	\bibinfo{pages}{051903}.
+	\newblock \eprint{1001.5235}.
+	%Type = Article
+	\bibitem[{Gray et~al.(2011)Gray, Greenhalgh, Hu, Mao y Pan}]{Gray2011}
+	\bibinfo{author}{Gray, A.}, \bibinfo{author}{Greenhalgh, D.},
+	\bibinfo{author}{Hu, L.}, \bibinfo{author}{Mao, X.}, \bibinfo{author}{Pan,
+	J.}, \bibinfo{year}{2011}.
+	\newblock \bibinfo{title}{{A Stochastic Differential Equation SIS Epidemic
+	Model}}.
+	\newblock \bibinfo{journal}{SIAM Journal on Applied Mathematics}
+	\bibinfo{volume}{71}, \bibinfo{pages}{876--902}.
+	%Type = Article
+	\bibitem[{Keller(1996)}]{Keller1996}
+	\bibinfo{author}{Keller, H.}, \bibinfo{year}{1996}.
+	\newblock \bibinfo{title}{{Attractors and bifurcations of the stochastic Lorenz
+	system}} , \bibinfo{pages}{1--24}.
+	%Type = Article
+	\bibitem[{Mao et~al.(2002)Mao, Marion y Renshaw}]{Mao2002}
+	\bibinfo{author}{Mao, X.}, \bibinfo{author}{Marion, G.},
+	\bibinfo{author}{Renshaw, E.}, \bibinfo{year}{2002}.
+	\newblock \bibinfo{title}{{Environmental Brownian noise suppresses explosions
+	in population dynamics}}.
+	\newblock \bibinfo{journal}{Stochastic Processes and their Applications}
+	\bibinfo{volume}{97}, \bibinfo{pages}{95--110}.
+	%Type = Article
+	\bibitem[{Melb\o y Higham(2004)}]{Melbo2004}
+	\bibinfo{author}{Melb\o, A.}, \bibinfo{author}{Higham, D.J.},
+	\bibinfo{year}{2004}.
+	\newblock \bibinfo{title}{{Numerical simulation of a linear stochastic
+	oscillator with additive noise}}.
+	\newblock \bibinfo{journal}{Applied numerical mathematics}
+	\bibinfo{volume}{51}, \bibinfo{pages}{89--99}.
+	%Type = Article
+	\bibitem[{Schenk-Hopp\'{e}(1996)}]{Schenk-Hoppe1996a}
+	\bibinfo{author}{Schenk-Hopp\'{e}, K.R.}, \bibinfo{year}{1996}.
+	\newblock \bibinfo{title}{{Bifurcation scenarios of the noisy duffing-van der
+	pol oscillator}}.
+	\newblock \bibinfo{journal}{Nonlinear Dynamics} \bibinfo{volume}{11},
+	\bibinfo{pages}{255--274}.
+	%Type = Article
+	\bibitem[{Schurz(2003)}]{Schurz2003}
+	\bibinfo{author}{Schurz, H.}, \bibinfo{year}{2003}.
+	\newblock \bibinfo{title}{{General theorems for numerical approximation of
+	stochastic processes on the Hilbert Space}}.
+	\newblock \bibinfo{journal}{Electronic Transactions on Numerical Analysis}
+	\bibinfo{volume}{16}, \bibinfo{pages}{50--69}.
+	%Type = Article
+	\bibitem[{{Serghini Mounim} y de~Dormale(2004)}]{SerghiniMounim2004}
+	\bibinfo{author}{{Serghini Mounim}, A.}, \bibinfo{author}{de~Dormale, B.M.},
+	\bibinfo{year}{2004}.
+	\newblock \bibinfo{title}{{A note on Mickens' finite-difference scheme for the
+	Lotka–Volterra system}}.
+	\newblock \bibinfo{journal}{Applied Numerical Mathematics}
+	\bibinfo{volume}{51}, \bibinfo{pages}{341--344}.
+	%Type = Article
+	\bibitem[{Tornatore et~al.(2005)Tornatore, {Maria Buccellato} y
+	Vetro}]{Tornatore2005}
+	\bibinfo{author}{Tornatore, E.}, \bibinfo{author}{{Maria Buccellato}, S.},
+	\bibinfo{author}{Vetro, P.}, \bibinfo{year}{2005}.
+	\newblock \bibinfo{title}{{Stability of a stochastic SIR system}}.
+	\newblock \bibinfo{journal}{Physica A: Statistical Mechanics and its
+	Applications} \bibinfo{volume}{354}, \bibinfo{pages}{111--126}.
+	%Type = Article
+	\bibitem[{Yagi y Ton(2011)}]{Yagi2011}
+	\bibinfo{author}{Yagi, A.}, \bibinfo{author}{Ton, T.V.}, \bibinfo{year}{2011}.
+	\newblock \bibinfo{title}{{Dynamic of a stochastic predator–prey
+	population}}.
+	\newblock \bibinfo{journal}{Applied Mathematics and Computation}
+	\bibinfo{volume}{218}, \bibinfo{pages}{3100--3109}.
+\end{thebibliography}

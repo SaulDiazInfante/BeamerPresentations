@@ -1,0 +1,79 @@
+\begin{frame}
+  \frametitle{Por que EDEs?}
+	\begin{empheq}[box={\Garybox[En ocaciones]}]{align*}
+		EDO+ruido=Mejor \text{ } modelo
+	\end{empheq}	
+	\begin{overlayarea}{\textwidth}{.7\textheight}
+		\begin{columns}
+    		\column{.5\textwidth}
+			\only<2-3>{		
+			\begin{exampleblock}{Crecimiento de Poblaciones}
+				$$
+					\frac{dN}{dt}=a(t)N(t) \qquad N_0=N(0)=cte.
+				$$
+			\end{exampleblock}	
+			}		
+			\only<4-8>{	
+			\begin{exampleblock}{Circuitos Eléctricos}
+			\begin{align*}
+				&L\cdot Q''(t)+
+				R\cdot Q'(t)+
+				\frac{1}{C}\cdot Q(t)
+				=F(t)\\
+				&Q(0)=Q_0\\
+				&Q'(0)=I_0
+			\end{align*}				
+		\end{exampleblock}	
+		}
+		\only<7-8>{
+		\begin{empheq}[box=\shadowbox*]{equation*}					
+			Q(t)=Z(t)+"ruido"		
+		\end{empheq}		
+		}		
+		\column{.5\textwidth}
+		\only<3>{
+			\begin{empheq}[box=\shadowbox*]{equation*}		
+				a(t)=r(t)+"ruido"
+			\end{empheq}
+		}	
+		\only<5-8>{
+			\includegraphics[width=\textwidth]{./images/CircuitRLC.png}		
+		}		
+		\only<6-8>{
+		\begin{empheq}[box=\shadowbox*]{equation*}					
+			F(t)=G(t)+"ruido"	
+		\end{empheq}		
+		}
+		\only<8>{
+			Estima $Q(t)$ observando $Z(t)$		
+		}
+	\end{columns}    
+	\end{overlayarea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Por que hacer métodos numéricos para EDEs?}
+	\begin{empheq}[box={\Garybox[En ocaciones]}]{align*}
+		EDO+ruido=Mejor \text{ } modelo
+	\end{empheq}	
+	\begin{overlayarea}{\textwidth}{.7\textheight}
+		\begin{columns}
+    		\column{.5\textwidth}	
+				\begin{alertblock}{Solución analítica?}
+					muy RARA
+				\end{alertblock}			
+			\column{.5\textwidth}
+				\begin{block}{Usa }
+					Teoría de diferencias finitas y haz una extención estocástica.
+				\end{block}		
+		\end{columns}    
+	\end{overlayarea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Objetivo}
+	\begin{alertblock}{Objetivo de la charla}
+		\emph{Ilustrar} como aproximar soluciones de EDEs  a partir de \emph{conocimientos básicos} 
+		de los \emph{métodos deterministas} y nociones muy elementales de variables aleatorias.
+	\end{alertblock}
+\end{frame}

@@ -1,0 +1,148 @@
+\tikzstyle{every picture}+=[remember picture]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{bibunit}[aalpha]
+\begin{frame}{MDFNS}
+  \begin{block}{génesis}
+    Los métodos en diferencias finitas no estándar (MDFNE) para integrar ecuaciones diferenciales tienen su
+génesis
+    en el articulo \cite{Mickens1989}. Las reglas para su construcción  aparecen en \cite{mickens1994nonstandard}
+y su aplicación
+    especifica a varios problemas no lineales en varias publicaciones \cite{Mickens}.
+
+  \end{block}
+  \biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+\begin{bibunit}[aalpha]
+\begin{frame}
+  \begin{exampleblock}{Aplicaciones}
+  \begin{overlayarea}{\textwidth}{.2\textheight}
+  \begin{itemize}
+     \item
+      \only<+>{
+        problemas con frontera singular en coordenadas cilíndricas o esféricas
+        \cite{buckmire2003investigations} ,
+      }
+      \only<+>{
+        un modelo  reacci\'on difusi\'on generalizado de Nagumo  \cite{Chen2003},
+      }
+      \only<+>{
+       ecuaciones de modelado para  la estructura estelar \cite{mickens2003non},
+      }
+      \only<+>{
+       din\'amica de la transmisi\'on del VIH \cite{Gumel2004},
+      }
+      \only<+>{  problemas de transporte lineal modificado de calor / difusión\cite{mickens2004positivity}.
+      }
+  \end{itemize}
+  \end{overlayarea}
+  \end{exampleblock}
+  \biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+
+\begin{frame}
+    \frametitle{Esquemas en diferencias finitas no est\'andar}
+    % Below we mix an ordinary equation with TikZ nodes. Note that we have to
+    % adjust the baseline of the nodes to get proper alignment with the rest of
+    % the equation.
+    \begin{itemize}
+        \item <2-> Se aproxima por
+      $\displaystyle \frac{y_{k+1}-y_{k}}{\textcolor{red}{\phi(h)}}$,\\
+      $ \phi(h)=h+\mathcal{O}(h^2)$.
+      \tikz[na] \node [coordinate] (n1) {};
+    \end{itemize}
+    \begin{equation*}
+      \tikz[baseline]{
+          \node[fill=blue!20,anchor=base] (t1)
+          {$\frac{dy}{dt}$};
+      }=
+      \tikz[baseline]{
+          \node[fill=red!20, ellipse,anchor=base] (t2)
+          {$F(t,y,y_0,\lambda)$};
+      }
+    \end{equation*}
+
+    \begin{itemize}
+        \item<3-> se discretiza  de \emph{forma no  local}.
+      \tikz[na] \node [coordinate] (n2) {};
+    \end{itemize}
+
+    % Now it's time to draw some edges between the global nodes. Note that we
+    % have to apply the 'overlay' style.
+    \begin{tikzpicture}[overlay]
+      \path[->]<2-> (n1) edge [out=0, in=180] (t1);
+      \path[->]<3-> (n2) edge [bend right] (t2);
+    \end{tikzpicture}
+  \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{frame}
+     \tikzset{
+           state/.style={
+          rectangle,
+          rounded corners,
+          draw=black, very thick,
+          minimum height=2em,
+          inner sep=4pt,
+          text centered,
+          fill=gray!20
+          },
+    }
+    \frametitle{Esquemas en diferencias finitas no est\'andar}
+    \begin{tikzpicture}[->,>=stealth,overlay]
+     \node[state,xshift=2cm, text width=.3\textwidth] (EDO)%
+     {%
+      \begin{align*}
+        \frac{dy}{dt}=&f(y,t,\lambda),\\
+        y(t_0)=&y_0.\\
+        \\
+        y(t)=&\phi(\lambda,y_0,t_0,t),\\
+        y_0=&\phi(\lambda,y_0,t_0,t_0).
+      \end{align*}
+     };
+     % State: ACK with different content
+     \node[state,       % layout (defined above)
+      text width=.35\textwidth,   % max text width
+      yshift=1cm,       % move 2cm in y
+      right of=EDO,     % Position is to the right of QUERY
+      node distance=6.5cm,    % distance to QUERY
+      anchor=center] (EDF)    % posistion relative to the center of the 'box'
+     {%
+      \begin{align*}
+        y_{k+1}=&g(\lambda,h,y_k,t_k), \\
+        t_k=&hk.\\
+        \\
+        y_k=&\psi(\lambda,h,y_0,t_0,t_k),\\
+         y_0=&\psi(\lambda,h,y_0,t_0,t_0).
+      \end{align*}
+     };
+    %draw path
+    \path (EDO)  edge[bend left=20]  (EDF);
+     \end{tikzpicture}
+  \end{frame}
+
+\begin{frame}[dfn:EsquemaExacto]
+  \frametitle{Esquemas exactos}
+  \begin{Definicion}[Esquema en diferencias exacto] 
+    Un esquema en diferencias se dice exacto, si su soluci\'on general y la de la EDO asociada, son
+    equivalentes,  es decir,si y s\'olo  si
+    $$
+      y_k=y(t_k), \quad  k=0,1,\dots
+    $$
+    y para todo valor de $h$.
+   \end{Definicion}
+  \uncover<2>{
+  \begin{Teorema}
+    A cada ecuaci\'on diferencial
+    $
+      \frac{dy}{dt}=f(y,t,\lambda),  \qquad y(t_0)=y_0,
+    $
+    le corresponde un esquema de diferencia finita dado por
+    $$
+    y_{k+1}=\phi(\lambda,y_k,t_k,t_{k+1}),
+    $$
+    donde $\phi$  es la soluci\'on general de la EDO.
+  \end{Teorema}
+  }
+\end{frame}

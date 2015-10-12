@@ -1,0 +1,32 @@
+\begin{bibunit}[aalpha]
+\begin{frame}{Ejemplo}
+  \begin{columns}
+    \column{.4\textwidth}
+    \begin{block}{$\frac{dt}{dt}=y^3,\qquad y(0)=1$}
+    Usando la formulación de la alternativa 2:
+      \begin{equation*}
+        \frac{y_{k+1}-y_k}{h}=-2\frac{y_{k+1}^2 y^2_k}{y_{k+1}+y_k}.
+    \end{equation*}
+    \cite{solis2004nonstandard}
+    \end{block}
+   \column{.6\textwidth}
+  \only<+>{
+    \begin{block}{$h=\num{.5}$}
+      \includegraphics[width=\textwidth]{./images/SolucionODECubic(a).png}
+     \end{block}
+   }
+  \only<+>{
+    \begin{block}{$h=1$}
+      \includegraphics[width=\textwidth]{./images/SolucionODECubic(b).png}
+    \end{block}
+  }
+  \only<+>{
+    \begin{block}{$h=10$}
+      \includegraphics[width=\textwidth]{./images/SolucionODECubic(c).png}
+    \end{block}
+}
+\end{columns}
+  \biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+

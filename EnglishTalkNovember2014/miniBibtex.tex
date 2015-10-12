@@ -1,0 +1,148 @@
+\subsection{What is Bib\TeX?}
+	\begin{frame}[fragile]{Bib\TeX}
+		\begin{overlayarea}{.4\textwidth}{.3\textheight}
+			\vskip -1.5em
+			\only<2>{
+				\begin{block}{What is Bib\TeX}
+						Is a tool used to describe and process lists of references, mostly in conjunction with LaTeX documents.
+				\end{block}
+			}
+			\only<3-7>{
+				\begin{block}{Compilation Porcess}
+					\only<4>{
+						(1) pdflatex \\
+						 list of cite references\\
+						 (.aux)
+					}
+					\only<5>{
+						(2) bibtex
+						reads (.aux)\\
+						create list reference\\
+						(.bbl)
+					}
+					\only<6>{
+						(3) pdflatex\\
+						reads (.bbl)
+					}
+					\only<7>{
+						(4) pdflatex
+						resolve all references.
+					}
+				\end{block}
+			}
+		\end{overlayarea}
+		\begin{overlayarea}{\textwidth}{\textheight}
+			\only<3-7>{
+				\vskip-7em
+				\begin{center}
+					\includegraphics[width=.7\textwidth]{latex_user_sw_levels/latex_user_sw_levels}
+				\end{center}
+			}
+		\end{overlayarea}
+	\end{frame}
+	
+	\begin{frame}[fragile]{bib\TeX format (.bib) and bib\TeX  style}
+		\begin{columns}
+			\column{.4\textwidth}
+				\begin{block}{Bib\href{run:InOutBibtex.mp4}{\TeX} format:}
+					\centering
+					\begin{verbatim*}
+						@article{mrx05, 
+						author="X", 
+						Title={Something}, 
+						publisher="nobody", 
+						YEAR=2005
+						} 
+					\end{verbatim*}
+				\end{block}
+			\column{.6\textwidth}
+				\begin{overlayarea}{\textwidth}{0.7\textheight}
+					\begin{center}
+						\only<2>{
+							\includegraphics[width=0.7\linewidth]{showbst-abbrv.png}
+						}
+						\only<3>{
+							\includegraphics[width=0.7\linewidth]{showbst-abstract.png}
+						}
+					\end{center}
+				\end{overlayarea}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}{How generate bib files }
+		\begin{columns}
+			\column{.3\textwidth}
+				\begin{overlayarea}{\textwidth}{\textheight}	
+					\vspace{7em}
+					\begin{block}{
+							\only<1-2>{
+								Bibfile Mendeley:
+							}
+							\only<3-4>{
+								Bibfile Calibre:
+							}
+						}
+						\only<2>{
+									For articles
+						}
+						\only<4>{
+									For Books.
+						}
+					\end{block}
+				\end{overlayarea}	
+			\column{.5\textwidth}
+				\begin{overlayarea}{.5\textwidth}{\textheight}
+					\vspace{7em}
+					\only<2>{
+								\href{run:MendeleyBibFile.mp4}{
+								\includegraphics[scale=0.25]{/home/saul/sauld@cimat.mx/Materias/Presentations/EnglishTalkNovember2014/logos/logoMendeley.jpg}%
+							}
+					}
+					\only<4>{
+								\href{run:CalibreBibFile.mp4}{
+								\includegraphics[scale=0.25]{/home/saul/sauld@cimat.mx/Materias/Presentations/EnglishTalkNovember2014/logos/logoCalibre.png}
+							}
+					}
+				\end{overlayarea}
+		\end{columns}
+	\end{frame}
+
+	\begin{frame}[fragile]{General Template }
+		\begin{columns}
+			\column{.3\textwidth}
+				\begin{overlayarea}{\textwidth}{\textheight}	
+					\vspace{3em}
+					\begin{block}{Bib\TeX}
+						\only<2>{
+						Style (.bst)
+ 						}
+						\only<3>{
+						Database (.bib)
+						}
+					\end{block}
+					\only<4>{
+								\href{run:BibBSTWhere.mp4}{Bib\TeX}
+							}
+				\end{overlayarea}
+			\column{.5\textwidth}
+				\begin{overlayarea}{.5\textwidth}{\textheight}
+						\vspace{1em}
+						\begin{verbatim}
+							\documentclass[11pt]{article}
+							\usepackage{cite}
+							\begin{document}
+							    \title{My Article}
+							    \author{Nobody Jr.}
+							    \date{Today}
+							    \maketitle
+							
+							    Blablabla \cite{Nobody06}.
+							
+							    \bibliographystyle{plain}
+							    \bibliography{mybib}{}
+							
+							\end{document}
+						\end{verbatim}
+				\end{overlayarea}
+		\end{columns}
+	\end{frame}

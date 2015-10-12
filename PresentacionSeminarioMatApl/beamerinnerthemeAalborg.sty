@@ -1,0 +1,144 @@
+% This is the inner theme file of the Aalborg theme.
+% Copyright (c) 2011-2013 by Jesper Kjær Nielsen <jkn@es.aau.dk>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You can find the GNU General Public License at <http://www.gnu.org/licenses/>.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerinnerthemeAalborg}[2013/03/13 v1.1.0 The Aalborg Beamer Theme]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theme options and definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%theme options
+%
+\RequirePackage{tikz}
+\usetikzlibrary{fadings}
+\RequirePackage{ifthen}
+%
+\DeclareOptionBeamer{left}{\def\beamer@sidebarside{left}}
+\DeclareOptionBeamer{right}{\def\beamer@sidebarside{right}}
+\ExecuteOptionsBeamer{right}
+\ProcessOptionsBeamer
+
+\def\beamer@lefttext{left} %used for comparison below
+\newlength{\beamer@titlepagewidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%beamer specific options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<presentation>%refers to the first four modes (beamer,handout,second and trans). That is, to all modes except the article mode
+{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %templates
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %title page
+  \defbeamertemplate*{title page}{Aalborg theme}{%
+    \ifx\beamer@sidebarside\beamer@lefttext% sidebar on the left
+      \setlength{\beamer@titlepagewidth}{\textwidth-\Gm@rmargin+\Gm@lmargin}%
+      \hspace*{-\Gm@lmargin}
+    \else% sidebar on the right
+      \setlength{\beamer@titlepagewidth}{\textwidth+\Gm@rmargin-\Gm@lmargin}%
+    \fi%
+    \hfill%
+    \begin{minipage}[c][\textheight][c]{\beamer@titlepagewidth}
+      \centering
+      {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
+
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\vspace*{\baselineskip}
+
+      {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}\vspace*{\baselineskip}
+
+      {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\vspace*{\baselineskip}
+      
+      {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}
+    \end{minipage}
+  }
+
+  %part page
+  \AtBeginPart{\frame[plain]{\partpage}} %adds a plain part page as defined below
+  \defbeamertemplate*{part page}{Aalborg theme}{%
+    \ifx\beamer@sidebarside\beamer@lefttext% sidebar on the left
+      \setlength{\beamer@titlepagewidth}{\textwidth-\Gm@rmargin+\Gm@lmargin}%
+      \hspace*{-\Gm@lmargin}
+    \else% sidebar on the right
+      \setlength{\beamer@titlepagewidth}{\textwidth+\Gm@rmargin-\Gm@lmargin}%
+    \fi%
+    \hfill%
+    \begin{minipage}[c][\textheight][c]{\beamer@titlepagewidth}
+      \centering
+      {\usebeamerfont{title}\usebeamercolor[fg]{author}{Part \Roman{part}}}\vspace*{\baselineskip}
+
+      {\usebeamerfont{title}\usebeamercolor[fg]{title}{\insertpart}}
+    \end{minipage}
+  }
+
+}%end of beamer specific options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Bibliography...
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\biblio}[1]{
+  \begin{center}
+  \usebeamercolor{block body}
+  \begin{tikzpicture}
+    \draw node[draw=black!20!bg, fill=bg, rounded corners=2pt]
+    {\parbox{0.95\textwidth}{\vskip-0.1cm\putbib[#1]\vskip0.1cm}};
+   \end{tikzpicture}
+   \twopton{}
+\end{center}
+}
+\defbeamertemplate*{bibliography item}{progressbar theme}{
+  \begin{tikzpicture}[rounded corners=1pt]
+    \useasboundingbox (-0.1, 0.3) rectangle (0.4, 0.5);
+    \fill[fill=structure.fg!25!structure.bg] (0, 0.25) rectangle (0.4, 0.5);
+    \shade[bottom color=structure.bg,top color=structure.fg!25!structure.bg]
+    (0,0) -- (0.3, 0) -- (0.4, 0.12) -- (0.4, 0.3) -- (0, 0.3) -- cycle;
+    \shade[left color=structure.bg,right color=structure.fg!30!structure.bg]
+    (0,0.27) .. controls (0.25,0.25) .. (0.4,0.5) -- (0,0.5) -- cycle;
+    \fill[fill=structure.bg!80!structure.fg] (0,0) rectangle (0.3,0.05);
+    \shade[left color=structure.bg!95!structure.fg,right color=structure.bg!80!structure.fg]
+    (0,0) rectangle (0.05,0.5);
+    \shade[left color=structure.bg,right color=structure.bg!50!structure.fg,shading angle=45]
+    (0.3,0) -- (0.3,0.12) --(0.4,0.12) -- cycle;
+    \draw[draw=structure.fg!35!structure.bg]
+    (0,0) -- (0.3,0) -- (0.4,0.12) --(0.4,0.5) -- (0,0.5) -- cycle;
+    \draw[draw=structure.fg!35!structure.bg](0.3,0) -- (0.3,0.12) -- (0.4,0.12);
+  \end{tikzpicture}
+}
+\def\bibitem{\@ifnextchar<{\beamer@bibitem@store}{\gdef\beamer@bibstore{}
+\beamer@plainbibitem}}
+\def\beamer@bibitem@store<#1>{\gdef\beamer@bibstore{<#1>}\beamer@plainbibitem}
+\def\beamer@plainbibitem{\@ifnextchar[\@lbibitem\beamer@bibitem}
+\def\@lbibitem[#1]#2{\expandafter\item\beamer@bibstore[\@biblabel{#1}\hfill]%
+  \@ifundefined{beamerbib@#2@\the\c@framenumber}{\if@filesw%
+    {\let\protect\noexpand%
+      \immediate\write\@auxout%
+      {\string\bibcite{#2}{\noexpand\hyperlink{beamerbib#2}{#1}}}}\fi%
+    \global\@namedef{beamerbib@#2@\the\c@framenumber}{\relax}%
+    \hypertarget{beamerbib#2}{}%
+    }{}%
+  \def\newblock{\beamer@newblock}\newblock\hskip-0.8ex}% This is really dirty !
+%  \hbox{}\ignorespaces}
+\def\beamer@bibitem#1{\@bibitem{#1}\ignorespaces}
+\def\@bibitem#1{\expandafter\item\beamer@bibstore\@ifundefined{
+beamerbib@#1@\the\c@framenumber}%
+  {\if@filesw \immediate\write\@auxout
+  
+{\string\bibcite{#1}{\noexpand\hyperlink{beamerbib#1}{\the\value{\@listctr}}}}
+\fi%
+    \global\@namedef{beamerbib@#1@\the\c@framenumber}{\relax}%
+    \hypertarget{beamerbib#1}{}}%
+  {}%
+  \def\newblock{\beamer@newblock}\newblock}
+\mode<all>

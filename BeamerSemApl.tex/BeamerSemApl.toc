@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {2}{Motivaci\'on}{20}{0}{1}
+\beamer@sectionintoc {3}{Descripci\'on del Problema}{21}{0}{2}
+\beamer@sectionintoc {4}{Objetivos}{22}{0}{3}

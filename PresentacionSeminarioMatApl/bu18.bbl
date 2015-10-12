@@ -1,0 +1,26 @@
+\newif\ifabfull\abfulltrue
+\input apreambl
+\begin{thebibliography}{HZC10}
+
+\bibitem[Bal07]{balescu2007v}
+\abtype{0}{R.~Balescu}.
+\newblock V-langevin equations, continuous time random walks and fractional
+  diffusion.
+\newblock \abtype{2}{Chaos, Solitons \& Fractals} \abtype{3}{34}\abtype{4}{1},
+  62--80 \abtype{5}{2007}.
+
+\bibitem[HZC10]{herrera2010ordering}
+\abtype{0}{S.~Herrera, A.~Zamudio\abphrase{1}\abphrase{0}R.~Casta{\~n}eda}.
+\newblock {Ordering and single-file diffusion in colloidal systems}.
+\newblock \abtype{2}{The Journal of chemical physics} \abtype{3}{133}, 114902
+  \abtype{5}{2010}.
+
+\bibitem[Jer11]{Silvia011}
+\abtype{0}{S.~Jerez}.
+\newblock Nonstandard lagrange-burman methods for the numerical integration of
+  differential equations.
+\newblock \abtype{2}{Journal of Difference Equations and Applications.}
+  \abtype{5}{2011}.
+\newblock Article accepted for publication.
+
+\end{thebibliography}

@@ -1,0 +1,302 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%1begin{frame}%[label=frm:1]{Hyperlinks}
+%    \frametitle{Ejemplo de Coloides}
+%	\begin{center}
+%		\movie[width=9.1cm,height=6.5cm,showcontrols=true,loop,poster]{}{Animacion16p.mpg}
+%	\end{center}
+% \end{frame}
+%---------------------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[label=frm:2]{}
+    \frametitle{Suspensiones Coloidales}
+    \centering
+    \only<1>{
+    \begin{center}
+       \includegraphics[scale=.20,keepaspectratio=true]{./Imagenes/Introduccion/colloid.jpg}
+	  % colloid.jpg: 826x898 pixel, 72dpi, 29.14x31.68 cm, bb=0 0 826 898
+        %\includegraphics[width=\textwidth, height=\textheight ]{./Imagenes/Introduccion/colloid.jpg}
+    \end{center}
+    }
+    \only<2>{
+    \begin{center}
+		\includegraphics[width=.7\textwidth]{./Imagenes/Introduccion/browngranular-foto2p.jpg}
+    \end{center}
+    }
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{frame}[label=frm:3]{}
+  \frametitle{Suspensiones Coloidales}
+    \begin{center}
+      \includegraphics[width=.7\textwidth]{./Imagenes/Introduccion/browngranular-foto2p.jpg}
+    \end{center}
+ \end{frame}
+%========================================
+%Aqui quiero poner la animación con VMD
+% 
+% 
+%=======================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\definecolor{DarkSlateGrey}{HTML}{001B0C}
+%\definecolor{LightSteelBlue}{HTML}{B3D7F6}
+%\definecolor{DarkGray}{HTML}{394F50}
+%\definecolor{LightGoldenrodYellow}{HTML}{F8FDCB}
+%\setbeamercolor{color titulo caja}{fg=DarkSlateGrey,bg=LightSteelBlue} %%
+%\setbeamercolor{color cuerpo caja}{fg=DarkGray,bg=LightGoldenrodYellow}%
+%\begin{frame}%[label=frm:4]{}
+%  \frametitle{Simulación de Dinámica Browniana}
+%  \tikzstyle{decision} = [diamond, draw, fill=yellow!20,
+%    text width=4.5em, text badly centered, node distance=4cm, inner sep=5pt]
+%  \tikzstyle{block} = [rectangle, draw, fill=blue!20,
+%    text width=5em, text centered, rounded corners, minimum height=4em]
+%  \tikzstyle{blockIm}= [rectangle, draw, fill=red!40,
+%    text width=6em, text centered, rounded corners, minimum height=4em]
+%  \tikzstyle{line} = [draw, -latex]
+%  \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+%    minimum height=2em]
+%  \begin{center}
+%	\begin{tikzpicture}[node distance = 2cm, auto]
+%    % Place nodes
+%	  \node [block] (Init) {Inicializar};
+%	  \node [block, below of=Init] (Fuerza) {Calculo de Fuerza};
+%	  \node [decision, left of=Fuerza] (Serie) {Serie de Tiempo};
+%	  \node [blockIm, below of=Fuerza] (Posiciones) {Posiciones};
+%	  \node [block, left of=Posiciones,node distance=6cm] (medio){Promediar cantidades de interes};
+%    % Draw edges
+%	  \path [line] (Init) -- (Fuerza);
+%	  \path [line] (Fuerza) --(Posiciones);
+%	  \path [line] (Posiciones)-|(Serie);
+%	  \path [line] (Serie)--(Fuerza);
+%	  \path [line] (Serie)-| (Promedio);
+%	\end{tikzpicture}
+%  \end{center}
+%\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzstyle{na} = [baseline=-.5ex]
+\tikzstyle{every picture}+=[remember picture]
+\everymath{\displaystyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Formulaci\'on de Langevin}
+  \begin{alertblock}{Ecuaciones de Movimiento}
+    \begin{equation*}
+      m\frac{d^2x}{dt^2}=
+      \tikz[baseline]{
+      \node[fill=blue!20,anchor=base] (t1)
+      {$ -\gamma \frac{dx}{dt}$};
+      }+
+      \tikz[baseline]{
+      \node[fill=green!20,anchor=base] (t2)
+      {$\Gamma(t)$};
+      }
+    \end{equation*}
+  \end{alertblock}
+  \begin{columns}
+    \column{.4\textwidth}
+    \begin{itemize}
+	\item <2-> $x=x(t)$:  posici\'on a tiempo $t$.
+	\item <3-> Fuerza de fricci\'on,  d\'onde $\gamma=6\pi\eta a$,   $\eta$
+	  es la viscosidad laminar  \tikz[na] \node [coordinate] (n1) {};
+	  del solvente  y $a$ radio  de la part\'icula.
+	\item <4->$\Gamma(t)$ :
+	  efecto estoc\'astico  
+	  debido a las colisiones. \tikz[na] \node [coordinate] (n2) {};
+    \end{itemize}
+    \column{.6\textwidth}
+  \end{columns} 
+    \begin{tikzpicture}[overlay]
+      \path [->]<3->  (n1) edge[bend right]  (t1);%
+      \path [->]<4->  (n2) edge[bend right]  (t2);%
+  \end{tikzpicture}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[apalike] 
+ \begin{frame}{}
+   \begin{alertblock}{Al aplicar eliminaci\'on
+	adiab\'atica \cite{gardiner1985handbook}}
+      \begin{equation*}
+          \frac{dx}{dt}=\frac{1}{k_BT} D F+D^{\frac{1}{2}}\xi.
+        \end{equation*}
+    \end{alertblock}
+  \begin{itemize}
+      \item $x=x(t)$: posici\'on a tiempo $t$.
+      \item $k_B,T$: $k_B$  constantes de  Boltzmann, $T$ temperatura,
+      \item $F= -\frac{dU}{dx}$:  fuerza de la part\'icula inmersa en un potencial $U$,
+      \item $D=\frac{k_BT}{6\pi\eta a}$: coeficiente de difusi\'on,
+      \item $\xi$ : ruido blanco,\\
+        $
+         	\mathbb{E}(\xi(t)) =0, \quad
+        	 \mathbb{E}(\xi(t)\xi(t'))=2\delta(t-t').
+        $
+   \end{itemize}
+  \biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{bibunit}[apalike]
+\begin{frame}\frametitle{Prop\'osito}
+    \begin{block}
+	{Resolvemos \quad $\frac{dx}{dt}=\frac{1}{k_BT} D F+D^{\frac{1}{2}}\xi.$}
+	Para \textcolor{cyan}{entender} los mecanismos de \textcolor{cyan}{difusi\'on}
+	en una suspensi\'on coloidal.
+	\emph{Sin embargo, en la pr\'actica \textcolor{red}{no se tiene soluci\'on anal\'itica}.}
+    \end{block}
+  %\biblio{BibliografiaTesis}
+\end{frame}
+%\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[apalike] 
+\begin{frame}
+  \frametitle{M\'etodo convencional }
+   \begin{exampleblock}{Euler-Mayurama}
+     \begin{align}
+        Y_{j+1}^{(\alpha)}(h)=&
+        	Y_{j}^{(\alpha)}+
+        	\frac{D}{T}F_{j}^{(\alpha)}\Delta t+
+        	R_{j}^{(\alpha)}\\        
+      	\mathbb{E}
+      		\left[
+      			R_{j}^{(\alpha)}
+        	\right]
+        	=&0 \label{eqn:mediaEMc}\\
+        \mathbb{E}
+        \left[
+        	R_{j}^{(\alpha)} R_{j}^{(\beta)}
+		\right]
+        	=&
+        		2D h \delta_{ij}\delta_{\alpha \beta}
+			&\alpha,\beta=x,y,z \label{eqn:CovEMc}
+     \end{align}
+    \end{exampleblock}
+ 	\begin{overlayarea}{\textwidth}{.4\textwidth}
+	\only<+>{
+  	\begin{columns}
+		\column{.5\textwidth}
+		\begin{itemize}
+      		\item $Y_{j}^{(\alpha)}$: posici\'on. 
+      		\item $h:$ incremento temporal.
+      		\item $F_{j}^{(\alpha)}:$ fuerza neta sobre la part\'i�cula $i$ en la direcci\'on $\alpha$.
+  		\end{itemize}
+    	\column{.5\textwidth}
+		\begin{itemize}
+	        \item $R_{j}^{(\alpha)}:$ ruido blanco discreto, con  media y covarianza
+		  	como en \eqref{eqn:mediaEMc} y \eqref{eqn:CovEMc}.
+      		\item $D=\frac{k_B T}{\gamma}$: coeficiente de difusi\'on de Stokes - Einstein
+    	\end{itemize}
+   	\end{columns}
+	}
+	\only<+>{
+		\begin{columns}
+		\column{.5\textwidth}
+			\begin{itemize}
+		  		\item Es f\'acil de implementar.
+		  	\end{itemize}
+			\column{.5\textwidth}
+			\begin{itemize}
+			    \item Trabaja con un tam\~nao de \textcolor{red}{paso restrictivo}.
+		  	\end{itemize}
+	   	\end{columns}
+	}
+	\only<+>{
+	\begin{exampleblock}{}
+		Existen varios esquemas para discretizar la ecuaci\'on ya mencionada \cite{branka1999blgorithms}.
+  		Sin embargo, no representan una mejora significativa a la precisi\'on respecto al coste computacional.
+	\end{exampleblock}
+ 	 }
+	\end{overlayarea}
+ \biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[alpha]
+  \begin{frame}
+    \frametitle{Nuestra idea}
+	\hypertarget{Idea}{}    
+    En \cite{matus2005exact} usando el \hyperlink{dfn:Steklov}{\textbf{promedio de Steklkov}} se logra un esquema en 			diferencias   exacto para resolver EO no lineales de la forma
+    \begin{equation*}
+    	\frac{dx}{dt}=f_1(x)f_2(t)
+    \end{equation*}
+  \biblio{BibliografiaTesis}
+  \end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{bibunit}[apalike] 
+\begin{frame}
+	\frametitle{Ejemplo EDE multiplicativa}
+	\hypertarget<2>{ex:EDEMult}{}   	
+   	\vspace{-.45cm}		
+	\begin{empheq}[box={	\Garybox[$dX_t=\frac{1}{X_t} +X_tdB_t$	]}]{align*}
+		Y_{j+1}=&\sqrt{
+				\textcolor{red}{\varphi(h)}+Y_j^2
+			}+Y_j\Delta B_j &
+		\hyperlink{dfn:Steklov}{ \textcolor{red}{\varphi(h)=2h}}
+    \end{empheq}	
+	\begin{overlayarea}{1.\textwidth}{.75\textheight}    	
+    	\only<2->{   	
+			\begin{center}			
+				\includegraphics[width=1\textwidth]{./images/InverseMultiplicative.png}
+			\end{center}		
+		}
+	\end{overlayarea}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Ejemplo EDE aditiva}
+   \begin{columns}
+     \column{.45\textwidth}
+     \begin{exampleblock}{$dX_t=-\lambda X_t dt+\mu \exp(-t)dB_t$}
+        \begin{align*}
+          X_{j+1}=&X_j(1-\lambda \textcolor{blue}{\phi(h)})\\
+          				&+\mu\exp(-h)\Delta B_j\\
+         \textcolor{blue}{\phi(h)}=& \frac{1-\exp(-\lambda h)}{\lambda}
+        \end{align*}
+     \end{exampleblock}
+     \column{.6\textwidth}
+      \begin{alertblock}{Comparaci\'on con EM, $h=\num{0.5},X_0=\num{10}$}
+        \begin{center}
+          \includegraphics[width=\textwidth]{./images/linealExp.png}
+      \end{center}
+      \end{alertblock}
+  \end{columns}
+%  % \biblio{BibliografiaTesis}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[apalike]
+\begin{frame}%[label=frm:11]
+    \frametitle{Objetivo}
+	%Resulta que muchos de los potenciales de interés se pueden expresar como
+	%$$
+	%  U(X)=f_1(X)f_2(t).
+	%$$
+  \begin{overlayarea}{\textwidth}{.5\textwidth}
+  \only<+>{
+  \begin{alertblock}{Objeivo de esta charla}
+	\begin{itemize}
+	    \item Mostrar \textcolor{red}{como adaptamos} el promedio de 
+	    \textcolor{red}{Steklov} para aproximar
+	      $$\frac{dx}{dt}=\frac{1}{k_BT} D F+D^{\frac{1}{2}}\xi.$$
+	    \item Exhibir la \textcolor{red}{estabilidad lineal} de los esquemas propuestos.
+		\item Hablar de las \textcolor{red}{propiedades te\'oricas} que buscamos estudiar.
+	\end{itemize}
+  \end{alertblock}
+  }
+  \only<+>{
+  \begin{alertblock}{Con ello buscamos}
+	\begin{itemize}
+	  \item
+		Desarrollar \textcolor{blue}{bases te\'oricas} para los esquemas Steklov.
+	  \item
+		Obtener esquemas que \textcolor{red}{mejoren el tama\~no de paso} del el m\'etodo 
+		Euler- Mayurama con un 	costo	computacional similar.
+  \end{itemize}
+  \end{alertblock}
+  }
+  \end{overlayarea}
+  %\biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%	\frametitle{Plan de Charla}
+%    \tableofcontents[pausesections]
+%\end{frame}

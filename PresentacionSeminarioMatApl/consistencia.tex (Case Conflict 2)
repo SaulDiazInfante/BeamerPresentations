@@ -1,0 +1,332 @@
+\begin{bibunit}[apalike]
+  \begin{frame}%[label=frm:10]
+    \frametitle{Definiciones y resultados previos}
+	\cite{KloedenPllaten}
+	\biblio{BibliografiaTesis}
+  \end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Consistencia convergencia y estabilidad en sentido fuerte}
+	\vspace{-1.0cm}	
+	\begin{empheq}[box={\Garybox[EDE]}]{equation*}
+		dX_t=a(X_t)dt+b(X_t)dB_t, \qquad X_0=x_0 \quad (EDE)
+	\end{empheq}		
+	\vspace{-.45cm}	
+	\begin{columns}
+		\column{.3\textwidth}
+			$Y^{h}$ 	esquema con paso 	 $\max h$.		
+		\column{.5\textwidth}
+		\begin{empheq}[box=\shadowbox]{equation*}
+			\varepsilon(h)= \mathbb{E}
+		  \left(
+		  	X_T-Y^{h}(T)
+		  \right)
+		\end{empheq}		
+	\end{columns}	
+	\vspace{-.5cm}	
+	\begin{overlayarea}{\textwidth}{.7\textheight}
+	\only<+->{
+	  \begin{definicion}[Consistencia]
+		$Y^{h}$  a los	  tiempos
+		$
+		  \left(
+			\tau
+		  \right)_{h}=
+		  \left\{
+			\tau_{n}:n=0,1,\cdots
+		  \right\}
+		$
+		es \textcolor{red}{consistente en sentido fuerte},
+		si $\exists C=C(h)\geq 0,\quad h_0$ t.q. 
+		$\textcolor{red}{\forall Y_n^{h}},n=1,2,\cdots N \quad h\in(0,h_0)$
+		\begin{itemize}[<+->]
+		  \item $\displaystyle \lim_{h\downarrow 0} C(h)=0$
+		  \item
+		  $
+			\displaystyle
+			 \mathbb{E}
+			  \left(
+				\left|
+				  \mathbb{E}
+				  \left(
+					\frac{Y_{n+1}^{h}-Y_n^{h}}{h_n}
+					  \left|
+						\mathcal{F}_{\tau_n}
+					  \right.
+				  \right)
+				-a\left(
+					Y_{n}^{h}
+				  \right)
+				\right|^2
+			 \right)\leq C(h).
+		  $
+		  \item
+			\renewcommand{\arraystretch}{1.5}%
+			\scalebox{0.8}{% Scale by 50%
+			$
+			  \mathbb{E}
+			  \left(
+				\frac{1}{h_n}
+				\left|
+				Y_{n+1}^{h}-Y_{n}^{h}-
+				\mathbb{E}
+				\left(
+				  \frac{Y_{n+1}^{h}-Y_n^{h}}{h_n}
+					\left|
+					\mathcal{F}_{\tau_n}
+				\right.
+			  \right)
+			-b\left(Y_{n}^{h}
+			\right)\Delta B_n
+			\right|^2
+		  \right)\leq C(h).
+		 $ }
+		\normalsize
+		\end{itemize}
+	  \end{definicion}
+		}
+	\end{overlayarea}
+\end{frame}
+%%%%%%%%%%%%%%%%%Convergencia%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Consistencia convergencia y estabilidad en sentido fuerte}
+	\vspace{-1.0cm}	
+	\begin{empheq}[box={\Garybox[EDE]}]{equation*}
+		dX_t=a(X_t)dt+b(X_t)dB_t, \qquad X_0=x_0 \quad (EDE)
+	\end{empheq}		
+	\vspace{-.45cm}	
+	\begin{columns}
+		\column{.3\textwidth}
+			$Y^{h}$ 	esquema con paso 	 $\max h$.		
+		\column{.5\textwidth}
+		\begin{empheq}[box=\shadowbox]{equation*}
+			\varepsilon(h)= \mathbb{E}
+		  \left(
+		  	X_T-Y^{h}(T)
+		  \right)
+		\end{empheq}		
+	\end{columns}	
+	\vspace{-.5cm}	
+	\begin{overlayarea}{\textwidth}{.7\textheight}
+	 \only<+>{
+	  \begin{definicion}[Convergencia fuerte]
+		$Y^{h}$ \textcolor{red}{converge} en \textcolor{red}{sentido fuerte} a $X$ a tiempo $T$ si
+		\begin{equation*}
+		  \lim_{h \downarrow 0}
+		  \mathbb{E}
+		  \left(
+		  X_T-Y^{h}(T)
+		  \right)=0
+		\end{equation*}
+	  \end{definicion}
+	  }
+	\only<+>{
+	  \begin{definicion}[orden de convergencia]
+		$Y^{h}$
+		\textcolor{red}{converge} en sentido fuerte \textcolor{red}{con orden $\gamma$},
+		 si $\exists C$
+		independiente de $h $ y $h_{0}$ t.q.
+		\begin{equation*}
+		  \epsilon(h)=
+		  \mathbb{E}
+		  \left(
+			|X_T-Y(T)|
+			\right)\leq C h^{\textcolor{red}{\gamma}} \qquad\forall h\in (0,h_0).
+		\end{equation*}
+	  \end{definicion}
+	  }
+	\end{overlayarea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Consistencia convergencia y estabilidad en sentido fuerte}	
+	\hypertarget{thm:ConsistenciaConvergencia}{}	
+	\vspace{-3.8cm}	
+	\begin{empheq}[box={\Garybox[EDE]}]{equation*}
+		dX_t=a(X_t)dt+b(X_t)dB_t, \qquad X_0=x_0 \quad (EDE)
+	\end{empheq}
+	%\vspace{-.68cm}		  
+ 	 \begin{Teorema}
+		Bajo las condiciones del teorema de
+		\hyperlink{thm:ExistenciaUnicidadEDE}{ \textbf{existencia y unicidad}} 
+		para soluciones fuertes	de  (EDE). Si $Y^{h}$ es \textcolor{red}{consistente} entonces
+		$Y^{h}$ \textcolor{red}{converge} en sentido fuerte a la solución $X_t$.
+  \end{Teorema}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Consistencia convergencia y estabilidad en sentido fuerte}	
+	\hypertarget{thm:ConsistenciaConvergencia}{}	
+	\vspace{-.4cm}	
+	%	\begin{empheq}[box={\Garybox[EDE]}]{equation*}
+%		dX_t=a(X_t)dt+b(X_t)dB_t, \qquad X_0=x_0 \quad (EDE)
+%	\end{empheq}
+\vspace{-0.2cm}		  
+\Fontvi 		
+	\[
+		Z(t):=\sup_{0\leq s\leq t}\mathbb{E}\left(\left|Y_{n_{s}}-X_{s}\right|^{2}\right),\quad
+		n_{t}\max\left\{ n:\tau_{n}\leq t\right\} 
+	\] 	
+	
+	\vspace{-.78cm}	
+	\begin{overlayarea}{\textwidth}{\textheight} 
+ 	\begin{proof}
+		\only<1-6>{
+		\begin{multline*}
+		Z(t):=  
+		\sup_{0\leq s\leq t} 
+		\mathbb{E}
+		\left(
+			\left|
+				\textcolor<2>{red}{\sum_{n=0}^{n_{s}-1}
+					\left(	Y_{n+1}^{h}-Y_{n}^{h}\right)}
+					-
+				\textcolor<3>{red}{%
+					\int_{0}^{s}%
+						a\left(X_{r}\right)dr-%
+					\int_{0}^{s}b%
+					\left(X_{r}\right)%
+					dB_{r}	
+				}					
+			\right|^{2}%	
+		\right)\\
+		\leq% 
+		C_{1} \sup_{0\leq s \leq t} \left\{ 
+		\textcolor<4>{cyan}{\mathbb{E}
+		\left(
+			\left|
+				\sum_{n=0}^{n_{s}-1}\mathbb{E}
+				\left(Y_{n+1}^{h}-Y_{n}^{h}|	\mathcal{A}_{\tau_{n}}\right)
+				-a\left(Y_{n}^{h}
+			\right)h
+			\right|^{2}
+		\right)
+		}
+		 \right.\\		
+		 +
+		\textcolor<4>{cyan}{\mathbb{E}\left(
+			\left|\sum_{n=0}^{n_{s}-1}
+				\left(Y_{n+1}^{h}-Y_{n}^{h}\right)
+				-\mathbb{E}\left(Y_{n+1}^{h}-Y_{n}^{h}|\mathcal{A}_{\tau_{n}}\right)
+				-b\left(Y_{n}^{h}\right)\Delta B_{n}\right|^{2}
+		\right)
+		}\\
+		+
+		\textcolor<5>{colKeys}{		
+		\mathbb{E}
+		\left(\left|\int_{0}^{\tau_{n_{s}}}a\left(Y_{n_{r}}^{h}\right)
+		-a\left(X_{r}\right)dr\right|^{2}\right)
+		 +
+		 \mathbb{E}\left(\left|\int_{0}^{\tau_{n_{s}}}b\left(Y_{n_{r}}^{h}\right)
+		 -b\left(X_{r}\right)dB_{r}\right|^{2}\right)
+		}		 
+		 \\
+		 +
+		\left.		 
+		\textcolor<5>{colKeys}{		 
+		 \mathbb{E}
+		 	\left(\left|\int_{\tau_{n_{s}}}^{s}a\left(X_{r}\right)\right|^{2}dr\right)+\mathbb{E}
+		 	\left(\left|\int_{\tau_{n_{s}}}^{s}b\left(X_{r}\right)\right|^{2}dB_{r}\right)
+		}		 
+		 \right\}			
+	\end{multline*}
+	\hyperlink{thm:Isometria}{{\beamergotobutton{Isometr\'ia}}}	
+		
+	}
+	\only<7>{
+	\hypertarget{prb:ConsistenciaISO}{}		
+		\begin{multline*}
+			Z(t)\leq C_{1}\sup_{0\leq s\leq t}
+			\left\{	
+				T h\sum_{n=0}^{n_{s}-1}
+				\mathbb{E}\left(
+				\left|\mathbb{E}\left(\frac{Y_{n+1}^{h}-Y_{n}^{h}|\mathcal{A}_{\tau_{n}}}{h}\right)
+				-a\left(Y_{n}^{h}\right)\right|^{2}\right)
+			\right.\\
+			+
+			\mathbb{E}
+			\left(
+				\left|\sum_{n=0}^{n_{s}-1}\left(Y_{n+1}^{h}
+				-Y_{n}^{h}\right)-\mathbb{E}\left(Y_{n+1}^{h}-Y_{n}^{h}|
+				\mathcal{A}_{\tau_{n}}\right)-b\left(Y_{n}^{h}\right)\Delta B_{n}\right|^{2}
+			\right)\\
+			+
+			K^{2}T\mathbb{E}
+			\left(
+				\int_{\tau_{n_{s}}}^{s}\left|Y_{n_{r}}^{h}-X_{r}\right|
+				^{2}dr\right)+K^{2}\mathbb{E}\left(\int_{0}^{\tau_{n_{s}}}\left|Y_{n_{r}}^{h}-
+				X_{r}\right|^{2}dr
+			\right)\\
+			+
+			\left.			
+			K^{2}T
+			\mathbb{E}\left(
+				\int_{\tau_{n_{s}}}^{s}1+\left|X_{r}\right|				^{2}dr\right)+K^{2}\mathbb{E}\left(\int_{0}^{\tau_{n_{s}}}1+\left|X_{r}\right|^{2}dr
+			\right)
+		\right\}
+		\end{multline*}			
+	}	
+	\only<8>{
+		\begin{multline*}			
+			Z(t)\leq C_{1}\sup_{0\leq s\leq t}
+			\left\{
+				Th\sum_{n=0}^{n_{s}-1}
+				\mathbb{E}
+				\left(
+					\left|\mathbb{E}
+						\left(\frac{Y_{n+1}^{h}-Y_{n}^{h}|\mathcal{A}_{\tau_{n}}}{h}\right)
+						-a\left(Y_{n}^{h}\right)\right|^{2}\right)
+				\right.\\
+			+
+			\mathbb{E}
+			\left(
+				\left|\sum_{n=0}^{n_{s}-1}\left(Y_{n+1}^{h}-Y_{n}^{h}\right)
+				-\mathbb{E}\left(Y_{n+1}^{h}-Y_{n}^{h}|\mathcal{A}_{\tau_{n}}\right)
+				-b\left(Y_{n}^{h}\right)\Delta B_{n}\right|^{2}
+			\right)\\
+				+
+			\left. 
+					K^{2}(1+T)\int_{0}^{\tau_{n_{s}}}Z(r)dr+K^{2}(1+T)(1+C_{2})h
+			\right\}		
+		\end{multline*}				
+	}
+	\only<9->{
+		\begin{empheq}[box=\mybluebox]{equation*}			
+			Z(t)\leq C_{3}\int_{0}^{\tau_{n_{s}}}Z(r)dr+C_{4}(h+C(h))
+ 		\end{empheq}
+		Por el lema de \hyperlink{lem:Gronwall}{\beamergotobutton{Gronwall}	}	
+		\hypertarget{prb:Consistencia2}{}	
+	}
+	\only<10-11>{	
+		\begin{align*}
+			Z(t) & \leq C_{4}(h+C(h))e^{\left(\int_{0}^{\tau_{n_{s}}}C_{3}dr\right)}\\
+			\textcolor{red}{
+				Z(t)
+			}
+			 &
+			\textcolor{red}{ 
+				\leq C_{5}(h+C(h))}
+		\end{align*}
+	}
+	\only<11>{	
+		\hypertarget{prb:Consistencia3}{}	
+		Por desigualdad de \hyperlink{thm:DesLyapunov}{\beamergotobutton{Lyapunov}}
+	}
+	\only<12->{	
+		\colorbox{darkyellow}{		
+		$
+			\displaystyle			
+			\mathbb{E}\left(\left|Y_{T}^{h}-X_{T}\right|\right)\leq\sqrt{{Z(T)}}\leq\sqrt{{C_{5}(h+C(h))}}		
+		$ 
+		}	
+	}	
+ 	\end{proof}
+	\only<13>{
+	\begin{empheq}[box={\Garybox[Euler-Mayurama]}]{equation*}
+		Y_{n+1}=Y_na(Y_n)h+b(Y_n)\Delta B_n	
+	\end{empheq}
+	Es consistente y de orden de convergencia $\frac{1}{2}$.	
+	}
+ \end{overlayarea}
+\end{frame}

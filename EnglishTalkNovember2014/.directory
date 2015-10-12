@@ -1,0 +1,9 @@
+[Dolphin]
+GroupedSorting=true
+PreviewsShown=true
+SortRole=type
+Timestamp=2014,11,23,12,34,56
+Version=3
+
+[Settings]
+HiddenFilesShown=true

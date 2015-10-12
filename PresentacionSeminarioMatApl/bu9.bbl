@@ -1,0 +1,11 @@
+\newif\ifabfull\abfulltrue
+\input apreambl
+\begin{thebibliography}{MIL05}
+
+\bibitem[MIL05]{matus2005exact}
+\abtype{0}{P.~Matus, U.~Irkhin\abphrase{1}\abphrase{0}M.~Lapinska}.
+\newblock {Exact difference schemes for time-dependent problems}.
+\newblock \abtype{2}{Computational Methods In Applied Mathematics}
+  \abtype{3}{5}\abtype{4}{4}, 422 \abtype{5}{2005}.
+
+\end{thebibliography}

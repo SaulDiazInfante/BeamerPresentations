@@ -1,0 +1,18 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\beamer@endinputifotherversion {3.24pt}
+\defcounter {refsection}{0}\relax 
+\select@language {ngerman}
+\select@language {english}
+\beamer@subsectionintoc {1}{1}{What is the problem?}{2}{0}{0}
+\beamer@subsectionintoc {1}{2}{Objectives}{9}{0}{0}
+\beamer@sectionintoc {2}{Preliminaries}{14}{0}{1}
+\beamer@subsectionintoc {2}{1}{DOI}{15}{0}{1}
+\beamer@subsectionintoc {2}{2}{Example 1: Get Metadata in Mendeley}{18}{0}{1}
+\beamer@subsectionintoc {2}{3}{Example 2: Get Metadata in Calibre}{21}{0}{1}
+\beamer@sectionintoc {3}{Mini Tutorial of Bib\textlatin {T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m }}{22}{0}{2}
+\beamer@subsectionintoc {3}{1}{What is Bib\textlatin {T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m }?}{23}{0}{2}
+\beamer@subsectionintoc {3}{2}{Example 3: Generate a bib file with Mendeley}{41}{0}{2}
+\beamer@subsectionintoc {3}{3}{Example 4: Generate a bib file whit Calibre}{41}{0}{2}
+\beamer@sectionintoc {4}{Use Mendeley and Calibre with \textlatin {\LaTeX }}{41}{0}{3}
+\beamer@sectionintoc {5}{Summary}{46}{0}{4}

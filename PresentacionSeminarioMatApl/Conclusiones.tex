@@ -1,0 +1,76 @@
+\begin{frame}{Conclusiones}
+  \begin{alertblock}{}
+  \begin{itemize}
+		\item<+>	
+			los esquemas construidos bajo las reglas de discretización no estándar
+			con la alternativa 1 o 2, tienen mejores propiedades de
+			estabilidad que el método EM correspondiente.
+			
+		\item<+>
+			En base a los resultados y en comentarios de expertos en el
+			tema de dinámica Browniana, podemos concluir que sí tiene sentido aplicar
+			la formulación no estándar en la simulación DB.		
+	\end{itemize}
+\end{alertblock}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[aalpha]
+\begin{frame}{Perspectivas}
+  \begin{block}{}
+  \begin{itemize}
+		 \begin{overlayarea}{\textwidth}{.4\textheight}		
+		\only<+>{		
+		\item	
+			Considerar,  $f$ en su serie de Taylor y truncar a cierto orden. Otra tiene
+			que ver con una generalización de esta serie, a la cual se conoce como expansión de
+			Burman-Lagrange \cite{Silvia011}.
+		}
+		\only<+>{
+		\item
+			Calculo de cantidades est\'aticas, tales como factor de estructura $s(q)$ y funci\'on de
+			distribución radial $g(r)$.Incorporar más partículas, al menos
+			otra dimensión espacial y otros potenciales, es de particular inter\'es
+			el potencial de tipo Yukawa, \cite{herrera2010ordering}.
+			}		
+		\only<+>{		
+		\item
+			Aplicar la formulaci\'on
+			no est\'andar a la soluci\'on num\'erica de EDEs en derivados parciales.
+		}
+		\only<+>{		
+		\item
+			Respecto a la simulación de din\'amica Browniana, otrra de las alternativas para describir
+			la dinámica del coloide se logra con la ecuacion de Fokker-Planck.
+		}
+		\only<+>{		
+		\item
+			Bajo este mismo sentido de equivalencia tenemos inter\'es por modelar el transporte
+			en medios porosos y así obtener las ecuaciones de transporte del tipo Langevin, ver
+			\cite{balescu2007v}.
+		}		
+		\end{overlayarea}		
+	\end{itemize}
+  \end{block}
+\biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Respuesta a Hip\'otesis}
+	\begin{exampleblock}{}
+		Al aplicar la formulaci\'on de los esquemas en diferencias no est\'andar para resolver la ecuación de 
+		Langevin se obtiene un esquema numérico con mejores propiedades de estabilidad y de
+		simplicidad algebraica similar al esquema convencional de dinámica Browniana (CBD).	
+	\end{exampleblock}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%\begin{bibunit}[aalpha]
+\begin{frame}{Preguntas}
+	\begin{exampleblock}{}
+			Preguntas
+	\end{exampleblock}
+%\biblio{BibliografiaTesis}
+\end{frame}
+%\end{bibunit}
+

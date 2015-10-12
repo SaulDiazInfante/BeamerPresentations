@@ -1,0 +1,12 @@
+\newif\ifabfull\abfulltrue
+\input apreambl
+\begin{thebibliography}{SM96}
+
+\bibitem[SM96]{saito1996stability}
+\abtype{0}{Y.~Saito\abphrase{0}T.~Mitsui}.
+\newblock {Stability analysis of numerical schemes for stochastic differential
+  equations}.
+\newblock \abtype{2}{SIAM Journal on Numerical Analysis}
+  \abtype{3}{33}\abtype{4}{6}, 2254--2267 \abtype{5}{1996}.
+
+\end{thebibliography}

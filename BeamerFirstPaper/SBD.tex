@@ -1,0 +1,185 @@
+\begin{frame}%[label=frm:12]
+	\frametitle{Métodos Steklov para din\'amica Browniana(SBD)}
+	Queremos aproximar:
+	\begin{equation*}
+		dX_t=\frac{1}{k_BT} D F(X_t)+ \sqrt{D}dB_t,\quad X_0=cte\quad t\in[0,T].
+	\end{equation*}
+	\begin{block}{Considerando su forma integral:}
+		\begin{equation*}
+			X_t=X_0+\frac{1}{k_BT} D \int_{0}^{t}F(X_s)ds+\sqrt{D}\int_{0}^t dB_s
+		\end{equation*}
+	\end{block}
+\end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[apalike]
+\begin{frame}%[label=frm:13]
+	\frametitle{Existencia y unicidad de soluciones}
+	\begin{overlayarea}{\textwidth}{.5\textwidth}
+	\only<+>{
+	\begin{block}{Sea $F:\mathbb{R} \to \mathbb{R}$.}
+	  Hipótesis:
+	  \begin{itemize}
+		\item $D$, $X_0$ constantes.
+		\item $\exists \alpha,\beta$ constantes t.q.  $\qquad \forall x,y\in \mathbb{R}$:
+		  \begin{align*}
+			&|F(x)|\leq \alpha(1+|x|), \\
+			&|F(x)-F(y)|\leq \beta |x-y|.
+		  \end{align*}
+	  \end{itemize}
+	\end{block}
+	}
+	\only<+>{
+	  \begin{block}{Bajo estos supuestos  $\exists ! X_t$ t.q.}
+		$$
+		\mathbb{E}\left(
+		\int_{0}^T|X_t|^2dt
+		\right)<\infty
+		$$
+		\cite{KloedenPllaten}
+	  \end{block}
+	}
+  \end{overlayarea}
+  \biblio{BibliografiaTesis}
+  \end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}%[label=frm:14]{}
+  \frametitle{Construcción de métdos Steklov}
+  \begin{overlayarea}{\textwidth}{.5\textwidth}
+	\only<1-2>{
+	  Fijemos notación.
+	\begin{block}{Discretizamos $[0,T]$ con un  paso uniforme $h$:}
+	  \begin{itemize}
+		\item $t_n=nh$ $n=0,1,2,\dots, N$.
+		\item $X_n \approx X_{t_n}$
+	  \end{itemize}
+	\end{block}
+	}
+	\only<2>{
+	\begin{block}{Para cada nodo}
+		\begin{equation*}
+		  X_{t_{n+1}}=X_{t_{n}}+
+		  \underbrace{\int_{t_n}^{t_{n+1}}F(X_{s_n})ds}_{\approx \text{Con algún método}}
+		  +\sqrt{D} \underbrace{
+				(
+					B_{t_{n+1}}-B_{t_n}
+				)
+				}_{:=\Delta B_n}
+		\end{equation*}
+	  \end{block}
+	}
+	\only<3>{
+	  %Entonces dependiendo de la integral numérica empleada para aproximar
+	  %$\int_{t_n}^{t_{n+1}}F(X_{s_n})ds$ se obtiene un método distinto. 
+	  
+	\begin{exampleblock}{Para el Euler-Mayurama (EM) se considera}
+	  \begin{equation*}
+	 	\int_{t_n}^{t_{n+1}}F(X_{s_n})ds \approx F(X_{t_n})h
+	  \end{equation*}
+	 Así, el esquema EM para aproximar :
+	 $$X_{t_{n+1}}=X_{t_{n}}+
+		  \int_{t_n}^{t_{n+1}}F(X_{s_n})ds
+		  + \sqrt{D} (B_{t_{n+1}}-B_{t_n})
+	$$
+	 	\begin{equation*}
+	 		X_{n+1}=X_n+F(X_n)h + \sqrt{D} \Delta B_n \quad n=0,1\dots N-1
+	  \end{equation*}
+	\end{exampleblock}
+	}
+  \end{overlayarea}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[apalike]
+\begin{frame}%[label=frm:15]{}
+  \frametitle{Construcción del SBD}
+  \begin{overlayarea}{\textwidth}{.5\textwidth}
+    \only<+>{
+      \begin{block}{Proponemos usar el promedio de Steklov para aproximar $F(X_t)$}
+	  \begin{align*}
+	  			\textcolor{cyan}{F(X_t)\approx \varphi(X_n,X_{n+1})}=&
+		        \left(
+		        \frac{1}{X_{n+1}-X_{n}}
+		        \int_{X_n}^{X_{n+1}} \frac{du}{F(u)}
+		        \right)^{-1}\\
+		      	t_n\leq & t \leq t_{n+1},\\
+		      	X_n=&X_{t_n}, \quad t_n=nh.
+	  \end{align*}
+	\nocite{matus2005exact}
+    \end{block}
+	}
+	\only<+>{
+		\begin{block}{Aproximamos}
+			\begin{equation*}
+				\int_{t_n}^{t_{n+1}}F(X_{s_n})ds \approx \varphi(X_n,X_{n+1})h
+			\end{equation*}
+		\end{block}
+	}
+  
+  \end{overlayarea}   
+	\biblio{BibliografiaTesis}
+\end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzstyle{na} = [baseline=-.5ex]
+\tikzstyle{blockYellow}= [rectangle, draw, fill=yellow!40,
+    text width=6em, text centered, rounded corners, minimum height=4em]
+
+\tikzstyle{blockGreen}= [rectangle, draw, fill=green!40,
+    text width=6em, text centered, rounded corners, minimum height=4em]
+
+\tikzstyle{blockRed}= [rectangle, draw, fill=red!40,
+    text width=6em, text centered, rounded corners, minimum height=4em] 
+\tikzstyle{every picture}+=[remember picture]
+\everymath{\displaystyle}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{frame}
+	\frametitle{Método Steklov (SBD)}
+% \only<+->{
+	\begin{block}{Así obtenemos un método Steklov}
+		\begin{equation*}
+			X_{n+1}=
+				\tikz[baseline]{
+					\only<1-3>{
+						\node[fill=blue!20,anchor=base] (t1)
+							{$X_n+\varphi(X_n,X_{n+1}) h$};
+						}
+					\only<4->{
+						\node[fill=green!20,anchor=base] (t1)
+							{$X_n^{\star}$};
+					}
+				}
+					+
+				\tikz[baseline]{
+					\only<1-3>{
+						\node[fill=red!20,anchor=base] (t2)
+						{$G(X_n)\Delta B_n$};
+					}
+					\only<4->{
+						\node[fill=red!20,anchor=base] (t2)
+							{$G(X^{\star}_n)\Delta B_n$};
+					}
+				}
+		\end{equation*}
+	\end{block}
+	\begin{overlayarea}{\textwidth}{.5\textheight}
+		\begin{columns}
+			\column{.7\textwidth}
+				\begin{itemize}
+					\item <2-> 
+						\tikz[na] \node [blockYellow] (n1) {$\approx\int_{X_n}^{X_{n+1}} \frac{du}{F(u)}$};
+					\item<4-> 
+						\tikz[na] \node[fill=green!20,anchor=base] (n3) {$X_n^{\star} = X_n + h \varphi(X_n, X_n^{\star})$};
+				\end{itemize}
+			\column{.5\textwidth}
+			\begin{itemize}
+				\item <3-> 
+					\tikz[na] \node[fill=blue!20,anchor=base] (n2) {$\varphi(X_n,X_{n+1}^*)$};
+			\end{itemize}
+		\end{columns}	
+		\begin{tikzpicture}[overlay]
+			\path [->]<2->    (t1) edge[bend right]   (n1);%
+			\path [->]<3->    (t1) edge[bend left]    (n2);%
+			\path [->]<4->    (t1) edge[bend left]   (n3);%
+		\end{tikzpicture}
+	\end{overlayarea}
+\end{frame}

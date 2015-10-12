@@ -1,0 +1,43 @@
+\documentclass[hyperref={pdfpagelabels=false},usepdftitle=false]{beamer}
+\usepackage{myStyle}
+\usepackage{verbatim}
+\usepackage{media9}
+\usepackage[
+    backend=biber,
+    style=authoryear,
+    sortlocale=de_DE,
+    natbib=true,
+    url=true, 
+    doi=true,
+    eprint=true
+]{biblatex}
+\addbibresource{biblatex-Presentation.bib}
+\begin{document}
+	\selectlanguage{english}
+	\title{A Convinent Way to Manage Bibliography Data}
+	\subtitle{Bibtex, Calibre, and Mendeley}
+	\author{Sa\'ul D\'iaz Infante Velasco}
+	\date{\today}	
+	\frame{\titlepage}
+	\frame{
+    	\frametitle{Contents}
+    	\setcounter{tocdepth}{1}
+    	\tableofcontents
+    	\setcounter{tocdepth}{2}
+	}
+	\AtBeginSection[]{
+    	\InsertToC[sections={\thesection}]  % shows only subsubsections of one subsection
+	}
+	\section{Introduction}
+		\input{introduction}
+		\input{Preliminars}
+	\section{Mini Tutorial of Bib\TeX}
+		%\input{miniBibtex}
+	\subsection{Example 3: Generate a bib file with Mendeley}
+	\subsection{Example 4: Generate a bib file whit Calibre}
+	\section{Use Mendeley and Calibre with \LaTeX}
+	\begin{frame}{Bibliography}
+		\nocite{*}
+		\printbibliography 
+	\end{frame}
+\end{document}

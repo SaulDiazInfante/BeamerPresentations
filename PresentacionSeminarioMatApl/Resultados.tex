@@ -1,0 +1,121 @@
+\begin{bibunit}[aalpha]
+\begin{frame}{Resultados \cite{branka1998algorithms}}
+		\only<+>{		
+				Consideramos un potencial $U(x)=\frac{1}{4}kx^4$      
+				\begin{equation*}
+			  		 dX_t=-k\beta D X_t^3 dt+ D^{\frac{1}{2}}dB_t,
+				\end{equation*}
+			  	\begin{exampleblock}{EMM}
+					\begin{equation}\label{eqn:EMMLangevinCubic}
+			  			X_{j+1}=\frac{X_j}{\sqrt{1+2k\beta D \Delta t X_j^2 }}\Delta t+\Delta B_j.
+					\end{equation}  
+				\end{exampleblock}
+		}		
+	\begin{columns}    			
+		\column{.8\textwidth}	
+		\only<+>{
+			\begin{block}{$\Delta t=\num{.01}$}
+		  		\includegraphics[width=\textwidth]{./images/GraficaMSDdtPuntoZeroUno.png}
+		 	\end{block}
+	   	}
+		\only<+>{
+			\begin{block}{$\Delta t=\num{0.5}$}
+		  		\includegraphics[width=\textwidth]{./images/GraficaMSDdtPuntoZeroCinco.png}
+		 	\end{block}
+   		}
+		\only<+>{
+			\begin{block}{Comparación a tiempo corto}
+		  		\includegraphics[width=\textwidth]{./images/GraficaComparativaMSD1.png}
+		 	\end{block}
+   		}
+		
+		\only<+>{
+			\begin{block}{$\Delta t=\num{0.1}$}
+		  		\includegraphics[width=\textwidth]{./images/GraficaMSDdtPuntoUno.png}
+		 	\end{block}
+   		}
+		\only<+>{
+			\begin{block}{$\Delta t=\num{0.2}$}
+		 		\includegraphics[width=\textwidth]{./images/GraficaMSDdtPuntoDos.png}
+		 	\end{block}
+   		}		
+		\only<+>{
+			\begin{block}{$\Delta t=\num{0.3}$}
+		 		\includegraphics[width=\textwidth]{./images/GraficaMSDDtPuntoTres.png}
+		 	\end{block}
+			
+		}	
+	\end{columns}
+\biblio{BibliografiaTesis}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+\begin{frame}{}
+	\begin{columns}  	
+	\column{.5\textwidth}	
+	\begin{block}{$\Delta t=\num{.01}$}
+	 	\begin{tabular}{c|c|c}
+		  \hline
+		  M\'etodo &TE &$\frac{\|X_n-X\|}{\|X\|}(\%)$ \\
+		    \hline
+		    EM       & \num{4.60}     & \num{1.82047883}\\
+		    EMM    & \num{10.33}   & \num{1.82049472}\\
+		    SRKII   & \num{12.67}   & \num{0.59685005}\\
+		    \hline
+		\end{tabular}
+	\end{block}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{exampleblock}{$\Delta t=\num{.1}$}
+	 	\begin{tabular}{c|c|c}
+		  \hline
+		  M\'etodo &TE &$\frac{\|X_n-X\|}{\|X\|}(\%)$ \\
+		    \hline
+		    EM       &\num{4.60}    &\num{ 22.18382245} \\
+        	EMM    &\num{10.33}  &\num{18.14635856}  \\
+        	SRKII   &\num{ 12.67} &\num{ 4.04317086 }  \\
+		    \hline
+		\end{tabular}
+	\end{exampleblock}	
+		
+	\column{.5\textwidth}
+		
+		\begin{block}{$\Delta t=\num{.05}$}	
+			\begin{tabular}{c|c|c}
+			  \hline
+			  M\'etodo &TE &$\frac{\|X_n-X\|}{\|X\|}(\%)$ \\
+		    \hline
+		    EM     &\num{4.86}  &\num{10.1936}\\
+		    EMM  &\num{9.32}&\num{9.4302}\\
+		    SRKII &\num{12.61}  &\num{1.3404}\\
+		    \hline
+		\end{tabular}
+		\end{block}
+		\only<2>{
+		\begin{exampleblock}{$\Delta t=\num{.2}$}
+		 	\begin{tabular}{c|c|c}
+			  \hline
+			  M\'etodo &TE &$\frac{\|X_n-X\|}{\|X\|}(\%)$ \\
+				\hline
+				EM      &4.86 	&\num{-nan}\\
+	        	EMM    &9.32	&\num{33.57887813} \\
+        		SRKII  &12.61 	&\num{11.65812013}\\
+				\hline
+			\end{tabular}
+		\end{exampleblock}	
+		}
+		\only<3>{		
+		\begin{alertblock}{$\Delta t=\num{.3}$}
+		 	\begin{tabular}{c|c|c}
+			  \hline
+			  M\'etodo &TE &$\frac{\|X_n-X\|}{\|X\|}(\%)$ \\
+				\hline
+				EM       & \num{4.88}     & \num{-nan}\\
+        		EMM    & \num{10.42}   & \num{347.47028552}\\
+       	 		SRKII   & \num{14.08}   & \num{-nan}\\
+				\hline
+			\end{tabular}
+		\end{alertblock}				
+		}		
+		\end{columns}
+	
+\end{frame}
+\end{bibunit}

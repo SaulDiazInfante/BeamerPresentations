@@ -1,0 +1,103 @@
+\definecolor{DarkSlateGrey}{HTML}{001B0C}
+\definecolor{LightSteelBlue}{HTML}{B3D7F6}
+\definecolor{DarkGray}{HTML}{394F50}
+\definecolor{LightGoldenrodYellow}{HTML}{F8FDCB}
+\setbeamercolor{color titulo caja}{fg=DarkSlateGrey,bg=LightSteelBlue} %%
+\setbeamercolor{color cuerpo caja}{fg=DarkGray,bg=LightGoldenrodYellow}%
+\begin{frame}%[label=ReglasDeFormulacionNS]{Hyperlinks}
+    \frametitle{Reglas de la formulaci\'on NE}
+    \begin{columns}
+    \column{.5\textwidth}
+      \begin{beamerboxesrounded}
+      [upper=color titulo caja, lower=color cuerpo caja, shadow=true]
+      {Reglas de formulaci\'on}
+        \begin{itemize}[<+->]
+            \item
+              \emph{Ordenes} iguales
+            \item
+              \emph{Denominador} con m\'as estructura.
+            \item
+              \emph{T\'erminos no lineales} de forma no local.
+            \item
+              Reproducir \emph{soluciones especiales}.
+            \item
+              Evitar \emph{soluciones espurias}.
+          \end{itemize}
+      \end{beamerboxesrounded}
+    \column{.5\textwidth}
+     \begin{exampleblock}{Ecuaci\'on log\'istica}
+      \begin{align*}
+        \frac{dy}{dt}=&\lambda_1 y-\lambda_2 y^2, \\
+         y(t_0)=&y_0
+      \end{align*}
+     \end{exampleblock}
+     \begin{exampleblock}{MDFNE}
+      $$%\begin{equation*}
+          \frac{y_{k+1}-y_k}{
+                  \textcolor{blue}{\left(
+                  \frac{\exp(\lambda_1 h)-1}{\lambda_1}
+                \right)}
+              }=
+              \lambda_1 y_k-\lambda_2 \textcolor{red}{ y_{k+1}y_{k}} .
+        $$%\end{equation*}
+      \end{exampleblock}
+    \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{bibunit}[aalpha]
+  \begin{frame}
+    \frametitle{MDFNE}
+    \begin{Definicion}[Esquema en diferencias finitas no est\'andar]
+    Dada $\displaystyle \frac{dy}{dt} = f(y,\lambda)$,
+    $$\displaystyle y_{k+1}=F(h,\lambda,y_0),$$
+    es  un esquema  en diferencias finitas no  est\'andar si cumple  al menos una de las siguientes:
+    \begin{enumerate}[(i)]
+    \item
+        En las derivadas discretas que aparecen en la formulaci\'on del m\'etodo, el denominador $h$ se
+        remplaza  por una funci\'on no negativa $\phi$ tal que
+      $
+        \phi(h)\to h+\mathcal{O}(h^2) \text{ conforme } h\to 0.
+      $
+      \item
+        Los t\'erminos no lineales que aparecen en $f(y)$  se trabajan de forma no local sobre la malla.
+      \end{enumerate}
+      \cite{ibijola2008nonstandard}.
+    \end{Definicion}
+  \biblio{BibliografiaTesis}
+  \end{frame}
+\end{bibunit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{bibunit}[aalpha]
+  \begin{frame}%[label= dfn:ConsistenciaDinamica]
+    \frametitle{Consistencia din\'amica}
+    \begin{columns}
+      \column{.5\textwidth}
+        \begin{Definicion}[Consistencia din\'amica]
+            $$%\begin{equation}\label{eqn:ConsistenciaDinamicaODE}
+              \frac{dy}{dt}=f(y,t,\lambda),
+            $$%\end{equation}
+            $$%\begin{equation}\label{eqn:ConsistenciaDinamicaDE}
+                y_{k+1}=F(y_k,t_k,h,\lambda).
+            $$%\end{equation}
+            Si la ecuaci\'on diferencial o inclusive sus soluciones tienen la
+            propiedad $P$, el modelo discreto mencionado, es \emph{consistente} con la  din\'amica de
+            si este o inclusive sus soluciones reproducen correctamente la
+            propiedad  $P$.
+          \end{Definicion}
+      \column{.5\textwidth}
+        \begin{beamerboxesrounded}
+        [upper=color titulo caja, lower=color cuerpo caja, shadow=true]
+        {Son particularmente  importantes   :}
+          \begin{itemize}
+            \item positividad
+            \item acotamiento
+            \item monoton\'ia
+            \item puntos fijos y su correspondiente estabilidad
+            \item variables dependientes de valor entero
+          \end{itemize}
+        \cite{Mickens}
+      \end{beamerboxesrounded}
+    \end{columns}
+  \biblio{BibliografiaTesis}
+  \end{frame}
+\end{bibunit}

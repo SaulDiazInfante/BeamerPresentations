@@ -1,0 +1,12 @@
+\newif\ifabfull\abfulltrue
+\input apreambl
+\begin{thebibliography}{SC04}
+
+\bibitem[SC04]{solis2004nonstandard}
+\abtype{0}{F.J. Solis\abphrase{0}B.~Chen}.
+\newblock {Nonstandard discrete approximationspreserving stability properties
+  of continuous mathematical models}.
+\newblock \abtype{2}{Mathematical and computer modelling}
+  \abtype{3}{40}\abtype{4}{5-6}, 481--490 \abtype{5}{2004}.
+
+\end{thebibliography}
